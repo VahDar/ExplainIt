@@ -15,6 +15,7 @@
 		FCCD263F2A9DFD370007F5F6 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCCD263E2A9DFD370007F5F6 /* start.txt */; };
 		FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26402A9DFE250007F5F6 /* CustomButton.swift */; };
 		FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26422A9E08910007F5F6 /* BackgroundView.swift */; };
+		FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FCCD263E2A9DFD370007F5F6 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 		FCCD26402A9DFE250007F5F6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FCCD26422A9E08910007F5F6 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			children = (
 				FCCD26422A9E08910007F5F6 /* BackgroundView.swift */,
 				FCCD26322A9DFC550007F5F6 /* ContentView.swift */,
+				FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */,
 				FCB00F692A9E4D830003F964 /* CustomButtonView */,
 			);
 			path = Views;
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */,
+				FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */,
 				FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */,
 				FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */,
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
