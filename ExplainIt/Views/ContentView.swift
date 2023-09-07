@@ -8,29 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isGameScreenActive = false
+    
     var body: some View {
-        VStack {
-        CustomButton(name: "Start Game") {
+        NavigationStack {
+            VStack {
+                NavigationLink(destination: GameScreen(), isActive: $isGameScreenActive) {
+                    CustomButton(name: "Start Game") {
+                        isGameScreenActive = true
+                    }
+                    .padding(.bottom)
+                }
+            
+                CustomButton(name: "Set Up") {
                     print("play")
                 }
-        .padding(.bottom)
-            
-        CustomButton(name: "Set Up") {
-                print("play")
+                .padding(.bottom)
+                CustomButton(name: "Start Game") {
+                    print("play")
+                }
+                
+                
             }
-        .padding(.bottom)
-        CustomButton(name: "Start Game") {
-                print("play")
-            }
-            
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                BackgroundView()
+            )
             
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
-            BackgroundView()
-        )
-        
-        
     }
 }
 
