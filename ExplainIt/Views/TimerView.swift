@@ -10,19 +10,15 @@ import SwiftUI
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
     @State private var isTimerRunning = false
-    let timerDuration: TimeInterval = 60.0
+    let timerDuration: TimeInterval = 10.0
 
     var body: some View {
         VStack {
             ZStack {
-                Circle()
-                    .stroke(Color.clear, lineWidth: 10)
-                    .frame(width: 400, height: 400)
-                
-                Circle()
+                RoundedRectangle(cornerRadius: 20)
                     .trim(from: 0, to: timerValue)
                     .stroke(Color(red: 79/255, green: 74/255, blue: 183/255), lineWidth: 10)
-                    .frame(width: 400, height: 400)
+                    .frame(width: 400, height: 300)
                     .rotationEffect(.degrees(-90))
                     .onAppear() {
                         startTimer()
