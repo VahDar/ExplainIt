@@ -2,6 +2,8 @@ import SwiftUI
 
 struct GameScreen: View {
     @State private var isViewVisible = false
+    @State private var words = ["Sun", "Moon", "Earth"]
+    @State private var randomIndex = 0
    private let timerView = TimerView()
     
     var body: some View {
@@ -19,19 +21,33 @@ struct GameScreen: View {
                         CustomButton(name: "Start") {
                             isViewVisible = true
                             timerView.startTimer()
+                            randomIndex = Int.random(in: 0..<words.count)
                         }
                     }
                 }
                 if isViewVisible {
                     ZStack {
                         TimerView()
-                        Text("Game started")
+                        Text(words[randomIndex])
                             .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                             .font(.system(size: 40))
                             .fontWeight(.bold)
-                        
-                        
+                            .frame(width: 300, height: 300)
+                            .contentShape(Rectangle())
                     }
+                            .gesture(
+                                DragGesture()
+                                    .onEnded({ gesture in
+                                        let swipeDistance = gesture.translation.height
+                                        if swipeDistance < 0 {
+                                            randomIndex = Int.random(in: 0..<words.count)
+                                        } else if swipeDistance > 0 {
+                                           randomIndex = Int.random(in: 0..<words.count)
+                                        }
+                                    })
+                            )
+//                            .contentShape(Rectangle())
+                    
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
