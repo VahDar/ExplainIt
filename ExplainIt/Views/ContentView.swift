@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isGameScreenActive = false
+    @State private var isSetUpScreenActive = false
     
     var body: some View {
         NavigationStack {
@@ -19,9 +20,11 @@ struct ContentView: View {
                     }
                     .padding(.bottom)
                 }
-            
-                CustomButton(name: "Set Up") {
-                    print("play")
+                NavigationLink(destination: SetUpScreen(), isActive: $isSetUpScreenActive) {
+                    CustomButton(name: "Set Up") {
+                        isSetUpScreenActive = true
+                    }
+                    .padding(.bottom)
                 }
                 .padding(.bottom)
                 CustomButton(name: "Start Game") {

@@ -10,7 +10,11 @@ import SwiftUI
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
     @State private var isTimerRunning = false
-    let timerDuration: TimeInterval = 10.0
+    @State private var currentDuration: TimeInterval // Store the selected duration locally
+
+       init(timerDuration: TimeInterval) {
+           _currentDuration = State(initialValue: timerDuration) // Initialize the local State
+       }
 
     var body: some View {
         VStack {
@@ -24,7 +28,7 @@ struct TimerView: View {
                         startTimer()
                     }
             }
-            Text("\(Int(timerDuration - timerValue * timerDuration)) sec")
+            Text("\(Int(currentDuration - timerValue * currentDuration)) sec")
             
 //            Button(action: {
 //                if !isTimerRunning {
@@ -43,7 +47,7 @@ struct TimerView: View {
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if timerValue < 1.0 {
                 withAnimation(.linear(duration: 1.0)) {
-                    timerValue += 1.0 / timerDuration
+                    timerValue += 1.0 / currentDuration
                 }
             } else {
                 stopTimer()
@@ -61,6 +65,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(timerDuration: 60)
     }
 }

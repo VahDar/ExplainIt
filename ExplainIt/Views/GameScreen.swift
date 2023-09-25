@@ -4,7 +4,7 @@ struct GameScreen: View {
     @State private var isViewVisible = false
     @State private var words = ["Sun", "Moon", "Earth"]
     @State private var randomIndex = 0
-   private let timerView = TimerView()
+    private let timerView = TimerView(timerDuration: 60)
     
     var body: some View {
         NavigationStack {
@@ -27,7 +27,7 @@ struct GameScreen: View {
                 }
                 if isViewVisible {
                     ZStack {
-                        TimerView()
+                        TimerView(timerDuration: 60)
                         Text(words[randomIndex])
                             .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                             .font(.system(size: 40))
