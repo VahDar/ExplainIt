@@ -4,7 +4,12 @@ struct GameScreen: View {
     @State private var isViewVisible = false
     @State private var words = ["Sun", "Moon", "Earth"]
     @State private var randomIndex = 0
-    private let timerView = TimerView(timerDuration: 60)
+//    @ObservedObject var gameSettings: GameSettings
+    @Binding var selectedDuration: Int
+    @State private var isTimerRunning = false
+    @State private var timerView: TimerView?
+    
+   
     
     var body: some View {
         NavigationStack {
@@ -20,14 +25,15 @@ struct GameScreen: View {
                         
                         CustomButton(name: "Start") {
                             isViewVisible = true
-                            timerView.startTimer()
+                            isTimerRunning = true 
+                            timerView?.startTimer()
                             randomIndex = Int.random(in: 0..<words.count)
                         }
                     }
                 }
                 if isViewVisible {
                     ZStack {
-                        TimerView(timerDuration: 60)
+                        TimerView()
                         Text(words[randomIndex])
                             .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                             .font(.system(size: 40))
@@ -58,8 +64,9 @@ struct GameScreen: View {
     }
 }
 
-struct GameScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        GameScreen()
-    }
-}
+//struct GameScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let gameSettings = GameSettings()
+//        GameScreen(selectedDuration: gameSettings)
+//    }
+//}

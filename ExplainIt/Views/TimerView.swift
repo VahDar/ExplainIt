@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct TimerView: View {
-    @State private var timerValue: CGFloat = 0.0
+//    @ObservedObject var gameSettings: GameSettings
+     @State private var selectedDuration = 50
     @State private var isTimerRunning = false
-    @State private var currentDuration: TimeInterval // Store the selected duration locally
 
-       init(timerDuration: TimeInterval) {
-           _currentDuration = State(initialValue: timerDuration) // Initialize the local State
-       }
 
     var body: some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-                    .trim(from: 0, to: timerValue)
+                    .trim(from: 0, to: CGFloat(selectedDuration) / 10.0)
                     .stroke(Color(red: 79/255, green: 74/255, blue: 183/255), lineWidth: 10)
                     .frame(width: 400, height: 300)
                     .rotationEffect(.degrees(-90))
@@ -28,26 +25,17 @@ struct TimerView: View {
                         startTimer()
                     }
             }
-            Text("\(Int(currentDuration - timerValue * currentDuration)) sec")
+            Text("\(selectedDuration) sec")
             
-//            Button(action: {
-//                if !isTimerRunning {
-//                    startTimer()
-//                } else {
-//                    stopTimer()
-//                }
-//            }) {
-//                Text(isTimerRunning ? "Пауза" : "Старт")
-//            }
         }
     }
 
-     func startTimer() {
+    func startTimer() {
         isTimerRunning = true
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            if timerValue < 1.0 {
+            if selectedDuration > 0 {
                 withAnimation(.linear(duration: 1.0)) {
-                    timerValue += 1.0 / currentDuration
+                    selectedDuration -= 1
                 }
             } else {
                 stopTimer()
@@ -63,8 +51,10 @@ struct TimerView: View {
 
 
 
-struct TimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerView(timerDuration: 60)
-    }
-}
+//struct TimerView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        let gameSettings = GameSettings()
+//        TimerView(gameSettings: gameSettings)
+//    }
+//}

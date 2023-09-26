@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+//    @StateObject private var gameSettings = GameSettings()
     @State private var isGameScreenActive = false
     @State private var isSetUpScreenActive = false
-    
+    @State private var selectedDuration = 30
     var body: some View {
         NavigationStack {
             VStack {
-                NavigationLink(destination: GameScreen(), isActive: $isGameScreenActive) {
+                NavigationLink(destination: GameScreen(selectedDuration: $selectedDuration ), isActive: $isGameScreenActive) {
                     CustomButton(name: "Start Game") {
                         isGameScreenActive = true
                     }
                     .padding(.bottom)
                 }
-                NavigationLink(destination: SetUpScreen(), isActive: $isSetUpScreenActive) {
+                NavigationLink(destination: SetUpScreen(selectedDuration: $selectedDuration), isActive: $isSetUpScreenActive) {
                     CustomButton(name: "Set Up") {
                         isSetUpScreenActive = true
                     }

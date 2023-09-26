@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SetUpScreen: View {
     
-    @State private var selectedDuration: TimeInterval = 60
+//    @ObservedObject var gameSettings: GameSettings
     @State private var timerDurations = [30, 60, 90, 120]
-
+    @Binding var selectedDuration: Int
     
     
     var body: some View {
@@ -25,7 +25,7 @@ struct SetUpScreen: View {
                 .pickerStyle(.menu)
                 .background(Color.clear)
                 
-                TimerView(timerDuration: selectedDuration)
+                
                     .background(Color.clear)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -34,8 +34,8 @@ struct SetUpScreen: View {
     }
 }
 
-struct SetUpScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SetUpScreen()
-    }
-}
+//struct SetUpScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SetUpScreen(selectedDuration: )
+//    }
+//}

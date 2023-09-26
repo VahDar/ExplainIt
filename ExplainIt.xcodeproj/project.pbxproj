@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FCA0DB352AC2D20B0099A0A6 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA0DB342AC2D20B0099A0A6 /* GameSettings.swift */; };
 		FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB00F662A9E42310003F964 /* GradientLineView.swift */; };
 		FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */; };
 		FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26322A9DFC550007F5F6 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FCA0DB342AC2D20B0099A0A6 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		FCB00F662A9E42310003F964 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
 		FCCD262D2A9DFC550007F5F6 /* ExplainIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExplainIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainItApp.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				FCCD26422A9E08910007F5F6 /* BackgroundView.swift */,
 				FCCD26322A9DFC550007F5F6 /* ContentView.swift */,
 				FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */,
+				FCA0DB342AC2D20B0099A0A6 /* GameSettings.swift */,
 				FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */,
 				FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */,
 				FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */,
@@ -180,6 +183,7 @@
 			files = (
 				FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */,
 				FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */,
+				FCA0DB352AC2D20B0099A0A6 /* GameSettings.swift in Sources */,
 				FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */,
 				FCE8322C2AAA0CA000D1CB00 /* TextBoardView.swift in Sources */,
 				FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */,
