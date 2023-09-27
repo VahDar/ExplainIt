@@ -4,8 +4,8 @@ struct GameScreen: View {
     @State private var isViewVisible = false
     @State private var words = ["Sun", "Moon", "Earth"]
     @State private var randomIndex = 0
-//    @ObservedObject var gameSettings: GameSettings
     @Binding var selectedDuration: Int
+    var timerDurations: [Int]
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
     
@@ -26,14 +26,14 @@ struct GameScreen: View {
                         CustomButton(name: "Start") {
                             isViewVisible = true
                             isTimerRunning = true 
-                            timerView?.startTimer()
+                            
                             randomIndex = Int.random(in: 0..<words.count)
                         }
                     }
                 }
                 if isViewVisible {
                     ZStack {
-                        TimerView()
+                        TimerView(selectedDuration: $selectedDuration, timerDurations: timerDurations)
                         Text(words[randomIndex])
                             .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                             .font(.system(size: 40))
