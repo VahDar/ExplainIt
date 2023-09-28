@@ -11,7 +11,7 @@ struct ContentView: View {
 
     @State private var isGameScreenActive = false
     @State private var isSetUpScreenActive = false
-    @State private var selectedDuration: Int
+    @State private var selectedDuration = 30
     var timerDurations: [Int]
     
     init(selectedDuration: Int, timerDurations: [Int]) {
@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                     .padding(.bottom)
                 }
-                NavigationLink(destination: SetUpScreen(), isActive: $isSetUpScreenActive) {
+                NavigationLink(destination: SetUpScreen(selectedDuration: $selectedDuration), isActive: $isSetUpScreenActive) {
                     CustomButton(name: "Set Up") {
                         isSetUpScreenActive = true
                     }

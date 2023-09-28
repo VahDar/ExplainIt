@@ -33,7 +33,7 @@ struct GameScreen: View {
                 }
                 if isViewVisible {
                     ZStack {
-                        TimerView(selectedDuration: $selectedDuration, timerDurations: timerDurations)
+                        TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(selectedDuration))
                         Text(words[randomIndex])
                             .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                             .font(.system(size: 40))

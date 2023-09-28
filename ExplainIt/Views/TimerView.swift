@@ -9,12 +9,10 @@ import SwiftUI
 
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
-    @State private var isTimerRunning = false
-    @Binding var selectedDuration: Int
-    var timerDurations: [Int]
-    
+    @Binding var isTimerRunning: Bool
+    var timerDuration: TimeInterval
+
     var body: some View {
-        let timerDuration: TimeInterval = Double(timerDurations[selectedDuration])
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -23,15 +21,16 @@ struct TimerView: View {
                     .frame(width: 400, height: 300)
                     .rotationEffect(.degrees(-90))
                     .onAppear() {
-                        startTimer(timerDuration: timerDuration)
+                        startTimer()
                     }
             }
-            Text("\(Int(timerDuration - timerValue * timerDuration)) sec")
+            Text("\(Int(timerDuration > 0 ? timerDuration - timerValue * timerDuration : 0)) sec")
+                .foregroundColor(.white)
             
         }
     }
-    
-    func startTimer(timerDuration: TimeInterval) {
+
+     func startTimer() {
         isTimerRunning = true
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if timerValue < 1.0 {
@@ -44,7 +43,7 @@ struct TimerView: View {
         }
         RunLoop.current.add(timer, forMode: .common)
     }
-    
+
     private func stopTimer() {
         isTimerRunning = false
     }
@@ -52,11 +51,8 @@ struct TimerView: View {
 
 
 
-struct TimerView_Previews: PreviewProvider {
-    @State static var selectedDuration = 0
-    static let timerDurations = [30, 60, 90, 120]
-
-    static var previews: some View {
-        TimerView(selectedDuration: $selectedDuration, timerDurations: timerDurations)
-    }
-}
+//struct TimerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimerView()
+//    }
+//}

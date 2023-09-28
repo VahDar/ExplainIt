@@ -10,7 +10,7 @@ import SwiftUI
 struct SetUpScreen: View {
     
     @State private var timerDurations = [30, 60, 90, 120]
-    @State private var selectedDuration = 0
+    @Binding var selectedDuration: Int
     
     
     var body: some View {
@@ -25,7 +25,6 @@ struct SetUpScreen: View {
                 .background(Color.clear)
                 
                 
-                TimerView(selectedDuration: $selectedDuration, timerDurations: timerDurations)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
@@ -33,8 +32,8 @@ struct SetUpScreen: View {
     }
 }
 
-struct SetUpScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SetUpScreen()
-    }
-}
+//struct SetUpScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SetUpScreen(selectedDuration: )
+//    }
+//}
