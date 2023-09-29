@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct ExplainItApp: App {
-    var selectedDuration: Int = 0
-    var timerDurations: [Int] = [5, 10, 15, 20]
+    var selectedDuration: Int = 60
+    var timerDurations: [Int] = [30, 60, 90, 120]
     var body: some Scene {
         WindowGroup {
             ContentView(selectedDuration: selectedDuration, timerDurations: timerDurations)

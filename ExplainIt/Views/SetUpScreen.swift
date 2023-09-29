@@ -16,15 +16,21 @@ struct SetUpScreen: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Picker("Round Time", selection: $selectedDuration) {
-                    ForEach(timerDurations, id: \.self) {
-                        Text($0, format: .number)
+                HStack {
+                    Text("Round time")
+                        .foregroundColor(.blue)
+                    
+                    Picker("Round Time", selection: $selectedDuration) {
+                        ForEach(timerDurations, id: \.self) {
+                            Text($0, format: .number)
+                            
+                        }
                     }
+                    .pickerStyle(.menu)
+                    .background(Color.clear)
+                    
                 }
-                .pickerStyle(.menu)
-                .background(Color.clear)
-                
-                
+                Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
@@ -32,8 +38,11 @@ struct SetUpScreen: View {
     }
 }
 
-//struct SetUpScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SetUpScreen(selectedDuration: )
-//    }
-//}
+struct SetUpScreen_Previews: PreviewProvider {
+    
+    @State static var selectedDuration = 30
+    
+    static var previews: some View {
+        SetUpScreen(selectedDuration: $selectedDuration)
+    }
+}

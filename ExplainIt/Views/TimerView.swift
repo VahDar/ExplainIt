@@ -24,7 +24,7 @@ struct TimerView: View {
                         startTimer()
                     }
             }
-            Text("\(Int(timerDuration > 0 ? timerDuration - timerValue * timerDuration : 0)) sec")
+            Text("\(Int(timerDuration > 0 ? timerDuration - timerValue * timerDuration : 60)) sec")
                 .foregroundColor(.white)
             
         }
@@ -51,8 +51,10 @@ struct TimerView: View {
 
 
 
-//struct TimerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TimerView()
-//    }
-//}
+struct TimerView_Previews: PreviewProvider {
+    @State static var isTimerRunning = true
+    @State static var timerDuration = 30
+    static var previews: some View {
+        TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(timerDuration))
+    }
+}
