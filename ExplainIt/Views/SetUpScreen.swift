@@ -30,7 +30,8 @@ struct SetUpScreen: View {
                     .background(Color.clear)
                     
                 }
-                
+                .padding(.trailing, 100)
+                .padding(.top, -200)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
