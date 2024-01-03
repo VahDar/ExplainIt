@@ -16,25 +16,36 @@ struct SetUpScreen: View {
     var body: some View {
         NavigationStack {
             VStack {
-                HStack {
-                    Text("Round time")
-                        .foregroundColor(.blue)
-                    
-                    Picker("Round Time", selection: $selectedDuration) {
-                        ForEach(timerDurations, id: \.self) {
-                            Text($0, format: .number)
-                            
+                VStack {
+                    Text("Timer:")
+                        .foregroundStyle(.blue)
+                        .padding(.leading, -160)
+                    HStack {
+                        Text("Round time:")
+                            .foregroundStyle(.blue)
+                        
+                        Picker("Round Time", selection: $selectedDuration) {
+                            ForEach(timerDurations, id: \.self) {
+                                Text($0, format: .number)
+                            }
                         }
+                        .pickerStyle(.menu)
+                        .background(Color.clear)
                     }
-                    .pickerStyle(.menu)
-                    .background(Color.clear)
-                    
+                    .padding(.trailing, 120)
                 }
-                .padding(.trailing, 100)
-                .padding(.top, -200)
+                
+                HStack {
+                    Text("Choose a Topic")
+                        .foregroundStyle(.blue)
+                        .padding(.trailing, 195)
+                }
+                .padding()
             }
+            .padding(.top, -240)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
+            
         }
     }
 }
