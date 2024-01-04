@@ -48,6 +48,18 @@ struct SetUpScreen: View {
             
         }
     }
+    
+    func startGame(topicName: String) {
+        @State var rootWord = ""
+        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
+            if let startWords = try? String(contentsOf: startWordsURL) {
+                let allWords = startWords.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "manatee"
+                return
+            }
+        }
+       fatalError("Could not load start.txt from bundle")
+    }
 }
 
 struct SetUpScreen_Previews: PreviewProvider {
