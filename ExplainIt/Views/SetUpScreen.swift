@@ -11,8 +11,8 @@ struct SetUpScreen: View {
     
     @State private var timerDurations = [30, 60, 90, 120]
     @Binding var selectedDuration: Int
-    
-    
+    @State private var isButtonPressed = false
+    @ObservedObject var viewModel: GameViewModel
     var body: some View {
         NavigationStack {
             VStack {
@@ -35,10 +35,26 @@ struct SetUpScreen: View {
                     .padding(.trailing, 120)
                 }
                 
-                HStack {
+                VStack {
                     Text("Choose a Topic:")
                         .foregroundStyle(.blue)
                         .padding(.trailing, 195)
+                    Button {
+                        if isButtonPressed {
+                            isButtonPressed = false
+                        } else {
+                            isButtonPressed = true
+                            startGame(topicName: "start")
+                        }
+                    } label: {
+                        Text("General topic")
+                            .foregroundStyle(isButtonPressed ? Color.white : Color.white)
+                            .padding()
+                            .background(isButtonPressed ? Color.blue : Color.purple)
+                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
+                    }
+                    .padding()
+                    .padding(.trailing, 160)
                 }
                 .padding()
             }
@@ -50,23 +66,14 @@ struct SetUpScreen: View {
     }
     
     func startGame(topicName: String) {
-        @State var rootWord = ""
-        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
-            if let startWords = try? String(contentsOf: startWordsURL) {
-                let allWords = startWords.components(separatedBy: "\n")
-                rootWord = allWords.randomElement() ?? "manatee"
-                return
-            }
-        }
-       fatalError("Could not load start.txt from bundle")
+        viewModel.loadWords(forTopic: topicName)
     }
 }
 
 struct SetUpScreen_Previews: PreviewProvider {
     
     @State static var selectedDuration = 30
-    
     static var previews: some View {
-        SetUpScreen(selectedDuration: $selectedDuration)
+        SetUpScreen(selectedDuration: $selectedDuration, viewModel: GameViewModel())
     }
 }

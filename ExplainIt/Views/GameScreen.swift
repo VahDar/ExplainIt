@@ -2,13 +2,12 @@ import SwiftUI
 
 struct GameScreen: View {
     @State private var isViewVisible = false
-    @State private var words = ["Sun", "Moon", "Earth"]
     @State private var randomIndex = 0
     @Binding var selectedDuration: Int
     var timerDurations: [Int]
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
-    
+    @ObservedObject var viewModel: GameViewModel
    
     
     var body: some View {
@@ -27,14 +26,14 @@ struct GameScreen: View {
                             isViewVisible = true
                             isTimerRunning = true 
                             
-                            randomIndex = Int.random(in: 0..<words.count)
+                            randomIndex = viewModel.words.count
                         }
                     }
                 }
                 if isViewVisible {
                     ZStack {
                         TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(selectedDuration))
-                        Text(words[randomIndex])
+                        Text(viewModel.words[randomIndex])
                             .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                             .font(.system(size: 40))
                             .fontWeight(.bold)
@@ -45,10 +44,10 @@ struct GameScreen: View {
                                 DragGesture()
                                     .onEnded({ gesture in
                                         let swipeDistance = gesture.translation.height
-                                        if swipeDistance < 0 {
-                                            randomIndex = Int.random(in: 0..<words.count)
-                                        } else if swipeDistance > 0 {
-                                           randomIndex = Int.random(in: 0..<words.count)
+                                        if !viewModel.words.isEmpty {
+                                            if swipeDistance < 0 || swipeDistance > 0 {
+                                                randomIndex = Int.random(in: 0..<viewModel.words.count)
+                                            }
                                         }
                                     })
                             )
@@ -65,6 +64,6 @@ struct GameScreen: View {
 struct GameScreen_Previews: PreviewProvider {
     @State static var previewDuration = 60
     static var previews: some View {
-        GameScreen(selectedDuration: $previewDuration, timerDurations: [30, 60, 90])
+        GameScreen(selectedDuration: $previewDuration, timerDurations: [30, 60, 90], viewModel: GameViewModel())
     }
 }

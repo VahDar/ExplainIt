@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A32D32B47292900B3CB0F /* GameViewModel.swift */; };
 		FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB00F662A9E42310003F964 /* GradientLineView.swift */; };
 		FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */; };
 		FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26322A9DFC550007F5F6 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC3A32D32B47292900B3CB0F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FCB00F662A9E42310003F964 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
 		FCCD262D2A9DFC550007F5F6 /* ExplainIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExplainIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainItApp.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */,
 				FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */,
 				FCB00F692A9E4D830003F964 /* CustomButtonView */,
+				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
 				FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */,
 				FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */,
+				FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */,
 				FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
