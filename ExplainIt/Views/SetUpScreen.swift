@@ -36,7 +36,7 @@ struct SetUpScreen: View {
                 }
                 
                 HStack {
-                    Text("Choose a Topic")
+                    Text("Choose a Topic:")
                         .foregroundStyle(.blue)
                         .padding(.trailing, 195)
                 }

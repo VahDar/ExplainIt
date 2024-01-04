@@ -52,8 +52,6 @@ struct GameScreen: View {
                                         }
                                     })
                             )
-//                            .contentShape(Rectangle())
-                    
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -64,9 +62,9 @@ struct GameScreen: View {
     }
 }
 
-//struct GameScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let gameSettings = GameSettings()
-//        GameScreen(selectedDuration: gameSettings)
-//    }
-//}
+struct GameScreen_Previews: PreviewProvider {
+    @State static var previewDuration = 60
+    static var previews: some View {
+        GameScreen(selectedDuration: $previewDuration, timerDurations: [30, 60, 90])
+    }
+}
