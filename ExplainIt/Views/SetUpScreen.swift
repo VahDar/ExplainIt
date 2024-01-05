@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SetUpScreen: View {
-    
     @State private var timerDurations = [30, 60, 90, 120]
     @Binding var selectedDuration: Int
     @State private var isButtonPressed = false
@@ -45,6 +44,7 @@ struct SetUpScreen: View {
                         } else {
                             isButtonPressed = true
                             startGame(topicName: "start")
+                            print("Button pressed, words should be loaded now")
                         }
                     } label: {
                         Text("General topic")
@@ -64,7 +64,7 @@ struct SetUpScreen: View {
             
         }
     }
-    
+   
     func startGame(topicName: String) {
         viewModel.loadWords(forTopic: topicName)
     }
