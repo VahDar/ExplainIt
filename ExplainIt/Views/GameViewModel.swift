@@ -9,10 +9,10 @@ import Foundation
 
 class GameViewModel: ObservableObject {
     @Published var rootWord = ""
-    var nextWord: [String] = []
+    var currentTopic = ""
     
     func loadWords(forTopic topicName: String) {
-        print("Loading words for topic: \(topicName)")
+       currentTopic = topicName
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             print(startWordsURL)
             if let startWords = try? String(contentsOf: startWordsURL) {
@@ -24,7 +24,4 @@ class GameViewModel: ObservableObject {
        fatalError("Could not load start.txt from bundle")
     }
     
-    func getNextWord() {
-        rootWord = nextWord.randomElement() ?? "manatee"
-    }
 }
