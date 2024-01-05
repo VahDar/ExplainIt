@@ -25,6 +25,6 @@ class GameViewModel: ObservableObject {
     }
     
     func getNextWord() {
-        
+        rootWord = nextWord.randomElement() ?? "manatee"
     }
 }
