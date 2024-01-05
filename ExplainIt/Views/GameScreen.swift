@@ -45,7 +45,7 @@ struct GameScreen: View {
                                     .onEnded({ gesture in
                                         let swipeDistance = gesture.translation.height
                                         if swipeDistance < 0 || swipeDistance > 0 {
-                                            viewModel.getNextWord()
+                                            viewModel.loadWords(forTopic: viewModel.currentTopic)
                                             }
                                     })
                             )
