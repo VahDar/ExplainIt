@@ -50,7 +50,7 @@ struct SetUpScreen: View {
                         Text("General topic")
                             .foregroundStyle(isButtonPressed ? Color.white : Color.white)
                             .padding()
-                            .background(isButtonPressed ? Color.blue : Color.purple)
+                            .background(isButtonPressed ? Color.purple : Color.blue)
                             .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     }
                     .padding()
