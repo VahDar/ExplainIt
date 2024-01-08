@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC1744CF2B4C5B6400AF4ABB /* harryPotter.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC1744CE2B4C5B6300AF4ABB /* harryPotter.txt */; };
 		FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A32D32B47292900B3CB0F /* GameViewModel.swift */; };
 		FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB00F662A9E42310003F964 /* GradientLineView.swift */; };
 		FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC1744CE2B4C5B6300AF4ABB /* harryPotter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = harryPotter.txt; sourceTree = "<group>"; };
 		FC3A32D32B47292900B3CB0F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FCB00F662A9E42310003F964 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
 		FCCD262D2A9DFC550007F5F6 /* ExplainIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExplainIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				FCB00F682A9E4D110003F964 /* Views */,
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
+				FC1744CE2B4C5B6300AF4ABB /* harryPotter.txt */,
 				FCCD263E2A9DFD370007F5F6 /* start.txt */,
 				FCCD26362A9DFC560007F5F6 /* Preview Content */,
 			);
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCCD26382A9DFC560007F5F6 /* Preview Assets.xcassets in Resources */,
+				FC1744CF2B4C5B6400AF4ABB /* harryPotter.txt in Resources */,
 				FCCD263F2A9DFD370007F5F6 /* start.txt in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
 			);

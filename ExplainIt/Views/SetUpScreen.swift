@@ -13,6 +13,8 @@ struct SetUpScreen: View {
     @State private var numberOfTeams = [2, 4, 6]
     @Binding var selectedNumberOfTeams: Int
     @State private var isButtonPressed = false
+    @State private var selectedTopic: String?
+    @State private var topics = ["start", "harryPotter"]
     @ObservedObject var viewModel: GameViewModel
     var body: some View {
         NavigationStack {
@@ -60,21 +62,35 @@ struct SetUpScreen: View {
                     Text("Choose a Topic:")
                         .foregroundStyle(.blue)
                         .padding(.trailing, 195)
-                    Button {
-                        if isButtonPressed {
-                            isButtonPressed = false
-                        } else {
-                            isButtonPressed = true
-                            startGame(topicName: "start")
-                            print("Button pressed, words should be loaded now")
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 120, maximum: 100))]) {
+                        ForEach(topics, id: \.self) {
+                            topic in
+                            Button {
+                                selectedTopic = topic
+                                startGame(topicName: topic)
+                            } label: {
+                                Text(topic)
+                                if selectedTopic == topic {
+                                    Image(systemName: "checkmark")
+                                        .foregroundStyle(.green)
+                                }
+                            }
                         }
-                    } label: {
-                        Text("General topic")
-                            .foregroundStyle(isButtonPressed ? Color.white : Color.white)
-                            .padding()
-                            .background(isButtonPressed ? Color.purple : Color.blue)
-                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
                     }
+//                    Button {
+//                        if isButtonPressed {
+//                            isButtonPressed = false
+//                        } else {
+//                            isButtonPressed = true
+//                            startGame(topicName: "start")
+//                        }
+//                    } label: {
+//                        Text("General topic")
+//                            .foregroundStyle(isButtonPressed ? Color.white : Color.white)
+//                            .padding()
+//                            .background(isButtonPressed ? Color.purple : Color.blue)
+//                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
+//                    }
                     .padding()
                     .padding(.trailing, 160)
                 }
