@@ -10,11 +10,33 @@ import SwiftUI
 struct SetUpScreen: View {
     @State private var timerDurations = [30, 60, 90, 120]
     @Binding var selectedDuration: Int
+    @State private var numberOfTeams = [2, 4, 6]
+    @Binding var selectedNumberOfTeams: Int
     @State private var isButtonPressed = false
     @ObservedObject var viewModel: GameViewModel
     var body: some View {
         NavigationStack {
             VStack {
+                VStack {
+                    Text("Teams:")
+                        .foregroundStyle(.blue)
+                        .padding(.leading, -160)
+                    
+                    HStack {
+                        Text("Number of teams:")
+                            .foregroundStyle(.blue)
+                        
+                        Picker("Number of teams", selection: $selectedNumberOfTeams) {
+                            ForEach(numberOfTeams, id: \.self) {
+                                Text($0, format: .number)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .background(Color.clear)
+                    }
+                    .padding(.trailing, 95)
+                }
+                .padding()
                 VStack {
                     Text("Timer:")
                         .foregroundStyle(.blue)
@@ -71,9 +93,9 @@ struct SetUpScreen: View {
 }
 
 struct SetUpScreen_Previews: PreviewProvider {
-    
+    @State static var selectedNumberOfTeams = 2
     @State static var selectedDuration = 30
     static var previews: some View {
-        SetUpScreen(selectedDuration: $selectedDuration, viewModel: GameViewModel())
+        SetUpScreen(selectedDuration: $selectedDuration, selectedNumberOfTeams: $selectedNumberOfTeams, viewModel: GameViewModel())
     }
 }

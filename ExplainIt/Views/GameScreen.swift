@@ -26,7 +26,6 @@ struct GameScreen: View {
                             isViewVisible = true
                             isTimerRunning = true 
                             
-//                            randomIndex = viewModel.words.count
                         }
                     }
                 }

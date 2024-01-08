@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var isGameScreenActive = false
     @State private var isSetUpScreenActive = false
     @State private var selectedDuration = 30
+    @State private var numberOfTeams = 2
     let viewModel = GameViewModel()
     var timerDurations: [Int]
     
@@ -29,7 +30,7 @@ struct ContentView: View {
                     }
                     .padding(.bottom)
                 }
-                NavigationLink(destination: SetUpScreen(selectedDuration: $selectedDuration, viewModel: viewModel), isActive: $isSetUpScreenActive) {
+                NavigationLink(destination: SetUpScreen(selectedDuration: $selectedDuration, selectedNumberOfTeams: $numberOfTeams, viewModel: viewModel), isActive: $isSetUpScreenActive) {
                     CustomButton(name: "Set Up") {
                         isSetUpScreenActive = true
                     }
