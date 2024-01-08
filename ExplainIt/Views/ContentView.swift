@@ -24,30 +24,24 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                NavigationLink(destination: GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel), isActive: $isGameScreenActive) {
                     CustomButton(name: "Start Game") {
                         isGameScreenActive = true
                     }
                     .padding(.bottom)
-                }
-                NavigationLink(destination: SetUpScreen(selectedDuration: $selectedDuration, selectedNumberOfTeams: $numberOfTeams, viewModel: viewModel), isActive: $isSetUpScreenActive) {
+                
                     CustomButton(name: "Set Up") {
                         isSetUpScreenActive = true
                     }
                     .padding(.bottom)
-                }
-                .padding(.bottom)
-                CustomButton(name: "Start Game") {
-                    print("play")
-                }
-                
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(
-                BackgroundView()
-            )
-            
+            .background(BackgroundView())
+            .navigationDestination(isPresented: $isGameScreenActive) {
+                GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
+            }
+            .navigationDestination(isPresented: $isSetUpScreenActive) {
+                SetUpScreen(selectedDuration: $selectedDuration, selectedNumberOfTeams: $numberOfTeams, viewModel: viewModel)
+            }
         }
     }
 }
