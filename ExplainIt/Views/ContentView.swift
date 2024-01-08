@@ -29,7 +29,7 @@ struct ContentView: View {
                     }
                     .padding(.bottom)
                 
-                    CustomButton(name: "Set Up") {
+                    CustomButton(name: "Settings") {
                         isSetUpScreenActive = true
                     }
                     .padding(.bottom)
@@ -40,7 +40,7 @@ struct ContentView: View {
                 GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
             }
             .navigationDestination(isPresented: $isSetUpScreenActive) {
-                SetUpScreen(selectedDuration: $selectedDuration, selectedNumberOfTeams: $numberOfTeams, viewModel: viewModel)
+                SetUpScreen(selectedNumberOfTeams: $numberOfTeams, selectedDuration: $selectedDuration, viewModel: viewModel)
             }
         }
     }

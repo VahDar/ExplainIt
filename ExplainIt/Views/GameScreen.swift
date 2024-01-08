@@ -2,13 +2,11 @@ import SwiftUI
 
 struct GameScreen: View {
     @State private var isViewVisible = false
-    @State private var randomIndex = 0
     @Binding var selectedDuration: Int
     var timerDurations: [Int]
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
     @ObservedObject var viewModel: GameViewModel
-   
     
     var body: some View {
         NavigationStack {

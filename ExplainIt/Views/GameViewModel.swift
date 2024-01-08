@@ -23,4 +23,6 @@ class GameViewModel: ObservableObject {
        fatalError("Could not load start.txt from bundle")
     }
     
+   
+    
 }

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SetUpScreen: View {
-    @State private var timerDurations = [30, 60, 90, 120]
-    @Binding var selectedDuration: Int
-    @State private var numberOfTeams = [2, 4, 6]
     @Binding var selectedNumberOfTeams: Int
+    @Binding var selectedDuration: Int
+    @State private var timerDurations = [30, 60, 90, 120]
+    @State private var numberOfTeams = [2, 3, 4, 5, 6]
+    @State private var showSheet = false
     @State private var isButtonPressed = false
     @State private var selectedTopic: String?
     @State private var topics = ["start", "harryPotter"]
@@ -32,6 +33,10 @@ struct SetUpScreen: View {
                             ForEach(numberOfTeams, id: \.self) {
                                 Text($0, format: .number)
                             }
+                        }
+                        .onChange(of: selectedNumberOfTeams) {
+                            newValue in
+                            showSheet = true
                         }
                         .pickerStyle(.menu)
                         .background(Color.clear)
@@ -77,29 +82,17 @@ struct SetUpScreen: View {
                             }
                         }
                     }
-//                    Button {
-//                        if isButtonPressed {
-//                            isButtonPressed = false
-//                        } else {
-//                            isButtonPressed = true
-//                            startGame(topicName: "start")
-//                        }
-//                    } label: {
-//                        Text("General topic")
-//                            .foregroundStyle(isButtonPressed ? Color.white : Color.white)
-//                            .padding()
-//                            .background(isButtonPressed ? Color.purple : Color.blue)
-//                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
-//                    }
                     .padding()
-                    .padding(.trailing, 160)
+                    
                 }
                 .padding()
             }
             .padding(.top, -240)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
-            
+            .sheet(isPresented: $showSheet, content: {
+                TeamName()
+            })
         }
     }
    
@@ -112,6 +105,6 @@ struct SetUpScreen_Previews: PreviewProvider {
     @State static var selectedNumberOfTeams = 2
     @State static var selectedDuration = 30
     static var previews: some View {
-        SetUpScreen(selectedDuration: $selectedDuration, selectedNumberOfTeams: $selectedNumberOfTeams, viewModel: GameViewModel())
+        SetUpScreen(selectedNumberOfTeams: $selectedNumberOfTeams, selectedDuration: $selectedDuration, viewModel: GameViewModel())
     }
 }
