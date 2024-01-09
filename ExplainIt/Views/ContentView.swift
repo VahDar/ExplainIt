@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var isGameScreenActive = false
     @State private var isSetUpScreenActive = false
     @State private var selectedDuration = 30
-    @State private var numberOfTeams = 2
+    @State private var numberOfTeams = 0
     let viewModel = GameViewModel()
     var timerDurations: [Int]
     

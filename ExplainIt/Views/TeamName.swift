@@ -10,7 +10,7 @@ import SwiftUI
 struct TeamName: View {
     @Binding var selectedNumberOfTeams: Int
     @State var teamNames: [String]
-    @State private var randomName = ["Crazy cucumber", "Best", "Pony", "Just a winners"]
+    @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
     
     init(selectedNumberOfTeams: Binding<Int>) {
         self._selectedNumberOfTeams = selectedNumberOfTeams
@@ -18,17 +18,29 @@ struct TeamName: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List {
+                ForEach(0..<selectedNumberOfTeams, id: \.self) { index in
+                    HStack {
+                        TextField("Team \(index + 1) Name", text: $teamNames[index])
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .foregroundStyle(.white)
+                            
+                        Button("Random name") {
+                            teamNames[index] = randomNames.randomElement() ?? ""
+                        }
+                    }
+                }
+                .listRowBackground(Color.clear)
+            }
+            .scrollContentBackground(.hidden)
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView())
     }
 }
 
-struct TeamName_Previews: PreviewProvider {
-    @State static var selectedNumberOfTeams = 3
-    @State static var teamNames = ["Manatee"]
-    static var previews: some View {
-        TeamName(selectedNumberOfTeams: $selectedNumberOfTeams)
-    }
+#Preview {
+    TeamName(selectedNumberOfTeams: .constant(3))
 }
-//#Preview {
-//    TeamName(selectedNumberOfTeams: .constant(3), teamNames: <#[String]#>)
-//}

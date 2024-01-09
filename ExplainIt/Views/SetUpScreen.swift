@@ -12,7 +12,7 @@ struct SetUpScreen: View {
     @Binding var selectedDuration: Int
     @State private var teamName = ["Manatee"]
     @State private var timerDurations = [30, 60, 90, 120]
-    @State private var numberOfTeams = [2, 3, 4, 5, 6]
+    @State private var numberOfTeams = [0, 2, 3, 4, 5, 6]
     @State private var showSheet = false
     @State private var isButtonPressed = false
     @State private var selectedTopic: String?
@@ -103,7 +103,7 @@ struct SetUpScreen: View {
 }
 
 struct SetUpScreen_Previews: PreviewProvider {
-    @State static var selectedNumberOfTeams = 2
+    @State static var selectedNumberOfTeams = 3
     @State static var selectedDuration = 30
     static var previews: some View {
         SetUpScreen(selectedNumberOfTeams: $selectedNumberOfTeams, selectedDuration: $selectedDuration, viewModel: GameViewModel())
