@@ -10,6 +10,7 @@ import SwiftUI
 struct SetUpScreen: View {
     @Binding var selectedNumberOfTeams: Int
     @Binding var selectedDuration: Int
+    @State private var teamName = ["Manatee"]
     @State private var timerDurations = [30, 60, 90, 120]
     @State private var numberOfTeams = [2, 3, 4, 5, 6]
     @State private var showSheet = false
@@ -91,7 +92,7 @@ struct SetUpScreen: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             .sheet(isPresented: $showSheet, content: {
-                TeamName()
+                TeamName(selectedNumberOfTeams: $selectedNumberOfTeams)
             })
         }
     }
