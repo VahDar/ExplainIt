@@ -12,9 +12,16 @@ struct TeamName: View {
     @State var teamNames: [String]
     @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
     @State private var isSetUpScreenActive = false
-    init(selectedNumberOfTeams: Binding<Int>) {
+    @State private var selectedDuration = 30
+    @State private var numberOfTeams = 0
+    let viewModel = GameViewModel()
+    var timerDurations: [Int]
+    
+    init(selectedNumberOfTeams: Binding<Int>, selectedDuration: Int, timerDurations: [Int]) {
         self._selectedNumberOfTeams = selectedNumberOfTeams
         self._teamNames = State(initialValue: Array(repeating: "", count: 2))
+        self._selectedDuration = State(initialValue: selectedDuration)
+        self.timerDurations = timerDurations
     }
     
     var body: some View {
@@ -50,6 +57,9 @@ struct TeamName: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
+        .navigationDestination(isPresented: $isSetUpScreenActive) {
+            SetUpScreen(selectedDuration: $selectedDuration, viewModel: viewModel)
+        }
     }
     private func addTeam() {
         teamNames.append("")
@@ -61,5 +71,5 @@ struct TeamName: View {
 }
 
 #Preview {
-    TeamName(selectedNumberOfTeams: .constant(3))
+    TeamName(selectedNumberOfTeams: .constant(3), selectedDuration: 60, timerDurations: [60])
 }

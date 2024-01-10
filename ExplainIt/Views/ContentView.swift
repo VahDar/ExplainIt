@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var isGameScreenActive = false
-    @State private var isSetUpScreenActive = false
+    @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
     let viewModel = GameViewModel()
@@ -30,7 +30,7 @@ struct ContentView: View {
                     .padding(.bottom)
                 
                     CustomButton(name: "New game") {
-                        isSetUpScreenActive = true
+                        isTeamScreenActive = true
                     }
                     .padding(.bottom)
             }
@@ -40,7 +40,7 @@ struct ContentView: View {
                 GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
             }
             .navigationDestination(isPresented: $isSetUpScreenActive) {
-                SetUpScreen(selectedNumberOfTeams: $numberOfTeams, selectedDuration: $selectedDuration, viewModel: viewModel)
+                SetUpScreen(selectedDuration: $selectedDuration, viewModel: viewModel)
             }
         }
     }
