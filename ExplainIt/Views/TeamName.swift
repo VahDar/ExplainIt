@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct TeamName: View {
-    @Binding var selectedNumberOfTeams: Int
     @State var teamNames: [String]
     @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
     @State private var isSetUpScreenActive = false
+    @State private var isAlertPresented = false
+    @State private var temporaryTeamName = ""
+    @State private var editingTeamIndex: Int?
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
     let viewModel = GameViewModel()
     var timerDurations: [Int]
     
-    init(selectedNumberOfTeams: Binding<Int>, selectedDuration: Int, timerDurations: [Int]) {
-        self._selectedNumberOfTeams = selectedNumberOfTeams
-        self._teamNames = State(initialValue: Array(repeating: "", count: 2))
+    init(selectedDuration: Int, timerDurations: [Int]) {
+        let initialTeamCount = 2
+        self._teamNames = State(initialValue: (1...initialTeamCount).map { "Team \($0)" })
         self._selectedDuration = State(initialValue: selectedDuration)
         self.timerDurations = timerDurations
     }
@@ -33,13 +35,19 @@ struct TeamName: View {
                             .textFieldStyle(PlainTextFieldStyle())
                             .foregroundStyle(.white)
                         Spacer()
-                        Button("Random") {
-                            teamNames[index] = randomNames.randomElement() ?? ""
-                        }
-                        .frame(width: 80, height: 40)
+                        Text("Random")
+                            .onTapGesture {
+                                teamNames[index] = randomNames.randomElement() ?? ""
+                            }
+                            .foregroundStyle(Color.blue)
                         
                     }
                     .padding(.horizontal, 18)
+                    .onLongPressGesture {
+                        self.temporaryTeamName = self.teamNames[index]
+                        self.editingTeamIndex = index
+                        self.isAlertPresented = true
+                    }
                 }
                 .onDelete(perform: removeTeam(at:) )
                 .listRowBackground(Color.clear)
@@ -60,9 +68,19 @@ struct TeamName: View {
         .navigationDestination(isPresented: $isSetUpScreenActive) {
             SetUpScreen(selectedDuration: $selectedDuration, viewModel: viewModel)
         }
+        .alert("Team name", isPresented: $isAlertPresented) {
+            TextField("Enter Team Name", text: $temporaryTeamName)
+            Button("Save") {
+                if let editingIndex = editingTeamIndex {
+                    teamNames[editingIndex] = temporaryTeamName
+                }
+            }
+            Button("Cancle", role: .cancel) {}
+        }
     }
     private func addTeam() {
-        teamNames.append("")
+        let newTeamNumber = teamNames.count + 1
+        teamNames.append("Team \(newTeamNumber)")
     }
     
     private func removeTeam(at offsets: IndexSet) {
@@ -71,5 +89,5 @@ struct TeamName: View {
 }
 
 #Preview {
-    TeamName(selectedNumberOfTeams: .constant(3), selectedDuration: 60, timerDurations: [60])
+    TeamName(selectedDuration: 60, timerDurations: [60])
 }

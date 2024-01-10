@@ -39,8 +39,8 @@ struct ContentView: View {
             .navigationDestination(isPresented: $isGameScreenActive) {
                 GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
             }
-            .navigationDestination(isPresented: $isSetUpScreenActive) {
-                SetUpScreen(selectedDuration: $selectedDuration, viewModel: viewModel)
+            .navigationDestination(isPresented: $isTeamScreenActive) {
+                TeamName(selectedDuration: selectedDuration, timerDurations: timerDurations)
             }
         }
     }
