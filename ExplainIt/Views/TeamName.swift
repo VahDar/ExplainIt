@@ -12,6 +12,7 @@ struct TeamName: View {
     @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
     @State private var isSetUpScreenActive = false
     @State private var isAlertPresented = false
+    @State private var isWarningAlertPresented = false
     @State private var temporaryTeamName = ""
     @State private var editingTeamIndex: Int?
     @State private var selectedDuration = 30
@@ -58,6 +59,10 @@ struct TeamName: View {
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
+            Text("Press and hold to enter a team name")
+                .foregroundStyle(Color.blue)
+            Text("Swipe to delete a team")
+                .foregroundStyle(Color.blue)
             CustomButton(name: "Next") {
                 isSetUpScreenActive = true
             }
@@ -77,10 +82,17 @@ struct TeamName: View {
             }
             Button("Cancle", role: .cancel) {}
         }
+        .alert("Maximum number of teams reached!", isPresented: $isWarningAlertPresented) {
+            Button("Ok", role: .cancel) {}
+        }
     }
     private func addTeam() {
-        let newTeamNumber = teamNames.count + 1
-        teamNames.append("Team \(newTeamNumber)")
+        if teamNames.count < 11 {
+            let newTeamNumber = teamNames.count + 1
+            teamNames.append("Team \(newTeamNumber)")
+        } else {
+            isWarningAlertPresented = true
+        }
     }
     
     private func removeTeam(at offsets: IndexSet) {
