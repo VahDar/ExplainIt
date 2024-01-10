@@ -24,12 +24,12 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                    CustomButton(name: "Start Game") {
+                    CustomButton(name: "Continue") {
                         isGameScreenActive = true
                     }
                     .padding(.bottom)
                 
-                    CustomButton(name: "Settings") {
+                    CustomButton(name: "New game") {
                         isSetUpScreenActive = true
                     }
                     .padding(.bottom)
