@@ -87,7 +87,7 @@ struct TeamName: View {
         }
     }
     private func addTeam() {
-        if teamNames.count < 11 {
+        if teamNames.count < 8 {
             let newTeamNumber = teamNames.count + 1
             teamNames.append("Team \(newTeamNumber)")
         } else {

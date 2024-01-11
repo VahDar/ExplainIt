@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct SetUpScreen: View {
-//    @Binding var selectedNumberOfTeams: Int
     @Binding var selectedDuration: Int
     @State private var teamName = ["Manatee"]
     @State private var timerDurations = [30, 60, 90, 120]
-//    @State private var numberOfTeams = [0, 2, 3, 4, 5, 6]
-//    @State private var showSheet = false
     @State private var isButtonPressed = false
     @State private var selectedTopic: String?
     @State private var topics = ["start", "harryPotter"]
@@ -21,30 +18,15 @@ struct SetUpScreen: View {
     var body: some View {
         NavigationStack {
             VStack {
-//                VStack {
-//                    Text("Teams:")
-//                        .foregroundStyle(.blue)
-//                        .padding(.leading, -160)
-//                    
-//                    HStack {
-//                        Text("Number of teams:")
-//                            .foregroundStyle(.blue)
-//                        
-//                        Picker("Number of teams", selection: $selectedNumberOfTeams) {
-//                            ForEach(numberOfTeams, id: \.self) {
-//                                Text($0, format: .number)
-//                            }
-//                        }
-//                        .onChange(of: selectedNumberOfTeams) {
-//                            newValue in
-//                            showSheet = true
-//                        }
-//                        .pickerStyle(.menu)
-//                        .background(Color.clear)
-//                    }
-//                    .padding(.trailing, 95)
-//                }
-//                .padding()
+                VStack {
+                    Text("Points:")
+                        .foregroundStyle(Color.blue)
+                        .padding(.leading, -160)
+                    HStack{
+                        
+                    }
+                }
+                .padding()
                 VStack {
                     Text("Timer:")
                         .foregroundStyle(.blue)
