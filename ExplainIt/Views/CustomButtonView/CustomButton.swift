@@ -21,8 +21,7 @@ struct CustomButton: View {
         .font(.system(size: 25))
         .fontWeight(.bold)
         .background(
-            GradientLineView()
-                
+            GradientLineView()      
         )
         
         

@@ -21,6 +21,7 @@
 		FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */; };
 		FCE8322C2AAA0CA000D1CB00 /* TextBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */; };
 		FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */; };
+		FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8CEF72B503A8800011E0F /* CustomDivider.swift */; };
 		FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpScreen.swift; sourceTree = "<group>"; };
 		FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoardView.swift; sourceTree = "<group>"; };
 		FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		FCE8CEF72B503A8800011E0F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 			children = (
 				FCB00F662A9E42310003F964 /* GradientLineView.swift */,
 				FCCD26402A9DFE250007F5F6 /* CustomButton.swift */,
+				FCE8CEF72B503A8800011E0F /* CustomDivider.swift */,
 			);
 			path = CustomButtonView;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
 				FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */,
 				FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */,
+				FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */,
 				FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */,
 				FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */,
 				FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */,

@@ -21,9 +21,6 @@ struct SetUpScreen: View {
         NavigationStack {
             VStack {
                 VStack {
-                    Text("Points:")
-                        .foregroundStyle(Color.blue)
-                        .padding(.leading, -160)
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
@@ -35,13 +32,11 @@ struct SetUpScreen: View {
                         .pickerStyle(.menu)
                         .background(Color.clear)
                     }
-                    .padding(.trailing, 120)
+                    
                 }
-                .padding()
+                CustomDivider()
+                    .padding(.bottom, 40)
                 VStack {
-                    Text("Timer:")
-                        .foregroundStyle(.blue)
-                        .padding(.leading, -160)
                     HStack {
                         Text("Round time:")
                             .foregroundStyle(.blue)
@@ -54,13 +49,13 @@ struct SetUpScreen: View {
                         .pickerStyle(.menu)
                         .background(Color.clear)
                     }
-                    .padding(.trailing, 120)
+                    
+                        
                 }
-                
+                CustomDivider()
                 VStack {
                     Text("Choose a Topic:")
                         .foregroundStyle(.blue)
-                        .padding(.trailing, 195)
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 120, maximum: 100))]) {
                         ForEach(topics, id: \.self) {
                             topic in
@@ -77,14 +72,12 @@ struct SetUpScreen: View {
                         }
                     }
                     .padding()
-                    
                 }
                 .padding()
             }
             .padding(.top, -240)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
-            
         }
     }
    
