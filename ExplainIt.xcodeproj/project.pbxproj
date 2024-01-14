@@ -65,7 +65,6 @@
 				FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */,
 				FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */,
 				FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */,
-				FCB00F692A9E4D830003F964 /* CustomButtonView */,
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
 				FC1744D02B4C806000AF4ABB /* TeamName.swift */,
 			);
@@ -102,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB00F682A9E4D110003F964 /* Views */,
+				FCB00F692A9E4D830003F964 /* CustomButtonView */,
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
 				FC1744CE2B4C5B6300AF4ABB /* harryPotter.txt */,

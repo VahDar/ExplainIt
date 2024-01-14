@@ -14,12 +14,14 @@ struct SetUpScreen: View {
     @State private var timerDurations = [30, 60, 90, 120]
     @State private var points = [20, 30, 40, 50, 60, 70, 80]
     @State private var isButtonPressed = false
+    @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
     @State private var topics = ["start", "harryPotter"]
     @ObservedObject var viewModel: GameViewModel
     var body: some View {
         NavigationStack {
             VStack {
+                Spacer()
                 VStack {
                     HStack {
                         Text("Required Points:")
@@ -32,10 +34,9 @@ struct SetUpScreen: View {
                         .pickerStyle(.menu)
                         .background(Color.clear)
                     }
-                    
+                    .padding(.top, 40)
                 }
                 CustomDivider()
-                    .padding(.bottom, 40)
                 VStack {
                     HStack {
                         Text("Round time:")
@@ -49,8 +50,7 @@ struct SetUpScreen: View {
                         .pickerStyle(.menu)
                         .background(Color.clear)
                     }
-                    
-                        
+                    .padding(.top, 40)
                 }
                 CustomDivider()
                 VStack {
@@ -71,16 +71,24 @@ struct SetUpScreen: View {
                             }
                         }
                     }
-                    .padding()
+                    .padding(.top, 40)
+                }
+                .padding(.top, 40)
+                Spacer()
+                CustomButton(name: "Next") {
+                    isGameScreenActive = true
                 }
                 .padding()
             }
             .padding(.top, -240)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
+            .navigationDestination(isPresented: $isGameScreenActive) {
+                GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
+            }
         }
+        
     }
-   
     func startGame(topicName: String) {
         viewModel.loadWords(forTopic: topicName)
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var isGameScreenActive = false
+    
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
@@ -25,7 +25,7 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                     CustomButton(name: "Continue") {
-                        isGameScreenActive = true
+                        
                     }
                     .padding(.bottom)
                 
@@ -36,9 +36,7 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
-            .navigationDestination(isPresented: $isGameScreenActive) {
-                GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
-            }
+            
             .navigationDestination(isPresented: $isTeamScreenActive) {
                 TeamName(selectedDuration: selectedDuration, timerDurations: timerDurations)
             }
