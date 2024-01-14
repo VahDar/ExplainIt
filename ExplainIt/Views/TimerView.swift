@@ -11,7 +11,7 @@ struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
     @Binding var isTimerRunning: Bool
     var timerDuration: TimeInterval
-
+    var onTimerEnd: () -> Void
     var body: some View {
         VStack {
             ZStack {
@@ -39,6 +39,7 @@ struct TimerView: View {
                 }
             } else {
                 stopTimer()
+                onTimerEnd()
             }
         }
         RunLoop.current.add(timer, forMode: .common)
@@ -46,6 +47,7 @@ struct TimerView: View {
 
     private func stopTimer() {
         isTimerRunning = false
+        onTimerEnd()
     }
 }
 
@@ -55,6 +57,6 @@ struct TimerView_Previews: PreviewProvider {
     @State static var isTimerRunning = true
     @State static var timerDuration = 30
     static var previews: some View {
-        TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(timerDuration))
+        TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(timerDuration), onTimerEnd: {})
     }
 }

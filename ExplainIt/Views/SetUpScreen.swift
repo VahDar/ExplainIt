@@ -84,7 +84,7 @@ struct SetUpScreen: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             .navigationDestination(isPresented: $isGameScreenActive) {
-                GameScreen(selectedDuration: $selectedDuration, timerDurations: timerDurations, viewModel: viewModel)
+                GameScreen(selectedDuration: $selectedDuration, viewModel: viewModel)
             }
         }
         
