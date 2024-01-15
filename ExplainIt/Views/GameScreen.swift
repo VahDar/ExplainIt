@@ -3,9 +3,9 @@ import SwiftUI
 struct GameScreen: View {
     @State private var isViewVisible = false
     @State private var isTimerEnd = false
-//    @Binding var selectedDuration: Int
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
+    @State private var points = 0
     @ObservedObject var viewModel: GameViewModel
     
     var body: some View {
@@ -22,14 +22,17 @@ struct GameScreen: View {
                                 .padding(.trailing, 25)
                             
                             CustomButton(name: "Start") {
-                                isViewVisible = true
-                                isTimerRunning = true
-                                
+                                startRound()
                             }
                         }
                     }
                     if isViewVisible {
                         ZStack {
+                            VStack {
+                                Text("\(points)")
+                            }
+                            .foregroundStyle(Color.blue)
+                            .padding(.top, -300)
                             TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 isTimerEnd = true
                             })
@@ -44,9 +47,12 @@ struct GameScreen: View {
                             DragGesture()
                                 .onEnded({ gesture in
                                     let swipeDistance = gesture.translation.height
-                                    if swipeDistance < 0 || swipeDistance > 0 {
-                                        viewModel.loadWords(forTopic: viewModel.currentTopic)
+                                    if swipeDistance < 0 {
+                                        points += 1
+                                    } else if swipeDistance > 0 {
+                                        points -= 1
                                     }
+                                    viewModel.loadWords(forTopic: viewModel.currentTopic)
                                 })
                         )
                     }
@@ -59,7 +65,7 @@ struct GameScreen: View {
                 .blur(radius: isTimerEnd ? 10 : 0)
                 if isTimerEnd {
                     CustomAlertView()
-                        .frame(width: 300, height: 300)
+                        .frame(width: 300, height: 500)
                         .background(BackgroundView())
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .shadow(radius: 10)
@@ -70,10 +76,14 @@ struct GameScreen: View {
             }
         }
     }
+    func startRound() {
+        isViewVisible = true
+        isTimerRunning = true
+        points = 0
+    }
 }
 
 struct GameScreen_Previews: PreviewProvider {
-    @State static var previewDuration = 10
     static var previews: some View {
         GameScreen(viewModel: GameViewModel())
     }

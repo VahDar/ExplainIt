@@ -20,7 +20,6 @@
 		FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26402A9DFE250007F5F6 /* CustomButton.swift */; };
 		FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26422A9E08910007F5F6 /* BackgroundView.swift */; };
 		FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */; };
-		FCE8322C2AAA0CA000D1CB00 /* TextBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */; };
 		FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */; };
 		FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8CEF72B503A8800011E0F /* CustomDivider.swift */; };
 		FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */; };
@@ -41,7 +40,6 @@
 		FCCD26402A9DFE250007F5F6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FCCD26422A9E08910007F5F6 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpScreen.swift; sourceTree = "<group>"; };
-		FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoardView.swift; sourceTree = "<group>"; };
 		FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		FCE8CEF72B503A8800011E0F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */,
 				FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */,
 				FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */,
-				FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */,
 				FC1744D02B4C806000AF4ABB /* TeamName.swift */,
 			);
 			path = Views;
@@ -206,7 +203,6 @@
 				FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */,
 				FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */,
 				FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */,
-				FCE8322C2AAA0CA000D1CB00 /* TextBoardView.swift in Sources */,
 				FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */,
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
 				FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */,
