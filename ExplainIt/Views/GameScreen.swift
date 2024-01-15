@@ -14,6 +14,9 @@ struct GameScreen: View {
                 VStack {
                     if !isViewVisible {
                         VStack {
+                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex]) team")
+                                .foregroundStyle(Color.blue)
+                                .padding()
                             Text("If you guessed the word swipe up, if not, swipe down.")
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 40))
@@ -74,8 +77,16 @@ struct GameScreen: View {
                         )
                 }
             }
+            .onAppear {
+                prepareForRound()
+            }
         }
     }
+    
+    func prepareForRound() {
+        viewModel.currentTeamIndex = (viewModel.currentTeamIndex + 1) % viewModel.teams.count
+    }
+    
     func startRound() {
         isViewVisible = true
         isTimerRunning = true

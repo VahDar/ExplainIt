@@ -23,9 +23,11 @@ struct TeamName: View {
     
     init(selectedDuration: Int, timerDurations: [Int]) {
         let initialTeamCount = 2
-        self._teamNames = State(initialValue: (1...initialTeamCount).map { "Team \($0)" })
-        self._selectedDuration = State(initialValue: selectedDuration)
-        self.timerDurations = timerDurations
+            let initialTeams = (1...initialTeamCount).map { "Team \($0)" }
+            self._teamNames = State(initialValue: initialTeams)
+            self._selectedDuration = State(initialValue: selectedDuration)
+            self.timerDurations = timerDurations
+            self.viewModel.teams = initialTeams
     }
     
     var body: some View {
@@ -68,6 +70,9 @@ struct TeamName: View {
                 isSetUpScreenActive = true
             }
         }
+        .onReceive(teamNames.publisher) { _ in
+            viewModel.teams = teamNames
+        }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
@@ -91,6 +96,7 @@ struct TeamName: View {
         if teamNames.count < 8 {
             let newTeamNumber = teamNames.count + 1
             teamNames.append("Team \(newTeamNumber)")
+            viewModel.teams = teamNames
         } else {
             isWarningAlertPresented = true
         }
@@ -98,6 +104,7 @@ struct TeamName: View {
     
     private func removeTeam(at offsets: IndexSet) {
             teamNames.remove(atOffsets: offsets)
+            viewModel.teams = teamNames
         }
 }
 

@@ -11,6 +11,8 @@ class GameViewModel: ObservableObject {
     @Published var rootWord = ""
     @Published var roundTime: Int = 30
     @Published var requiredPoints: Int = 20
+    @Published var teams: [String] = []
+    @Published var currentTeamIndex = 0
     var currentTopic = ""
     func loadWords(forTopic topicName: String) {
        currentTopic = topicName
@@ -22,8 +24,5 @@ class GameViewModel: ObservableObject {
             }
         }
        fatalError("Could not load start.txt from bundle")
-    }
-    
-   
-    
+    } 
 }
