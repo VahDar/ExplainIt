@@ -3,7 +3,7 @@ import SwiftUI
 struct GameScreen: View {
     @State private var isViewVisible = false
     @State private var isTimerEnd = false
-    @Binding var selectedDuration: Int
+//    @Binding var selectedDuration: Int
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
     @ObservedObject var viewModel: GameViewModel
@@ -30,7 +30,7 @@ struct GameScreen: View {
                     }
                     if isViewVisible {
                         ZStack {
-                            TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(selectedDuration), onTimerEnd: {
+                            TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 isTimerEnd = true
                             })
                             Text(viewModel.rootWord)
@@ -75,6 +75,6 @@ struct GameScreen: View {
 struct GameScreen_Previews: PreviewProvider {
     @State static var previewDuration = 10
     static var previews: some View {
-        GameScreen(selectedDuration: $previewDuration, viewModel: GameViewModel())
+        GameScreen(viewModel: GameViewModel())
     }
 }

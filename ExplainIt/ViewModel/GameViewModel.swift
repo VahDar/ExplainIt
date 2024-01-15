@@ -9,8 +9,9 @@ import Foundation
 
 class GameViewModel: ObservableObject {
     @Published var rootWord = ""
+    @Published var roundTime: Int = 30
+    @Published var requiredPoints: Int = 20
     var currentTopic = ""
-    
     func loadWords(forTopic topicName: String) {
        currentTopic = topicName
         if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {

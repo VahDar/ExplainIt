@@ -72,7 +72,7 @@ struct TeamName: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
         .navigationDestination(isPresented: $isSetUpScreenActive) {
-            SetUpScreen(selectedDuration: $selectedDuration, selectedPoint: $selectedPoint, viewModel: viewModel)
+            SetUpScreen(viewModel: viewModel)
         }
         .alert("Team name", isPresented: $isAlertPresented) {
             TextField("Enter Team Name", text: $temporaryTeamName)

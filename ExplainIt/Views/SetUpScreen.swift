@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SetUpScreen: View {
-    @Binding var selectedDuration: Int
-    @Binding var selectedPoint: Int
+    @State var selectedDuration: Int = 30
+    @State var selectedPoint: Int = 20
     @State private var teamName = ["Manatee"]
     @State private var timerDurations = [30, 60, 90, 120]
     @State private var points = [20, 30, 40, 50, 60, 70, 80]
@@ -26,7 +26,7 @@ struct SetUpScreen: View {
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
-                        Picker("Required Points", selection: $selectedPoint) {
+                        Picker("Required Points", selection: $selectedDuration) {
                             ForEach(points, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -84,13 +84,15 @@ struct SetUpScreen: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             .navigationDestination(isPresented: $isGameScreenActive) {
-                GameScreen(selectedDuration: $selectedDuration, viewModel: viewModel)
+                GameScreen(viewModel: viewModel)
             }
         }
         
     }
     func startGame(topicName: String) {
         viewModel.loadWords(forTopic: topicName)
+        viewModel.roundTime = selectedDuration
+        viewModel.requiredPoints = selectedPoint
     }
 }
 
@@ -99,6 +101,6 @@ struct SetUpScreen_Previews: PreviewProvider {
     @State static var selectedDuration = 30
     @State static var selectedPoint = 30
     static var previews: some View {
-        SetUpScreen(selectedDuration: $selectedDuration, selectedPoint: $selectedPoint, viewModel: GameViewModel())
+        SetUpScreen(viewModel: GameViewModel())
     }
 }

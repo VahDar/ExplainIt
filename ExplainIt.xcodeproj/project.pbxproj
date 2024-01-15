@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC17C4402B5571A600C34015 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FCB00F682A9E4D110003F964 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,7 +74,6 @@
 				FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */,
 				FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */,
 				FCE8322B2AAA0CA000D1CB00 /* TextBoardView.swift */,
-				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
 				FC1744D02B4C806000AF4ABB /* TeamName.swift */,
 			);
 			path = Views;
@@ -104,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB00F682A9E4D110003F964 /* Views */,
+				FC17C4402B5571A600C34015 /* ViewModel */,
 				FCB00F692A9E4D830003F964 /* CustomElements */,
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
