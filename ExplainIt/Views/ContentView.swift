@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
-    let viewModel = GameViewModel()
+    @EnvironmentObject var viewModel: GameViewModel
     var timerDurations: [Int]
     
     init(selectedDuration: Int, timerDurations: [Int]) {

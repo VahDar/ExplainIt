@@ -6,7 +6,7 @@ struct GameScreen: View {
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
     @State private var points = 0
-    @ObservedObject var viewModel: GameViewModel
+    @EnvironmentObject var viewModel: GameViewModel
     
     var body: some View {
         NavigationStack {
@@ -96,6 +96,6 @@ struct GameScreen: View {
 
 struct GameScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GameScreen(viewModel: GameViewModel())
+        GameScreen()
     }
 }

@@ -17,7 +17,8 @@ struct SetUpScreen: View {
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
     @State private var topics = ["start", "harryPotter"]
-    @ObservedObject var viewModel: GameViewModel
+    @EnvironmentObject var viewModel: GameViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -84,7 +85,7 @@ struct SetUpScreen: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             .navigationDestination(isPresented: $isGameScreenActive) {
-                GameScreen(viewModel: viewModel)
+                GameScreen()
             }
         }
         
@@ -101,6 +102,6 @@ struct SetUpScreen_Previews: PreviewProvider {
     @State static var selectedDuration = 30
     @State static var selectedPoint = 30
     static var previews: some View {
-        SetUpScreen(viewModel: GameViewModel())
+        SetUpScreen()
     }
 }

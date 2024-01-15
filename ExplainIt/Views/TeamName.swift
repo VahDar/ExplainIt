@@ -18,7 +18,7 @@ struct TeamName: View {
     @State private var selectedDuration = 30
     @State private var selectedPoint = 30
     @State private var numberOfTeams = 0
-    let viewModel = GameViewModel()
+    @EnvironmentObject var viewModel: GameViewModel
     var timerDurations: [Int]
     
     init(selectedDuration: Int, timerDurations: [Int]) {
@@ -77,7 +77,7 @@ struct TeamName: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
         .navigationDestination(isPresented: $isSetUpScreenActive) {
-            SetUpScreen(viewModel: viewModel)
+            SetUpScreen()
         }
         .alert("Team name", isPresented: $isAlertPresented) {
             TextField("Enter Team Name", text: $temporaryTeamName)
