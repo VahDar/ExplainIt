@@ -7,7 +7,6 @@ struct GameScreen: View {
     @State private var timerView: TimerView?
     @State private var points = 0
     @EnvironmentObject var viewModel: GameViewModel
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -68,6 +67,7 @@ struct GameScreen: View {
                 .blur(radius: isTimerEnd ? 10 : 0)
                 if isTimerEnd {
                     CustomAlertView()
+//                        .environmentObject(viewModel)
                         .frame(width: 300, height: 500)
                         .background(BackgroundView())
                         .clipShape(RoundedRectangle(cornerRadius: 15))

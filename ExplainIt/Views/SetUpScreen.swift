@@ -86,6 +86,7 @@ struct SetUpScreen: View {
             .background(BackgroundView())
             .navigationDestination(isPresented: $isGameScreenActive) {
                 GameScreen()
+                    .environmentObject(viewModel)
             }
         }
         

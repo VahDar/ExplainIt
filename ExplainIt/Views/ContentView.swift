@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
-    @EnvironmentObject var viewModel: GameViewModel
+    @StateObject var viewModel = GameViewModel()
     var timerDurations: [Int]
     
     init(selectedDuration: Int, timerDurations: [Int]) {
@@ -38,7 +38,8 @@ struct ContentView: View {
             .background(BackgroundView())
             
             .navigationDestination(isPresented: $isTeamScreenActive) {
-                TeamName(selectedDuration: selectedDuration, timerDurations: timerDurations)
+                TeamName(timerDurations: timerDurations)
+                    .environmentObject(viewModel)
             }
         }
     }

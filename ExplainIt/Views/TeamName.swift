@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeamName: View {
-    @State var teamNames: [String]
+    @State private var teamNames: [String] = []
     @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
     @State private var isSetUpScreenActive = false
     @State private var isAlertPresented = false
@@ -20,15 +20,6 @@ struct TeamName: View {
     @State private var numberOfTeams = 0
     @EnvironmentObject var viewModel: GameViewModel
     var timerDurations: [Int]
-    
-    init(selectedDuration: Int, timerDurations: [Int]) {
-        let initialTeamCount = 2
-            let initialTeams = (1...initialTeamCount).map { "Team \($0)" }
-            self._teamNames = State(initialValue: initialTeams)
-            self._selectedDuration = State(initialValue: selectedDuration)
-            self.timerDurations = timerDurations
-            self.viewModel.teams = initialTeams
-    }
     
     var body: some View {
         VStack {
@@ -70,14 +61,26 @@ struct TeamName: View {
                 isSetUpScreenActive = true
             }
         }
-        .onReceive(teamNames.publisher) { _ in
-            viewModel.teams = teamNames
+        .onAppear {
+            // Инициализация команд при первом отображении
+            if viewModel.teams.isEmpty {
+                teamNames = ["Team 1", "Team 2"]
+            } else {
+                viewModel.teams = teamNames
+            }
         }
+//        .onAppear {
+//            viewModel.teams = teamNames
+//        }
+//        .onReceive(teamNames.publisher) { newTeams in
+//            viewModel.teams = teamNames
+//        }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
         .navigationDestination(isPresented: $isSetUpScreenActive) {
             SetUpScreen()
+                .environmentObject(viewModel)
         }
         .alert("Team name", isPresented: $isAlertPresented) {
             TextField("Enter Team Name", text: $temporaryTeamName)
@@ -109,5 +112,5 @@ struct TeamName: View {
 }
 
 #Preview {
-    TeamName(selectedDuration: 60, timerDurations: [60])
+    TeamName(timerDurations: [60])
 }
