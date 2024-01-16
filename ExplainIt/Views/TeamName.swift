@@ -43,7 +43,6 @@ struct TeamName: View {
                         self.temporaryTeamName = self.teamNames[index]
                         self.editingTeamIndex = index
                         self.isAlertPresented = true
-                        viewModel.teams = teamNames
                     }
                 }
                 .onDelete(perform: removeTeam(at:) )
@@ -79,6 +78,7 @@ struct TeamName: View {
             Button("Save") {
                 if let editingIndex = editingTeamIndex {
                     teamNames[editingIndex] = temporaryTeamName
+                    viewModel.teams = teamNames
                 }
             }
             Button("Cancle", role: .cancel) {}
