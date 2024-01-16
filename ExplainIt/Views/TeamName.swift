@@ -33,6 +33,7 @@ struct TeamName: View {
                         Text("Random")
                             .onTapGesture {
                                 teamNames[index] = randomNames.randomElement() ?? ""
+                                viewModel.teams = teamNames
                             }
                             .foregroundStyle(Color.blue)
                         
@@ -42,6 +43,7 @@ struct TeamName: View {
                         self.temporaryTeamName = self.teamNames[index]
                         self.editingTeamIndex = index
                         self.isAlertPresented = true
+                        viewModel.teams = teamNames
                     }
                 }
                 .onDelete(perform: removeTeam(at:) )
@@ -62,19 +64,9 @@ struct TeamName: View {
             }
         }
         .onAppear {
-            // Инициализация команд при первом отображении
-            if viewModel.teams.isEmpty {
-                teamNames = ["Team 1", "Team 2"]
-            } else {
-                viewModel.teams = teamNames
-            }
+            viewModel.teams = teamNames
         }
-//        .onAppear {
-//            viewModel.teams = teamNames
-//        }
-//        .onReceive(teamNames.publisher) { newTeams in
-//            viewModel.teams = teamNames
-//        }
+
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
