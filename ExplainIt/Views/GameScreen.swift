@@ -51,8 +51,10 @@ struct GameScreen: View {
                                     let swipeDistance = gesture.translation.height
                                     if swipeDistance < 0 {
                                         points += 1
+                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: true)
                                     } else if swipeDistance > 0 {
                                         points -= 1
+                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: false)
                                     }
                                     viewModel.loadWords(forTopic: viewModel.currentTopic)
                                 })
@@ -66,8 +68,8 @@ struct GameScreen: View {
                 )
                 .blur(radius: isTimerEnd ? 10 : 0)
                 if isTimerEnd {
-                    CustomAlertView()
-//                        .environmentObject(viewModel)
+                    CustomAlertView(wordSwipeData: $viewModel.swipedWords)
+                        .environmentObject(viewModel)
                         .frame(width: 300, height: 500)
                         .background(BackgroundView())
                         .clipShape(RoundedRectangle(cornerRadius: 15))

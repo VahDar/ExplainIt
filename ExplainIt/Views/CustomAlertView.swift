@@ -18,13 +18,20 @@ struct CustomAlertView: View {
                 ForEach($wordSwipeData, id: \.word) { $data in
                     HStack {
                         Text(data.word)
+                            .foregroundStyle(Color.blue)
                         Spacer()
                         if data.swiped {
                             Image(systemName: "checkmark")
+                                .foregroundStyle(Color.green)
                         }
                     }
+                    .onTapGesture {
+                        data.swiped.toggle()
+                    }
                 }
+                .listRowBackground(Color.clear)
             }
+            .scrollContentBackground(.hidden)
         }
     }
 }
