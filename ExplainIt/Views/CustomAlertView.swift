@@ -9,12 +9,26 @@ import SwiftUI
 
 struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
+    @Binding var wordSwipeData: [(word: String, swiped: Bool)]
     var body: some View {
-        Text("\(viewModel.teams[viewModel.currentTeamIndex])")
-            .foregroundStyle(Color.blue)
+        VStack {
+            Text("\(viewModel.teams[viewModel.currentTeamIndex])")
+                .foregroundStyle(Color.blue)
+            List {
+                ForEach($wordSwipeData, id: \.word) { $data in
+                    HStack {
+                        Text(data.word)
+                        Spacer()
+                        if data.swiped {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-#Preview {
-    CustomAlertView()
-}
+//#Preview {
+//    CustomAlertView(, wordSwipeData: <#Binding<[(word: String, swiped: Bool)]>#>)
+//}
