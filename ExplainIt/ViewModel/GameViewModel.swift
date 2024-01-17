@@ -13,7 +13,17 @@ class GameViewModel: ObservableObject {
     @Published var requiredPoints: Int = 20
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
+    @Published var swipedWords: [(word: String, swiped: Bool)] = []
     var currentTopic = ""
+    
+    func updateSwipe(word: String, swiped: Bool) {
+        if let index = swipedWords.firstIndex(where: { $0.word == word }) {
+            swipedWords[index].swiped = swiped
+        } else {
+            swipedWords.append((word, swiped))
+        }
+    }
+    
     func loadWords(forTopic topicName: String) {
        currentTopic = topicName
         if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
