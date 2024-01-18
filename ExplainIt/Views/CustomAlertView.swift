@@ -10,10 +10,16 @@ import SwiftUI
 struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool)]
+    @Binding var points: Int
+    private var calculatedPoints: Int {
+        wordSwipeData.filter { $0.swiped }.count
+    }
     var body: some View {
         VStack {
             Text("\(viewModel.teams[viewModel.currentTeamIndex])")
                 .foregroundStyle(Color.blue)
+                .font(.title)
+                .padding()
             List {
                 ForEach($wordSwipeData, id: \.word) { $data in
                     HStack {
@@ -27,15 +33,21 @@ struct CustomAlertView: View {
                     }
                     .onTapGesture {
                         data.swiped.toggle()
+                        points = calculatedPoints
                     }
                 }
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
+            Text("Poits: \(calculatedPoints)")
+                .font(.title)
+                .foregroundStyle(Color.blue)
+                .padding()
         }
     }
 }
 
-//#Preview {
-//    CustomAlertView(, wordSwipeData: <#Binding<[(word: String, swiped: Bool)]>#>)
+//#Preview() {
+//    @State var viewModel = GameViewModel()
+//    CustomAlertView(wordSwipeData: $viewModel.swipedWords)
 //}
