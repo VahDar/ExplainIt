@@ -12,7 +12,7 @@ struct SetUpScreen: View {
     @State var selectedPoint: Int = 20
     @State private var teamName = ["Manatee"]
     @State private var timerDurations = [30, 60, 90, 120]
-    @State private var points = [20, 30, 40, 50, 60, 70, 80]
+    @State private var requiredPoints = [20, 30, 40, 50, 60, 70, 80]
     @State private var isButtonPressed = false
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
@@ -28,7 +28,7 @@ struct SetUpScreen: View {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
                         Picker("Required Points", selection: $selectedDuration) {
-                            ForEach(points, id: \.self) {
+                            ForEach(requiredPoints, id: \.self) {
                                 Text($0, format: .number)
                             }
                         }
@@ -99,9 +99,6 @@ struct SetUpScreen: View {
 }
 
 struct SetUpScreen_Previews: PreviewProvider {
-    @State static var selectedNumberOfTeams = 3
-    @State static var selectedDuration = 30
-    @State static var selectedPoint = 30
     static var previews: some View {
         SetUpScreen()
     }

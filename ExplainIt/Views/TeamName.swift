@@ -15,8 +15,6 @@ struct TeamName: View {
     @State private var isWarningAlertPresented = false
     @State private var temporaryTeamName = ""
     @State private var editingTeamIndex: Int?
-    @State private var selectedDuration = 30
-    @State private var selectedPoint = 30
     @State private var numberOfTeams = 0
     @EnvironmentObject var viewModel: GameViewModel
     var timerDurations: [Int]

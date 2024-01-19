@@ -13,8 +13,13 @@ class GameViewModel: ObservableObject {
     @Published var requiredPoints: Int = 20
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
+    @Published var teamPoints: [String: Int] = [:]
     @Published var swipedWords: [(word: String, swiped: Bool)] = []
     var currentTopic = ""
+    
+    func updateTeamPoints(team: String, points: Int) {
+        teamPoints[team] = points
+    }
     
     func updateSwipe(word: String, swiped: Bool) {
         if let index = swipedWords.firstIndex(where: { $0.word == word }) {

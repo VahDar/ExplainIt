@@ -11,6 +11,7 @@ struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool)]
     @Binding var points: Int
+    @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
         wordSwipeData.filter { $0.swiped }.count
     }
@@ -43,6 +44,15 @@ struct CustomAlertView: View {
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()
+            CustomButton(name: "Next") {
+                viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: points)
+                isTeamInfoActive = true
+            }
+            .padding()
+        }
+        .navigationDestination(isPresented: $isTeamInfoActive) {
+            TeamInfoView()
+                .environmentObject(viewModel)
         }
     }
 }
