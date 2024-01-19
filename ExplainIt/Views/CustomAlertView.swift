@@ -45,7 +45,7 @@ struct CustomAlertView: View {
                 .foregroundStyle(Color.blue)
                 .padding()
             CustomButton(name: "Next") {
-                viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: points)
+                viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 isTeamInfoActive = true
             }
             .padding()
