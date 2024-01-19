@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TeamInfoView: View {
     @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         List(viewModel.teams, id: \.self) { team in
             HStack {
@@ -18,6 +19,10 @@ struct TeamInfoView: View {
                 Text("\(viewModel.teamPoints[team, default: 0]) points")
                     .foregroundStyle(Color.blue)
             }
+        }
+        CustomButton(name: "Next Team") {
+            viewModel.moveToNextTeam()
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }
