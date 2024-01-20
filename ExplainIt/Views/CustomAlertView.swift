@@ -13,7 +13,9 @@ struct CustomAlertView: View {
     @Binding var points: Int
     @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
-        wordSwipeData.filter { $0.swiped }.count
+        wordSwipeData.reduce(0) { result, data in
+            result + (data.swiped ? 1 : -1)
+        }
     }
     var body: some View {
         VStack {

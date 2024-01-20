@@ -51,10 +51,8 @@ struct GameScreen: View {
                                 .onEnded({ gesture in
                                     let swipeDistance = gesture.translation.height
                                     if swipeDistance < 0 {
-                                        points += 1
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: true)
                                     } else if swipeDistance > 0 {
-                                        points -= 1
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: false)
                                     }
                                     viewModel.loadWords(forTopic: viewModel.currentTopic)
@@ -80,20 +78,12 @@ struct GameScreen: View {
                         )
                 }
             }
-//            .onAppear {
-//                prepareForRound()
-//            }
         }
     }
-    
-//    func prepareForRound() {
-//        viewModel.currentTeamIndex = (viewModel.currentTeamIndex + 1) % viewModel.teams.count
-//    }
     
     func startRound() {
         isViewVisible = true
         isTimerRunning = true
-        points = 0
     }
 }
 

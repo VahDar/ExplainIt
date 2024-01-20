@@ -43,7 +43,7 @@ struct TeamName: View {
                         self.isAlertPresented = true
                     }
                 }
-                .onDelete(perform: removeTeam(at:) )
+                .onDelete(perform: removeTeam)
                 .listRowBackground(Color.clear)
                 CustomButton(name: "Add Team") {
                     addTeam()
