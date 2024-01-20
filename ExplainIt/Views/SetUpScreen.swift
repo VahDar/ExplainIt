@@ -27,7 +27,7 @@ struct SetUpScreen: View {
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
-                        Picker("Required Points", selection: $selectedDuration) {
+                        Picker("Required Points", selection: $selectedPoint) {
                             ForEach(requiredPoints, id: \.self) {
                                 Text($0, format: .number)
                             }

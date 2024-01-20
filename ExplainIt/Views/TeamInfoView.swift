@@ -9,21 +9,31 @@ import SwiftUI
 
 struct TeamInfoView: View {
     @EnvironmentObject var viewModel: GameViewModel
-//    @Binding var isActive: Bool
     var body: some View {
-        List(viewModel.teams, id: \.self) { team in
-            HStack {
-                Text(team)
-                    .foregroundStyle(Color.blue)
-                Spacer()
-                Text("\(viewModel.teamPoints[team, default: 0]) points")
-                    .foregroundStyle(Color.blue)
+        VStack {
+            Text("Required points: \(viewModel.requiredPoints)")
+                .foregroundStyle(Color.blue)
+                .font(.title)
+                .padding()
+            List(viewModel.teams, id: \.self) { team in
+                HStack {
+                    Text(team)
+                        .foregroundStyle(Color.blue)
+                    Spacer()
+                    Text("\(viewModel.teamPoints[team, default: 0]) points")
+                        .foregroundStyle(Color.blue)
+                }
+                .listRowBackground(Color.clear)
             }
+            .scrollContentBackground(.hidden)
+            
+            CustomButton(name: "Next Team") {
+                viewModel.moveToNextTeam()
+            }
+            .padding()
         }
-        CustomButton(name: "Next Team") {
-            viewModel.moveToNextTeam()
-        }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView())
     }
 }
 
