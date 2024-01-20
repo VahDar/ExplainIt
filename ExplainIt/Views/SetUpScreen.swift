@@ -57,21 +57,41 @@ struct SetUpScreen: View {
                 VStack {
                     Text("Choose a Topic:")
                         .foregroundStyle(.blue)
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 120, maximum: 100))]) {
+                    LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 20) {
                         ForEach(topics, id: \.self) {
                             topic in
                             Button {
                                 selectedTopic = topic
                                 startGame(topicName: topic)
                             } label: {
-                                Text(topic)
-                                if selectedTopic == topic {
-                                    Image(systemName: "checkmark")
-                                        .foregroundStyle(.green)
+                                ZStack {
+                                    Image(viewModel.backgroundImageName(for: topic))
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(height: 100)
+                                        .clipped()
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    VStack {
+                                        Spacer()
+                                        Text(topic)
+                                            .foregroundStyle(Color.white)
+                                            .font(.headline)
+                                            .padding(5)
+                                            .background(RoundedRectangle(cornerRadius: 5)
+                                                .stroke(Color.black, lineWidth: 2)
+                                            )
+                                            .background(Color.black.opacity(0.5))
+                                        if selectedTopic == topic {
+                                            Image(systemName: "checkmark")
+                                                .foregroundStyle(.green)
+                                        }
+                                    }
                                 }
                             }
+                            .frame(height: 100)
                         }
                     }
+                    .padding(.horizontal, 18)
                     .padding(.top, 40)
                 }
                 .padding(.top, 40)

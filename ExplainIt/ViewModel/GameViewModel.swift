@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GameViewModel: ObservableObject {
     @Published var rootWord = ""
@@ -16,6 +17,7 @@ class GameViewModel: ObservableObject {
     @Published var teamPoints: [String: Int] = [:]
     @Published var swipedWords: [(word: String, swiped: Bool)] = []
     @Published var isGameScreenPresented: Bool = false
+    @Published var backgroundImagePath: String = "defult"
     var currentTopic = ""
     
     
@@ -41,6 +43,7 @@ class GameViewModel: ObservableObject {
     
     func loadWords(forTopic topicName: String) {
        currentTopic = topicName
+//        updateBackgroundImage(forTopic: topicName)
         if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
@@ -49,5 +52,9 @@ class GameViewModel: ObservableObject {
             }
         }
        fatalError("Could not load start.txt from bundle")
-    } 
+    }
+    
+    func backgroundImageName(for topic: String) -> String {
+            return UIImage(named: topic) != nil ? topic : "defaultBackground"
+        }
 }

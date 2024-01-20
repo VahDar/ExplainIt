@@ -24,6 +24,7 @@
 		FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8CEF72B503A8800011E0F /* CustomDivider.swift */; };
 		FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */; };
 		FCFCC9AF2B597C2200E5412E /* TeamInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCC9AE2B597C2200E5412E /* TeamInfoView.swift */; };
+		FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCC9B02B5C3DDD00E5412E /* CustomItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		FCE8CEF72B503A8800011E0F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		FCFCC9AE2B597C2200E5412E /* TeamInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfoView.swift; sourceTree = "<group>"; };
+		FCFCC9B02B5C3DDD00E5412E /* CustomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				FCB00F662A9E42310003F964 /* GradientLineView.swift */,
 				FCCD26402A9DFE250007F5F6 /* CustomButton.swift */,
 				FCE8CEF72B503A8800011E0F /* CustomDivider.swift */,
+				FCFCC9B02B5C3DDD00E5412E /* CustomItemView.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */,
 				FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */,
 				FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */,
+				FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */,
 				FCFCC9AF2B597C2200E5412E /* TeamInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
