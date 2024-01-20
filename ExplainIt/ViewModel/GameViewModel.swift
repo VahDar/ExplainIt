@@ -21,7 +21,9 @@ class GameViewModel: ObservableObject {
     
     
     func moveToNextTeam() {
+        print("Текущий индекс команды до изменения: \(currentTeamIndex)")
         currentTeamIndex = (currentTeamIndex + 1) % teams.count
+        print("Текущий индекс команды после изменения: \(currentTeamIndex)")
         isGameScreenPresented = false
         isGameScreenPresented = true
     }

@@ -80,15 +80,15 @@ struct GameScreen: View {
                         )
                 }
             }
-            .onAppear {
-                prepareForRound()
-            }
+//            .onAppear {
+//                prepareForRound()
+//            }
         }
     }
     
-    func prepareForRound() {
-        viewModel.currentTeamIndex = (viewModel.currentTeamIndex + 1) % viewModel.teams.count
-    }
+//    func prepareForRound() {
+//        viewModel.currentTeamIndex = (viewModel.currentTeamIndex + 1) % viewModel.teams.count
+//    }
     
     func startRound() {
         isViewVisible = true
