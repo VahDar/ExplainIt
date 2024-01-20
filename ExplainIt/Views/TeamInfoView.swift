@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeamInfoView: View {
     @EnvironmentObject var viewModel: GameViewModel
-    @Environment(\.presentationMode) var presentationMode
+//    @Binding var isActive: Bool
     var body: some View {
         List(viewModel.teams, id: \.self) { team in
             HStack {
@@ -22,8 +22,8 @@ struct TeamInfoView: View {
         }
         CustomButton(name: "Next Team") {
             viewModel.moveToNextTeam()
-            presentationMode.wrappedValue.dismiss()
         }
+        .padding()
     }
 }
 

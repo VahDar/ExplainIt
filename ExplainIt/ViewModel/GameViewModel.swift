@@ -15,10 +15,15 @@ class GameViewModel: ObservableObject {
     @Published var currentTeamIndex = 0
     @Published var teamPoints: [String: Int] = [:]
     @Published var swipedWords: [(word: String, swiped: Bool)] = []
+    @Published var isGameScreenPresented: Bool = false
     var currentTopic = ""
+    
+    
     
     func moveToNextTeam() {
         currentTeamIndex = (currentTeamIndex + 1) % teams.count
+        isGameScreenPresented = false
+        isGameScreenPresented = true
     }
     func updateTeamPoints(team: String, points: Int) {
         teamPoints[team] = points

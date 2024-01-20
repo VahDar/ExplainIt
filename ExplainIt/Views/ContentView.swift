@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    
+    @State private var isGameScreenActive = false
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
@@ -41,13 +41,18 @@ struct ContentView: View {
                 TeamName(timerDurations: timerDurations)
                     .environmentObject(viewModel)
             }
+            NavigationLink(destination: GameScreen().environmentObject(viewModel), isActive: $viewModel.isGameScreenPresented) {
+                EmptyView()
+            }
+            .hidden()
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    @State static var selectedDuration = 30
+    @State static var timerDurations = [30]
+    static var previews: some View {
+        ContentView(selectedDuration: selectedDuration, timerDurations: timerDurations)
+    }
+}
