@@ -28,7 +28,7 @@ struct SetUpScreen: View {
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
-                        Picker("Required Points", selection: $selectedPoint) {
+                        Picker("Required Points", selection: $viewModel.selectedPoint) {
                             ForEach(requiredPoints, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -43,7 +43,7 @@ struct SetUpScreen: View {
                         Text("Round time:")
                             .foregroundStyle(.blue)
                         
-                        Picker("Round Time", selection: $selectedDuration) {
+                        Picker("Round Time", selection: $viewModel.selectedDuration) {
                             ForEach(timerDurations, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -80,13 +80,9 @@ struct SetUpScreen: View {
                                                 .font(.headline)
                                                 .padding(5)
                                                 .background(RoundedRectangle(cornerRadius: 5)
-                                                    .stroke(Color.black, lineWidth: 2)
+                                                    .stroke(selectedTopic == topic ? Color.green : Color.black, lineWidth: 2)
                                                 )
-                                                .background(Color.black.opacity(0.5))
-                                            if selectedTopic == topic {
-                                                Image(systemName: "checkmark")
-                                                    .foregroundStyle(.green)
-                                            }
+                                                .background(selectedTopic == topic ? Color.green :Color.black.opacity(0.5))
                                         }
                                     }
                                 }

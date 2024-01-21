@@ -11,6 +11,8 @@ import UIKit
 class GameViewModel: ObservableObject {
     @Published var rootWord = ""
     @Published var roundTime: Int = 30
+    @Published var selectedDuration: Int = 30
+    @Published var selectedPoint: Int = 20
     @Published var requiredPoints: Int = 20
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
