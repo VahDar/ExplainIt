@@ -30,7 +30,15 @@ class GameViewModel: ObservableObject {
         isGameScreenPresented = true
     }
     func updateTeamPoints(team: String, points: Int) {
-        teamPoints[team] = points
+        if let existingPoints = teamPoints[team] {
+            teamPoints[team] = existingPoints + points
+        } else {
+            teamPoints[team] = points
+        }
+    }
+    
+    func clearSwipeWords() {
+        swipedWords.removeAll()
     }
     
     func updateSwipe(word: String, swiped: Bool) {
@@ -43,7 +51,6 @@ class GameViewModel: ObservableObject {
     
     func loadWords(forTopic topicName: String) {
        currentTopic = topicName
-//        updateBackgroundImage(forTopic: topicName)
         if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")

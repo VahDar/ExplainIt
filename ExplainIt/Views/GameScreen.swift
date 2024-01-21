@@ -5,7 +5,6 @@ struct GameScreen: View {
     @State private var isTimerEnd = false
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
-    @State private var points = 0
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
         NavigationStack {
@@ -25,16 +24,12 @@ struct GameScreen: View {
                             
                             CustomButton(name: "Start") {
                                 startRound()
+                                viewModel.clearSwipeWords()
                             }
                         }
                     }
                     if isViewVisible {
                         ZStack {
-                            VStack {
-                                Text("\(points)")
-                            }
-                            .foregroundStyle(Color.blue)
-                            .padding(.top, -300)
                             TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 isTimerEnd = true
                             })

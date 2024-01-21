@@ -16,7 +16,7 @@ struct SetUpScreen: View {
     @State private var isButtonPressed = false
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
-    @State private var topics = ["start", "harryPotter"]
+    @State private var topics = ["start", "Harry Potter"]
     @EnvironmentObject var viewModel: GameViewModel
     
     var body: some View {

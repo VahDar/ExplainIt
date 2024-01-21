@@ -41,10 +41,9 @@ struct ContentView: View {
                 TeamName(timerDurations: timerDurations)
                     .environmentObject(viewModel)
             }
-            NavigationLink(destination: GameScreen().environmentObject(viewModel), isActive: $viewModel.isGameScreenPresented) {
-                EmptyView()
+            .navigationDestination(isPresented: $viewModel.isGameScreenPresented) {
+                GameScreen().environmentObject(viewModel)
             }
-            .hidden()
         }
     }
 }
