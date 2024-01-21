@@ -23,6 +23,7 @@ struct SetUpScreen: View {
         NavigationStack {
             VStack {
                 Spacer()
+                CustomDivider()
                 VStack {
                     HStack {
                         Text("Required Points:")
@@ -37,7 +38,6 @@ struct SetUpScreen: View {
                     }
                     .padding(.top, 40)
                 }
-                CustomDivider()
                 VStack {
                     HStack {
                         Text("Round time:")
@@ -54,48 +54,52 @@ struct SetUpScreen: View {
                     .padding(.top, 40)
                 }
                 CustomDivider()
-                VStack {
-                    Text("Choose a Topic:")
-                        .foregroundStyle(.blue)
-                    LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 20) {
-                        ForEach(topics, id: \.self) {
-                            topic in
-                            Button {
-                                selectedTopic = topic
-                                startGame(topicName: topic)
-                            } label: {
-                                ZStack {
-                                    Image(viewModel.backgroundImageName(for: topic))
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(height: 100)
-                                        .clipped()
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    VStack {
-                                        Spacer()
-                                        Text(topic)
-                                            .foregroundStyle(Color.white)
-                                            .font(.headline)
-                                            .padding(5)
-                                            .background(RoundedRectangle(cornerRadius: 5)
-                                                .stroke(Color.black, lineWidth: 2)
-                                            )
-                                            .background(Color.black.opacity(0.5))
-                                        if selectedTopic == topic {
-                                            Image(systemName: "checkmark")
-                                                .foregroundStyle(.green)
+                
+                    VStack {
+                        Text("Choose a Topic:")
+                            .foregroundStyle(.blue)
+                        ScrollView {
+                        LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
+                            ForEach(topics, id: \.self) {
+                                topic in
+                                Button {
+                                    selectedTopic = topic
+                                    startGame(topicName: topic)
+                                } label: {
+                                    ZStack {
+                                        Image(viewModel.backgroundImageName(for: topic))
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(height: 100)
+                                            .clipped()
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        VStack {
+                                            Spacer()
+                                            Text(topic)
+                                                .foregroundStyle(Color.white)
+                                                .font(.headline)
+                                                .padding(5)
+                                                .background(RoundedRectangle(cornerRadius: 5)
+                                                    .stroke(Color.black, lineWidth: 2)
+                                                )
+                                                .background(Color.black.opacity(0.5))
+                                            if selectedTopic == topic {
+                                                Image(systemName: "checkmark")
+                                                    .foregroundStyle(.green)
+                                            }
                                         }
                                     }
                                 }
+                                .frame(height: 100)
                             }
-                            .frame(height: 100)
                         }
+                        .padding(.horizontal, 18)
+                        .padding(.top, 40)
                     }
-                    .padding(.horizontal, 18)
-                    .padding(.top, 40)
+//                    .padding(.top, 40)
                 }
-                .padding(.top, 40)
-                Spacer()
+                .frame(height: 300)
+                .padding()
                 CustomButton(name: "Next") {
                     isGameScreenActive = true
                 }
