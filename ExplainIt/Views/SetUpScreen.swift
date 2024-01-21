@@ -96,13 +96,12 @@ struct SetUpScreen: View {
                         .padding(.horizontal, 18)
                         .padding(.top, 40)
                     }
-//                    .padding(.top, 40)
                 }
                 .frame(height: 300)
                 .padding()
-                CustomButton(name: "Next") {
+                CustomDisabledButton(name: "Next", action: {
                     isGameScreenActive = true
-                }
+                }, isDisabled: selectedTopic == nil)
                 .padding()
             }
             .padding(.top, -240)
