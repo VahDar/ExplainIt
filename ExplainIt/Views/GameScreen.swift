@@ -6,7 +6,6 @@ struct GameScreen: View {
     @State private var isTimerRunning = false
     @State private var timerView: TimerView?
     @State private var points = 0
-//    @Binding var isActive: Bool
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
         NavigationStack {

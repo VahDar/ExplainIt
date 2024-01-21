@@ -56,14 +56,13 @@ struct TeamName: View {
                 .foregroundStyle(Color.blue)
             Text("Swipe to delete a team")
                 .foregroundStyle(Color.blue)
-            CustomButton(name: "Next") {
+            CustomDisabledButton(name: "Next", action: {
                 isSetUpScreenActive = true
-            }
+            }, isDisabled: teamNames.isEmpty)
         }
         .onAppear {
             viewModel.teams = teamNames
         }
-
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
