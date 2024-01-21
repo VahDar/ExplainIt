@@ -28,7 +28,7 @@ struct SetUpScreen: View {
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
-                        Picker("Required Points", selection: $viewModel.selectedPoint) {
+                        Picker("Required Points", selection: $selectedPoint) {
                             ForEach(requiredPoints, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -43,7 +43,7 @@ struct SetUpScreen: View {
                         Text("Round time:")
                             .foregroundStyle(.blue)
                         
-                        Picker("Round Time", selection: $viewModel.selectedDuration) {
+                        Picker("Round Time", selection: $selectedDuration) {
                             ForEach(timerDurations, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -64,7 +64,6 @@ struct SetUpScreen: View {
                                 topic in
                                 Button {
                                     selectedTopic = topic
-                                    startGame(topicName: topic)
                                 } label: {
                                     ZStack {
                                         Image(viewModel.backgroundImageName(for: topic))
@@ -96,6 +95,7 @@ struct SetUpScreen: View {
                 .frame(height: 300)
                 .padding()
                 CustomDisabledButton(name: "Next", action: {
+                    startGame()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)
                 .padding()
@@ -110,10 +110,11 @@ struct SetUpScreen: View {
         }
         
     }
-    func startGame(topicName: String) {
-        viewModel.loadWords(forTopic: topicName)
+    func startGame() {
+        viewModel.currentTopic = selectedTopic ?? "start"
         viewModel.roundTime = selectedDuration
         viewModel.requiredPoints = selectedPoint
+        viewModel.loadWords(forTopic: viewModel.currentTopic)
     }
 }
 
