@@ -58,7 +58,22 @@ class GameViewModel: ObservableObject {
     }
     
     private func findNextTeamForExtraRound() -> Int? {
+        let maxRoundsPlayed = teamRounds.values.max() ?? 0
+        let minRoundsPlayed = teamRounds.values.min() ?? 0
         
+        //If not needed extra round return nil
+        if maxRoundsPlayed == minRoundsPlayed {
+            isFinalRoundPhase = false
+            return nil
+        }
+        
+        // Serching a team with min value of rounds
+        for (index, team) in teams.enumerated() {
+            if let roundsPlayed = teamRounds[team], roundsPlayed < maxRoundsPlayed {
+                return index
+            }
+        }
+        return nil
     }
     
     private func checkForGameEnd() {
