@@ -34,7 +34,6 @@ class GameViewModel: ObservableObject {
             } else {
                 // If all teams played equil number of rounds
                 isFinalRoundPhase = false
-                checkForGameEnd()
                 return
             }
         } else {
@@ -47,6 +46,10 @@ class GameViewModel: ObservableObject {
         // Increase the round counter for the current team
         let currentTeam = teams[currentTeamIndex]
         teamRounds[currentTeam, default: 0] += 1
+        
+        if !isFinalRoundPhase && currentTeamIndex == 0 {
+            checkForGameEnd()
+        }
     }
     
     func updateTeamPoints(team: String, points: Int) {
@@ -78,7 +81,7 @@ class GameViewModel: ObservableObject {
     
     private func checkForGameEnd() {
         let maxRoundPlayed = teamRounds.values.max() ?? 0
-        var potentialWinners = teamPoints.filter { $0.value >= requiredPoints }
+        let potentialWinners = teamPoints.filter { $0.value >= requiredPoints }
         
         if !potentialWinners.isEmpty {
             let teamsNoodingExtraRounds = teamRounds.filter { $1 < maxRoundPlayed }
