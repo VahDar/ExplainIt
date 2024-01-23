@@ -17,17 +17,19 @@ class GameViewModel: ObservableObject {
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
     @Published var teamPoints: [String: Int] = [:]
+    @Published var teamRounds: [String: Int] = [:]
     @Published var swipedWords: [(word: String, swiped: Bool)] = []
     @Published var isGameScreenPresented: Bool = false
+    @Published var isFinalRoundPhase: Bool = false
     @Published var backgroundImagePath: String = "defult"
     var currentTopic = ""
     
     
     
     func moveToNextTeam() {
-        print("Текущий индекс команды до изменения: \(currentTeamIndex)")
+        let currentTeam = teams[currentTeamIndex]
+        teamRounds[currentTeam, default: 0] += 1
         currentTeamIndex = (currentTeamIndex + 1) % teams.count
-        print("Текущий индекс команды после изменения: \(currentTeamIndex)")
         isGameScreenPresented = false
         isGameScreenPresented = true
     }
@@ -36,6 +38,23 @@ class GameViewModel: ObservableObject {
             teamPoints[team] = existingPoints + points
         } else {
             teamPoints[team] = points
+        }
+    }
+    
+    private func checkForGameEnd() {
+        let maxRoundPlayed = teamRounds.values.max() ?? 0
+        var potentialWinners = teamPoints.filter { $0.value >= requiredPoints }
+        
+        if !potentialWinners.isEmpty {
+            let teamsNoodingExtraRounds = teamRounds.filter { $1 < maxRoundPlayed }
+            if teamsNoodingExtraRounds.isEmpty {
+                // All teams have played an equal number of rounds, the winner can be declared
+                let winner = potentialWinners.max(by: { $0.value < $1.value })
+                print("Team winner is: \(winner?.key ?? "no winner") with \(winner?.value ?? 0) points!")
+            } else {
+                isFinalRoundPhase = true
+                print("Additional rounds required for some teams")
+            }
         }
     }
     
