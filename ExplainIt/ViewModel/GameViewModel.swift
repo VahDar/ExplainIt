@@ -27,18 +27,38 @@ class GameViewModel: ObservableObject {
     
     
     func moveToNextTeam() {
-        let currentTeam = teams[currentTeamIndex]
-        teamRounds[currentTeam, default: 0] += 1
-        currentTeamIndex = (currentTeamIndex + 1) % teams.count
+        // If game in fase extra round
+        if isFinalRoundPhase {
+            if let nextTeamIndex = findNextTeamForExtraRound() {
+                currentTeamIndex = nextTeamIndex
+            } else {
+                // If all teams played equil number of rounds
+                isFinalRoundPhase = false
+                checkForGameEnd()
+                return
+            }
+        } else {
+            // next team step
+            currentTeamIndex = (currentTeamIndex + 1) % teams.count
+        }
         isGameScreenPresented = false
         isGameScreenPresented = true
+        
+        // Increase the round counter for the current team
+        let currentTeam = teams[currentTeamIndex]
+        teamRounds[currentTeam, default: 0] += 1
     }
+    
     func updateTeamPoints(team: String, points: Int) {
         if let existingPoints = teamPoints[team] {
             teamPoints[team] = existingPoints + points
         } else {
             teamPoints[team] = points
         }
+    }
+    
+    private func findNextTeamForExtraRound() -> Int? {
+        
     }
     
     private func checkForGameEnd() {
