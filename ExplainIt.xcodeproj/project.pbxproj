@@ -10,9 +10,6 @@
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
 		FC0E0B742B6033F20024BE9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FC0E0B732B6033F20024BE9F /* Lottie */; };
-		FC0E0B762B6035D70024BE9F /* smile.json in Resources */ = {isa = PBXBuildFile; fileRef = FC0E0B752B6035D70024BE9F /* smile.json */; };
-		FC0E0B782B6038400024BE9F /* weee.json in Resources */ = {isa = PBXBuildFile; fileRef = FC0E0B772B6038400024BE9F /* weee.json */; };
-		FC0E0B7A2B6038D30024BE9F /* Animation - 1706030765821.json in Resources */ = {isa = PBXBuildFile; fileRef = FC0E0B792B6038D30024BE9F /* Animation - 1706030765821.json */; };
 		FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */; };
 		FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1744D02B4C806000AF4ABB /* TeamName.swift */; };
 		FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17C43E2B54435E00C34015 /* CustomAlertView.swift */; };
@@ -37,9 +34,6 @@
 /* Begin PBXFileReference section */
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
-		FC0E0B752B6035D70024BE9F /* smile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smile.json; sourceTree = "<group>"; };
-		FC0E0B772B6038400024BE9F /* weee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weee.json; sourceTree = "<group>"; };
-		FC0E0B792B6038D30024BE9F /* Animation - 1706030765821.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation - 1706030765821.json"; sourceTree = "<group>"; };
 		FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Harry Potter.txt"; sourceTree = "<group>"; };
 		FC1744D02B4C806000AF4ABB /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
 		FC17C43E2B54435E00C34015 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
@@ -136,9 +130,6 @@
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
 				FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */,
 				FCCD263E2A9DFD370007F5F6 /* start.txt */,
-				FC0E0B752B6035D70024BE9F /* smile.json */,
-				FC0E0B792B6038D30024BE9F /* Animation - 1706030765821.json */,
-				FC0E0B772B6038400024BE9F /* weee.json */,
 				FCE922F02B60FE8800856F9C /* astronaut.json */,
 				FCCD26362A9DFC560007F5F6 /* Preview Content */,
 			);
@@ -220,10 +211,7 @@
 				FCCD26382A9DFC560007F5F6 /* Preview Assets.xcassets in Resources */,
 				FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */,
 				FCCD263F2A9DFD370007F5F6 /* start.txt in Resources */,
-				FC0E0B762B6035D70024BE9F /* smile.json in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
-				FC0E0B782B6038400024BE9F /* weee.json in Resources */,
-				FC0E0B7A2B6038D30024BE9F /* Animation - 1706030765821.json in Resources */,
 				FCE922F12B60FE8800856F9C /* astronaut.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
