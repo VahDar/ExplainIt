@@ -11,11 +11,14 @@ struct WinnerAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
         VStack {
-            Text("Winner: \(viewModel.winners)")
-                .foregroundStyle(Color.blue)
-                .font(.title)
-                .padding()
-                .offset(y: -140)
+            Group {
+                Text("Winner: ").font(.title2)
+                + Text("\(viewModel.winners)")
+                    .font(.title)
+            }
+            .foregroundStyle(Color.blue)
+            .padding()
+            .offset(y: -140)
             SettingAnimationView(animationFileName: "astronaut", loopMode: .loop)
                 .frame(width: 100, height: 100)
                 .scaleEffect(0.2)
