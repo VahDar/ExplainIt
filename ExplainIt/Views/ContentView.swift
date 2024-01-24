@@ -44,6 +44,9 @@ struct ContentView: View {
             .navigationDestination(isPresented: $viewModel.isGameScreenPresented) {
                 GameScreen().environmentObject(viewModel)
             }
+            .navigationDestination(isPresented: $viewModel.isWinnerActive) {
+                WinnerAlertView().environmentObject(viewModel)
+            }
         }
     }
 }

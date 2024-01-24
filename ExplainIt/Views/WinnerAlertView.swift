@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct WinnerAlertView: View {
+    @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
-        SettingAnimationView(animationFileName: "weee", loopMode: .loop)
-            .frame(width: 100, height: 100)
-            .scaleEffect(0.7)
-        SettingAnimationView(animationFileName: "Animation - 1706030765821", loopMode: .loop)
-            .frame(width: 50, height: 50)
-            .scaleEffect(0.7)
-            
+        VStack {
+            Text("\(viewModel.winners)")
+                .foregroundStyle(Color.blue)
+                .font(.title)
+                .padding()
+            SettingAnimationView(animationFileName: "astronaut", loopMode: .loop)
+                .frame(width: 100, height: 100)
+                .scaleEffect(0.2)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView())
     }
 }
 

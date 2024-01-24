@@ -21,7 +21,9 @@ class GameViewModel: ObservableObject {
     @Published var swipedWords: [(word: String, swiped: Bool)] = []
     @Published var isGameScreenPresented: Bool = false
     @Published var isFinalRoundPhase: Bool = false
+    @Published var isWinnerActive: Bool = false
     @Published var backgroundImagePath: String = "defult"
+    @Published var winners: String = ""
     var currentTopic = ""
     
     
@@ -89,6 +91,9 @@ class GameViewModel: ObservableObject {
                 // All teams have played an equal number of rounds, the winner can be declared
                 let winner = potentialWinners.max(by: { $0.value < $1.value })
                 print("Team winner is: \(winner?.key ?? "no winner") with \(winner?.value ?? 0) points!")
+                winners = winner?.key ?? "no winner"
+                isWinnerActive = true
+                isFinalRoundPhase = false
             } else {
                 isFinalRoundPhase = true
                 print("Additional rounds required for some teams")
