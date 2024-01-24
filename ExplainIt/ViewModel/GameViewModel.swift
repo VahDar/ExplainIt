@@ -11,8 +11,8 @@ import UIKit
 class GameViewModel: ObservableObject {
     @Published var rootWord = ""
     @Published var roundTime: Int = 30
-    @Published var selectedDuration: Int = 30
-    @Published var selectedPoint: Int = 20
+//    @Published var selectedDuration: Int = 30
+//    @Published var selectedPoint: Int = 20
     @Published var requiredPoints: Int = 20
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
@@ -25,8 +25,6 @@ class GameViewModel: ObservableObject {
     @Published var backgroundImagePath: String = "defult"
     @Published var winners: String = ""
     var currentTopic = ""
-    
-    
     
     func moveToNextTeam() {
         // If game in fase extra round
@@ -136,4 +134,18 @@ class GameViewModel: ObservableObject {
     func backgroundImageName(for topic: String) -> String {
             return UIImage(named: topic) != nil ? topic : "defaultBackground"
         }
+}
+
+extension GameViewModel {
+    
+    func saveGameData() {
+        let encoder = JSONEncoder()
+        if let encodedTeams = try? encoder.encode(teams),
+           let encodedTeamPoints = try? encoder.encode(teamPoints),
+           let encodedTeamRounds = try? encoder.encode(teamRounds) {
+            UserDefaults.standard.set(encodedTeams, forKey: "teams")
+            UserDefaults.standard.set(encodedTeamPoints, forKey: "teamPoints")
+            UserDefaults.standard.set(encodedTeamRounds, forKey: "teamRounds")
+        }
+    }
 }
