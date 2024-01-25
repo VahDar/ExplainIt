@@ -173,4 +173,12 @@ extension GameViewModel {
             requiredPoints = loadedRequiredPoints
         }
     }
+    
+    func clearGameData() {
+        UserDefaults.standard.removeObject(forKey: "teams")
+        UserDefaults.standard.removeObject(forKey: "teamPoints")
+        UserDefaults.standard.removeObject(forKey: "teamRounds")
+        UserDefaults.standard.removeObject(forKey: "roundTime")
+        UserDefaults.standard.removeObject(forKey: "requiredPoints")
+    }
 }
