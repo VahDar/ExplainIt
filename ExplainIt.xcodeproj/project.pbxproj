@@ -29,6 +29,7 @@
 		FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */; };
 		FCFCC9AF2B597C2200E5412E /* TeamInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCC9AE2B597C2200E5412E /* TeamInfoView.swift */; };
 		FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCC9B02B5C3DDD00E5412E /* CustomItemView.swift */; };
+		FCFFF1832B6283AA0011037B /* ActiveScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFF1822B6283AA0011037B /* ActiveScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		FCED6E0B2AA0FDD200ED2706 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		FCFCC9AE2B597C2200E5412E /* TeamInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfoView.swift; sourceTree = "<group>"; };
 		FCFCC9B02B5C3DDD00E5412E /* CustomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItemView.swift; sourceTree = "<group>"; };
+		FCFFF1822B6283AA0011037B /* ActiveScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
+				FCFFF1822B6283AA0011037B /* ActiveScreen.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */,
 				FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */,
 				FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */,
+				FCFFF1832B6283AA0011037B /* ActiveScreen.swift in Sources */,
 				FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */,
 				FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */,
 				FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */,

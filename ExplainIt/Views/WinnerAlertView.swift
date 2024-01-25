@@ -30,6 +30,7 @@ struct WinnerAlertView: View {
             VStack {
                 Spacer()
                 CustomButton(name: "Finish") {
+                    viewModel.clearGameData()
                     isGameFinish = true
                 }
             }

@@ -11,8 +11,6 @@ import UIKit
 class GameViewModel: ObservableObject {
     @Published var rootWord = ""
     @Published var roundTime: Int = 30
-//    @Published var selectedDuration: Int = 30
-//    @Published var selectedPoint: Int = 20
     @Published var requiredPoints: Int = 20
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
@@ -25,6 +23,16 @@ class GameViewModel: ObservableObject {
     @Published var backgroundImagePath: String = "defult"
     @Published var winners: String = ""
     var currentTopic = ""
+    
+    init() {
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
+    }
     
     func moveToNextTeam() {
         // If game in fase extra round

@@ -25,7 +25,7 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                     CustomButton(name: "Continue") {
-                        
+                        viewModel.loadGameData()
                     }
                     .padding(.bottom)
                 
@@ -47,6 +47,9 @@ struct ContentView: View {
             .navigationDestination(isPresented: $viewModel.isWinnerActive) {
                 WinnerAlertView().environmentObject(viewModel)
             }
+        }
+        .onAppear {
+            viewModel.loadGameData()
         }
     }
 }
