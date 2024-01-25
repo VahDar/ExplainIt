@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
+    
     @StateObject var viewModel = GameViewModel()
     var timerDurations: [Int]
     
@@ -25,12 +26,15 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                     CustomButton(name: "Continue") {
-                        viewModel.loadGameData()
+            
                     }
                     .padding(.bottom)
                 
                     CustomButton(name: "New game") {
                         isTeamScreenActive = true
+                        viewModel.clearGameData()
+                        viewModel.resetGame()
+                        viewModel.checkDataCleared()
                     }
                     .padding(.bottom)
             }

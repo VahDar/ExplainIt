@@ -20,9 +20,11 @@ class GameViewModel: ObservableObject {
     @Published var isGameScreenPresented: Bool = false
     @Published var isFinalRoundPhase: Bool = false
     @Published var isWinnerActive: Bool = false
-    @Published var backgroundImagePath: String = "defult"
+    @Published var backgroundImagePath: String = ""
     @Published var winners: String = ""
     var currentTopic = ""
+    
+    
     
     init() {
         NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
@@ -33,6 +35,7 @@ class GameViewModel: ObservableObject {
             self?.saveGameData()
         }
     }
+    
     
     func moveToNextTeam() {
         // If game in fase extra round
@@ -51,6 +54,8 @@ class GameViewModel: ObservableObject {
         isGameScreenPresented = false
         isGameScreenPresented = true
         
+        
+        
         // Increase the round counter for the current team
         let currentTeam = teams[currentTeamIndex]
         teamRounds[currentTeam, default: 0] += 1
@@ -58,6 +63,58 @@ class GameViewModel: ObservableObject {
         if !isFinalRoundPhase && currentTeamIndex == 0 {
             checkForGameEnd()
         }
+    }
+    
+    func checkDataCleared() {
+        let defaults = UserDefaults.standard
+        
+        if defaults.object(forKey: "teams") != nil {
+            print("Данные 'teams' не были удалены.")
+        } else {
+            print("Данные 'teams' успешно удалены.")
+        }
+        
+        if defaults.object(forKey: "teamPoints") != nil {
+            print("Данные 'teamPoints' не были удалены.")
+        } else {
+            print("Данные 'teamPoints' успешно удалены.")
+        }
+        
+        if defaults.object(forKey: "teamRounds") != nil {
+            print("Данные 'teamRounds' не были удалены.")
+        } else {
+            print("Данные 'teamRounds' успешно удалены.")
+        }
+        
+        if defaults.object(forKey: "roundTime") != nil {
+            print("Данные 'roundTime' не были удалены.")
+        } else {
+            print("Данные 'roundTime' успешно удалены.")
+        }
+        
+        if defaults.object(forKey: "requiredPoints") != nil {
+            print("Данные 'requiredPoints' не были удалены.")
+        } else {
+            print("Данные 'requiredPoints' успешно удалены.")
+        }
+        
+    }
+    
+    func resetGame() {
+        rootWord = ""
+        roundTime = 30
+        requiredPoints = 20
+        teams = []
+        currentTeamIndex = 0
+        teamPoints = [:]
+        teamRounds = [:]
+        swipedWords = []
+        isGameScreenPresented = false
+        isFinalRoundPhase = false
+        isWinnerActive = false
+        backgroundImagePath = ""
+        winners = ""
+        currentTopic = ""
     }
     
     func updateTeamPoints(team: String, points: Int) {
@@ -174,6 +231,7 @@ extension GameViewModel {
            let loadedTeamRounds = try? decoder.decode([String: Int].self, from: teamRoundsData),
            let loadedRoundTime = try? decoder.decode(Int.self, from: roundTimeData),
            let loadedRequiredPoints = try? decoder.decode(Int.self, from: requiredPointsData) {
+
             teams = loadedTeams
             teamPoints = loadedTeamPoints
             teamRounds = loadedTeamRounds

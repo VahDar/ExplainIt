@@ -28,10 +28,10 @@ struct WinnerAlertView: View {
                 .scaleEffect(0.2)
                 .padding()
             VStack {
-                Spacer()
                 CustomButton(name: "Finish") {
-                    viewModel.clearGameData()
                     isGameFinish = true
+                    viewModel.resetGame()
+                    viewModel.clearGameData()
                 }
             }
         }
