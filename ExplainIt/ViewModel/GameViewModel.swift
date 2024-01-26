@@ -25,8 +25,9 @@ class GameViewModel: ObservableObject {
     var currentTopic = ""
     
     
-    
     init() {
+        checkDataCleared()
+        
         NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
             self?.saveGameData()
         }
@@ -170,6 +171,8 @@ class GameViewModel: ObservableObject {
             // If no team has reached the required points, the game can continue, or you may implement other logic to handle this scenario.
             print("No winners yet. Game continues or another end game logic applies.")
         }
+        print("Final round is: \(isFinalRoundPhase)")
+        print("Winner is: \(isWinnerActive)")
     }
     
     func clearSwipeWords() {

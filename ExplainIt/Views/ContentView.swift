@@ -33,8 +33,8 @@ struct ContentView: View {
                     CustomButton(name: "New game") {
                         isTeamScreenActive = true
                         viewModel.clearGameData()
-                        viewModel.resetGame()
-                        viewModel.checkDataCleared()
+//                        viewModel.resetGame()
+//                        viewModel.checkDataCleared()
                     }
                     .padding(.bottom)
             }

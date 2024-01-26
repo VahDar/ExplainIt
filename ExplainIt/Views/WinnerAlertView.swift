@@ -31,14 +31,14 @@ struct WinnerAlertView: View {
                 CustomButton(name: "Finish") {
                     isGameFinish = true
                     viewModel.resetGame()
-                    viewModel.clearGameData()
+//                    viewModel.clearGameData()
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
         .navigationDestination(isPresented: $isGameFinish) {
-            ContentView(selectedDuration: selectedDuration, timerDurations: timerDuration)
+            ContentView(selectedDuration: selectedDuration, timerDurations: timerDuration).environmentObject(viewModel)
         }
     }
 }
