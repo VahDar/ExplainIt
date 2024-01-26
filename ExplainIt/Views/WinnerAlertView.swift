@@ -14,7 +14,6 @@ struct WinnerAlertView: View {
     @State private var isGameFinish: Bool = false
     var body: some View {
         VStack {
-            Spacer()
             Group {
                 Text("Winner: ").font(.title2)
                 + Text("\(viewModel.winners)")
@@ -34,6 +33,7 @@ struct WinnerAlertView: View {
 //                    viewModel.clearGameData()
                 }
             }
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())

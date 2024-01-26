@@ -58,6 +58,7 @@ struct TeamName: View {
                 .foregroundStyle(Color.blue)
             CustomDisabledButton(name: "Next", action: {
                 isSetUpScreenActive = true
+                viewModel.checkReset()
             }, isDisabled: teamNames.isEmpty)
         }
         .onAppear {

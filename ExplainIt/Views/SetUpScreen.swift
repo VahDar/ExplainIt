@@ -12,7 +12,7 @@ struct SetUpScreen: View {
     @State var selectedPoint: Int = 20
     @State private var teamName = ["Manatee"]
     @State private var timerDurations = [5, 30, 60, 90, 120]
-    @State private var requiredPoints = [20, 30, 40, 50, 60, 70, 80]
+    @State private var requiredPoints = [5, 20, 30, 40, 50, 60, 70, 80]
     @State private var isButtonPressed = false
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
@@ -96,6 +96,7 @@ struct SetUpScreen: View {
                 .padding()
                 CustomDisabledButton(name: "Next", action: {
                     startGame()
+                    viewModel.checkReset()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)
                 .padding()

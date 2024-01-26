@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var isGameScreenActive = false
+//    @State private var isGameScreenActive = false
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
@@ -32,8 +32,9 @@ struct ContentView: View {
                 
                     CustomButton(name: "New game") {
                         isTeamScreenActive = true
-                        viewModel.clearGameData()
-//                        viewModel.resetGame()
+//                        viewModel.clearGameData()
+                        viewModel.resetGame()
+                        viewModel.checkReset()
 //                        viewModel.checkDataCleared()
                     }
                     .padding(.bottom)
@@ -52,9 +53,10 @@ struct ContentView: View {
                 WinnerAlertView().environmentObject(viewModel)
             }
         }
-        .onAppear {
-            viewModel.loadGameData()
-        }
+        
+//        .onAppear {
+//            viewModel.loadGameData()
+//        }
     }
 }
 

@@ -25,20 +25,36 @@ class GameViewModel: ObservableObject {
     var currentTopic = ""
     
     
-    init() {
-        checkDataCleared()
+//    init() {
+//        checkDataCleared()
+//        
+//        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+//            self?.saveGameData()
+//        }
+//        
+//        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+//            self?.saveGameData()
+//        }
+//    }
+    
+    func checkReset() {
+        print("rootWord - \(rootWord)")
+        print("roundTime - \(roundTime)")
+        print("requiredPoints - \(requiredPoints)")
+        print("teams - \(teams)")
+        print("currentTeamIndex - \(currentTeamIndex)")
+        print("teamPoints - \(teamPoints)")
+        print("teamRounds - \(teamRounds)")
+        print("swipedWords - \(swipedWords)")
+        print("isGameScreenPresented - \(isGameScreenPresented)")
+        print("isFinalRoundPhase - \(isFinalRoundPhase)")
+        print("isWinnerActive - \(isWinnerActive)")
+        print("winners - \(winners)")
         
-        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
-            self?.saveGameData()
-        }
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
-            self?.saveGameData()
-        }
     }
-    
-    
     func moveToNextTeam() {
+        print("Index Team: - \(currentTeamIndex)")
+        let wasLastTeam = currentTeamIndex == teams.count - 1
         // If game in fase extra round
         if isFinalRoundPhase {
             if let nextTeamIndex = findNextTeamForExtraRound() {
@@ -53,53 +69,54 @@ class GameViewModel: ObservableObject {
             currentTeamIndex = (currentTeamIndex + 1) % teams.count
         }
         isGameScreenPresented = false
+        
         isGameScreenPresented = true
         
-        
+        print("Gme ScreenPRESENTED - \(isGameScreenPresented)")
         
         // Increase the round counter for the current team
         let currentTeam = teams[currentTeamIndex]
         teamRounds[currentTeam, default: 0] += 1
         
-        if !isFinalRoundPhase && currentTeamIndex == 0 {
+        if !isFinalRoundPhase && wasLastTeam {
             checkForGameEnd()
         }
     }
     
-    func checkDataCleared() {
-        let defaults = UserDefaults.standard
-        
-        if defaults.object(forKey: "teams") != nil {
-            print("Данные 'teams' не были удалены.")
-        } else {
-            print("Данные 'teams' успешно удалены.")
-        }
-        
-        if defaults.object(forKey: "teamPoints") != nil {
-            print("Данные 'teamPoints' не были удалены.")
-        } else {
-            print("Данные 'teamPoints' успешно удалены.")
-        }
-        
-        if defaults.object(forKey: "teamRounds") != nil {
-            print("Данные 'teamRounds' не были удалены.")
-        } else {
-            print("Данные 'teamRounds' успешно удалены.")
-        }
-        
-        if defaults.object(forKey: "roundTime") != nil {
-            print("Данные 'roundTime' не были удалены.")
-        } else {
-            print("Данные 'roundTime' успешно удалены.")
-        }
-        
-        if defaults.object(forKey: "requiredPoints") != nil {
-            print("Данные 'requiredPoints' не были удалены.")
-        } else {
-            print("Данные 'requiredPoints' успешно удалены.")
-        }
-        
-    }
+//    func checkDataCleared() {
+//        let defaults = UserDefaults.standard
+//        
+//        if defaults.object(forKey: "teams") != nil {
+//            print("Данные 'teams' не были удалены.")
+//        } else {
+//            print("Данные 'teams' успешно удалены.")
+//        }
+//        
+//        if defaults.object(forKey: "teamPoints") != nil {
+//            print("Данные 'teamPoints' не были удалены.")
+//        } else {
+//            print("Данные 'teamPoints' успешно удалены.")
+//        }
+//        
+//        if defaults.object(forKey: "teamRounds") != nil {
+//            print("Данные 'teamRounds' не были удалены.")
+//        } else {
+//            print("Данные 'teamRounds' успешно удалены.")
+//        }
+//        
+//        if defaults.object(forKey: "roundTime") != nil {
+//            print("Данные 'roundTime' не были удалены.")
+//        } else {
+//            print("Данные 'roundTime' успешно удалены.")
+//        }
+//        
+//        if defaults.object(forKey: "requiredPoints") != nil {
+//            print("Данные 'requiredPoints' не были удалены.")
+//        } else {
+//            print("Данные 'requiredPoints' успешно удалены.")
+//        }
+//        
+//    }
     
     func resetGame() {
         rootWord = ""

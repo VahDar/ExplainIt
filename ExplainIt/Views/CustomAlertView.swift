@@ -48,6 +48,7 @@ struct CustomAlertView: View {
                 .padding()
             CustomButton(name: "Next") {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
+                viewModel.checkReset()
                 isTeamInfoActive = true
                 var transaction = Transaction()
                 transaction.disablesAnimations = true
