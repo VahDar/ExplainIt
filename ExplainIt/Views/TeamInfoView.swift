@@ -28,7 +28,6 @@ struct TeamInfoView: View {
             .scrollContentBackground(.hidden)
             
             CustomButton(name: "Next Team") {
-                viewModel.checkReset()
                 viewModel.moveToNextTeam()
             }
             .padding()

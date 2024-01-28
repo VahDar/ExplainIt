@@ -15,33 +15,33 @@ struct WinnerAlertView: View {
     @State private var isGameFinish: Bool = false
     var body: some View {
         VStack {
-            Group {
-                Text("Winner: ").font(.title2)
-                + Text("\(viewModel.winners)")
-                    .font(.title)
-            }
-            .foregroundStyle(Color.blue)
-            .padding()
-            .offset(y: -140)
-            SettingAnimationView(animationFileName: "astronaut", loopMode: .loop)
-                .frame(width: 100, height: 100)
-                .scaleEffect(0.2)
+            VStack {
+                Group {
+                    Text("Winner: ").font(.title2)
+                    + Text("\(viewModel.winners)")
+                        .font(.title)
+                }
+                .foregroundStyle(Color.blue)
                 .padding()
+                .offset(y: -140)
+                SettingAnimationView(animationFileName: "astronaut", loopMode: .loop)
+                    .frame(width: 100, height: 100)
+                    .scaleEffect(0.2)
+                    .padding()
+            }
+            .padding(.bottom)
             VStack {
                 CustomButton(name: "Finish") {
-//                    isGameFinish = true
                     self.presentationMode.wrappedValue.dismiss()
                     viewModel.resetGame()
-//                    viewModel.clearGameData()
+                    viewModel.clearGameData()
                 }
             }
             .padding()
+            .offset(y: 100)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
-        .navigationDestination(isPresented: $isGameFinish) {
-            ContentView(selectedDuration: selectedDuration, timerDurations: timerDuration).environmentObject(viewModel)
-        }
     }
 }
 

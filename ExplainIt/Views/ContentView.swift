@@ -25,16 +25,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                    CustomButton(name: "Continue") {
-            
-                    }
+                SettingAnimationView(animationFileName: "astronautMain", loopMode: .loop)
+                    .frame(width: 100, height: 100)
+                    .scaleEffect(0.2)
                     .padding(.bottom)
-                
                     CustomButton(name: "New game") {
                         isTeamScreenActive = true
-//                        viewModel.clearGameData()
+                        viewModel.clearGameData()
                         viewModel.resetGame()
-                        viewModel.checkReset()
+//                        viewModel.checkReset()
 //                        viewModel.checkDataCleared()
                     }
                     .padding(.bottom)
@@ -54,9 +53,9 @@ struct ContentView: View {
             }
         }
         
-//        .onAppear {
-//            viewModel.loadGameData()
-//        }
+        .onAppear {
+            viewModel.loadGameData()
+        }
     }
 }
 

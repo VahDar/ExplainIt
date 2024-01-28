@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
     @Binding var isTimerRunning: Bool
     var timerDuration: TimeInterval
     var onTimerEnd: () -> Void
+    @State private var audioPlayer: AVAudioPlayer?
+    
     var body: some View {
         VStack {
             ZStack {
@@ -28,14 +31,26 @@ struct TimerView: View {
                 .foregroundColor(.white)
             
         }
+        .onAppear {
+            prepareAudioPlayer()
+        }
     }
 
      func startTimer() {
         isTimerRunning = true
+        var isSoundPlayed = false
+         
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            
             if timerValue < 1.0 {
                 withAnimation(.linear(duration: 1.0)) {
                     timerValue += 1.0 / timerDuration
+                }
+                
+            let timerLeft = timerDuration - (CGFloat(timerValue) * timerDuration)
+                if timerLeft <= 5 && !isSoundPlayed {
+                    audioPlayer?.play()
+                    isSoundPlayed = true
                 }
             } else {
                 stopTimer()
@@ -43,6 +58,18 @@ struct TimerView: View {
             }
         }
         RunLoop.current.add(timer, forMode: .common)
+         
+        
+    }
+    
+    private func prepareAudioPlayer() {
+        guard let soundURL = Bundle.main.url(forResource: "sound", withExtension: "mp3") else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.prepareToPlay()
+        } catch {
+            print("Error with download audio file")
+        }
     }
 
     private func stopTimer() {

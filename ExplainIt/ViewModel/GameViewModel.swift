@@ -25,17 +25,16 @@ class GameViewModel: ObservableObject {
     var currentTopic = ""
     
     
-//    init() {
-//        checkDataCleared()
-//        
-//        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
-//            self?.saveGameData()
-//        }
-//        
-//        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
-//            self?.saveGameData()
-//        }
-//    }
+    init() {
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
+    }
     
     func checkReset() {
         print("rootWord - \(rootWord)")
@@ -83,41 +82,6 @@ class GameViewModel: ObservableObject {
         }
     }
     
-//    func checkDataCleared() {
-//        let defaults = UserDefaults.standard
-//        
-//        if defaults.object(forKey: "teams") != nil {
-//            print("Данные 'teams' не были удалены.")
-//        } else {
-//            print("Данные 'teams' успешно удалены.")
-//        }
-//        
-//        if defaults.object(forKey: "teamPoints") != nil {
-//            print("Данные 'teamPoints' не были удалены.")
-//        } else {
-//            print("Данные 'teamPoints' успешно удалены.")
-//        }
-//        
-//        if defaults.object(forKey: "teamRounds") != nil {
-//            print("Данные 'teamRounds' не были удалены.")
-//        } else {
-//            print("Данные 'teamRounds' успешно удалены.")
-//        }
-//        
-//        if defaults.object(forKey: "roundTime") != nil {
-//            print("Данные 'roundTime' не были удалены.")
-//        } else {
-//            print("Данные 'roundTime' успешно удалены.")
-//        }
-//        
-//        if defaults.object(forKey: "requiredPoints") != nil {
-//            print("Данные 'requiredPoints' не были удалены.")
-//        } else {
-//            print("Данные 'requiredPoints' успешно удалены.")
-//        }
-//        
-//    }
-    
     func resetGame() {
         rootWord = ""
         roundTime = 30
@@ -163,7 +127,6 @@ class GameViewModel: ObservableObject {
     }
     
     private func checkForGameEnd() {
-        _ = teamRounds.values.max() ?? 0
         let teamsNeedingExtraRounds = teamPoints.filter { $0.value >= requiredPoints }
         
         let potentialWinners = teamPoints.filter { $0.value >= requiredPoints }

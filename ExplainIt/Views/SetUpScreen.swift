@@ -96,7 +96,6 @@ struct SetUpScreen: View {
                 .padding()
                 CustomDisabledButton(name: "Next", action: {
                     startGame()
-                    viewModel.checkReset()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)
                 .padding()
