@@ -67,11 +67,9 @@ class GameViewModel: ObservableObject {
             // next team step
             currentTeamIndex = (currentTeamIndex + 1) % teams.count
         }
+        
         isGameScreenPresented = false
-        
         isGameScreenPresented = true
-        
-        print("Gme ScreenPRESENTED - \(isGameScreenPresented)")
         
         // Increase the round counter for the current team
         let currentTeam = teams[currentTeamIndex]
@@ -151,8 +149,6 @@ class GameViewModel: ObservableObject {
             // If no team has reached the required points, the game can continue, or you may implement other logic to handle this scenario.
             print("No winners yet. Game continues or another end game logic applies.")
         }
-        print("Final round is: \(isFinalRoundPhase)")
-        print("Winner is: \(isWinnerActive)")
     }
     
     func clearSwipeWords() {
