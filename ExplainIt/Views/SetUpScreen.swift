@@ -24,7 +24,6 @@ struct SetUpScreen: View {
             VStack {
                 Spacer()
                 CustomDivider()
-                VStack {
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)
@@ -37,8 +36,7 @@ struct SetUpScreen: View {
                         .background(Color.clear)
                     }
                     .padding(.top, 40)
-                }
-                VStack {
+                
                     HStack {
                         Text("Round time:")
                             .foregroundStyle(.blue)
@@ -52,7 +50,11 @@ struct SetUpScreen: View {
                         .background(Color.clear)
                     }
                     .padding(.top, 40)
-                }
+                    Toggle("Turn on/off timer sound: ", isOn: $viewModel.isSoundEnabled)
+                    .tint(.blue)
+                    .foregroundStyle(Color.blue)
+                    .padding(.horizontal, 80)
+                    .padding(.top, 40)
                 CustomDivider()
                 
                     VStack {
@@ -72,16 +74,17 @@ struct SetUpScreen: View {
                                             .frame(height: 100)
                                             .clipped()
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .opacity(0.5)
                                         VStack {
                                             Spacer()
                                             Text(topic)
-                                                .foregroundStyle(Color.white)
+                                                .foregroundStyle(Color.blue)
                                                 .font(.headline)
                                                 .padding(5)
                                                 .background(RoundedRectangle(cornerRadius: 5)
-                                                    .stroke(selectedTopic == topic ? Color.green : Color.black, lineWidth: 2)
+                                                    .stroke(selectedTopic == topic ? Color(red: 79/255, green: 74/255, blue: 183/255) : Color.black, lineWidth: 2)
                                                 )
-                                                .background(selectedTopic == topic ? Color.green :Color.black.opacity(0.5))
+                                                .background(selectedTopic == topic ? Color(red: 79/255, green: 74/255, blue: 183/255) : Color.black.opacity(0.5))
                                         }
                                     }
                                 }

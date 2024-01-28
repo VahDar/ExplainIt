@@ -11,6 +11,7 @@ import AVFoundation
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
     @Binding var isTimerRunning: Bool
+    @EnvironmentObject var viewModel: GameViewModel
     var timerDuration: TimeInterval
     var onTimerEnd: () -> Void
     @State private var audioPlayer: AVAudioPlayer?
@@ -48,7 +49,7 @@ struct TimerView: View {
                 }
                 
             let timerLeft = timerDuration - (CGFloat(timerValue) * timerDuration)
-                if timerLeft <= 5 && !isSoundPlayed {
+                if viewModel.isSoundEnabled && timerLeft <= 5 && !isSoundPlayed {
                     audioPlayer?.play()
                     isSoundPlayed = true
                 }

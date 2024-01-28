@@ -33,6 +33,7 @@ struct GameScreen: View {
                             TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 isTimerEnd = true
                             })
+                            .environmentObject(viewModel)
                             Text(viewModel.rootWord)
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 40))
