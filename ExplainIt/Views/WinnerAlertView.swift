@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WinnerAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     @State private var selectedDuration = 30
     @State private var timerDuration = [30]
     @State private var isGameFinish: Bool = false
@@ -28,7 +29,8 @@ struct WinnerAlertView: View {
                 .padding()
             VStack {
                 CustomButton(name: "Finish") {
-                    isGameFinish = true
+//                    isGameFinish = true
+                    self.presentationMode.wrappedValue.dismiss()
                     viewModel.resetGame()
 //                    viewModel.clearGameData()
                 }
