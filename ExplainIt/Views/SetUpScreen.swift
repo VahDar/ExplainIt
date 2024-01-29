@@ -24,6 +24,7 @@ struct SetUpScreen: View {
             VStack {
                 Spacer()
                 CustomDivider()
+                    .offset(y: 30)
                     HStack {
                         Text("Required Points:")
                             .foregroundStyle(Color.blue)

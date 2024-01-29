@@ -4,6 +4,7 @@ struct GameScreen: View {
     @State private var isViewVisible = false
     @State private var isTimerEnd = false
     @State private var isTimerRunning = false
+    @State private var timerEnded = false
     @State private var timerView: TimerView?
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
@@ -50,7 +51,12 @@ struct GameScreen: View {
                                     } else if swipeDistance > 0 {
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: false)
                                     }
-                                    viewModel.loadWords(forTopic: viewModel.currentTopic)
+                                    
+                                    if timerEnded {
+                                        isTimerEnd = true
+                                    } else {
+                                        viewModel.loadWords(forTopic: viewModel.currentTopic)
+                                    }
                                 })
                         )
                     }
