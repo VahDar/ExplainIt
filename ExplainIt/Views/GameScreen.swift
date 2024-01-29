@@ -32,7 +32,10 @@ struct GameScreen: View {
                     if isViewVisible {
                         ZStack {
                             TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
-                                isTimerEnd = true
+                                timerEnded = true
+                                if viewModel.swipedWords.isEmpty {
+                                    isTimerEnd = true
+                                }
                             })
                             .environmentObject(viewModel)
                             Text(viewModel.rootWord)
