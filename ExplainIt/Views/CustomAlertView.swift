@@ -11,6 +11,8 @@ struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool)]
     @Binding var points: Int
+    @Binding var lastWordSwipedUp: Bool
+    @Binding var lastSwipedWord: String
     @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
         wordSwipeData.reduce(0) { result, data in
@@ -42,10 +44,14 @@ struct CustomAlertView: View {
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Poits: \(calculatedPoints)")
+            Text("Points: \(calculatedPoints)")
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()
+            if lastWordSwipedUp {
+                Text("Last word: \(lastSwipedWord)")
+                
+            }
             CustomButton(name: "Next") {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 isTeamInfoActive = true
