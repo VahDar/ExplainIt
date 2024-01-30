@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
 
-//    @State private var isGameScreenActive = false
     @State private var isTeamScreenActive = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0

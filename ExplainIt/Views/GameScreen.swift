@@ -5,6 +5,8 @@ struct GameScreen: View {
     @State private var isTimerEnd = false
     @State private var isTimerRunning = false
     @State private var timerEnded = false
+    @State private var lastWordSwipedUp = false
+    @State private var lastSwipedWord = ""
     @State private var timerView: TimerView?
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
@@ -51,6 +53,10 @@ struct GameScreen: View {
                                     let swipeDistance = gesture.translation.height
                                     if swipeDistance < 0 {
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: true)
+                                        if isTimerEnd {
+                                            lastWordSwipedUp = true
+                                            lastSwipedWord = viewModel.rootWord
+                                        }
                                     } else if swipeDistance > 0 {
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: false)
                                     }
