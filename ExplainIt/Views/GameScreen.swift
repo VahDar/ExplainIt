@@ -77,7 +77,7 @@ struct GameScreen: View {
                 )
                 .blur(radius: isTimerEnd ? 10 : 0)
                 if isTimerEnd {
-                    CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3))
+                    CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3), lastWordSwipedUp: $lastWordSwipedUp, lastSwipedWord: $lastSwipedWord)
                         .environmentObject(viewModel)
                         .frame(width: 300, height: 500)
                         .background(BackgroundView())

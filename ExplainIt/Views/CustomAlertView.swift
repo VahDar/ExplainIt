@@ -50,7 +50,16 @@ struct CustomAlertView: View {
                 .padding()
             if lastWordSwipedUp {
                 Text("Last word: \(lastSwipedWord)")
-                
+                List(viewModel.teams, id: \.self) { team in
+                    HStack {
+                        Text(team)
+                        Spacer()
+                        if team == viewModel.teams[viewModel.currentTeamIndex] {
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(Color.green)
+                        }
+                    }
+                }
             }
             CustomButton(name: "Next") {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
