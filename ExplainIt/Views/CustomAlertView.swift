@@ -11,8 +11,6 @@ struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool)]
     @Binding var points: Int
-    @Binding var lastWordSwipedUp: Bool
-    @Binding var lastSwipedWord: String
     @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
         wordSwipeData.reduce(0) { result, data in
@@ -44,23 +42,10 @@ struct CustomAlertView: View {
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Points: \(calculatedPoints)")
+            Text("Poits: \(calculatedPoints)")
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()
-            if lastWordSwipedUp {
-                Text("Last word: \(lastSwipedWord)")
-                List(viewModel.teams, id: \.self) { team in
-                    HStack {
-                        Text(team)
-                        Spacer()
-                        if team == viewModel.teams[viewModel.currentTeamIndex] {
-                            Image(systemName: "checkmark")
-                                .foregroundStyle(Color.green)
-                        }
-                    }
-                }
-            }
             CustomButton(name: "Next") {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 isTeamInfoActive = true

@@ -5,8 +5,6 @@ struct GameScreen: View {
     @State private var isTimerEnd = false
     @State private var isTimerRunning = false
     @State private var timerEnded = false
-    @State private var lastWordSwipedUp = false
-    @State private var lastSwipedWord = ""
     @State private var timerView: TimerView?
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
@@ -53,10 +51,6 @@ struct GameScreen: View {
                                     let swipeDistance = gesture.translation.height
                                     if swipeDistance < 0 {
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: true)
-                                        if isTimerEnd {
-                                            lastWordSwipedUp = true
-                                            lastSwipedWord = viewModel.rootWord
-                                        }
                                     } else if swipeDistance > 0 {
                                         viewModel.updateSwipe(word: viewModel.rootWord, swiped: false)
                                     }
@@ -77,7 +71,7 @@ struct GameScreen: View {
                 )
                 .blur(radius: isTimerEnd ? 10 : 0)
                 if isTimerEnd {
-                    CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3), lastWordSwipedUp: $lastWordSwipedUp, lastSwipedWord: $lastSwipedWord)
+                    CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3))
                         .environmentObject(viewModel)
                         .frame(width: 300, height: 500)
                         .background(BackgroundView())
@@ -96,7 +90,6 @@ struct GameScreen: View {
         isTimerRunning = true
     }
 }
-
 struct GameScreen_Previews: PreviewProvider {
     static var previews: some View {
         GameScreen()
