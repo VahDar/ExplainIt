@@ -21,7 +21,7 @@
 		FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26322A9DFC550007F5F6 /* ContentView.swift */; };
 		FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCD26342A9DFC560007F5F6 /* Assets.xcassets */; };
 		FCCD26382A9DFC560007F5F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCD26372A9DFC560007F5F6 /* Preview Assets.xcassets */; };
-		FCCD263F2A9DFD370007F5F6 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCCD263E2A9DFD370007F5F6 /* start.txt */; };
+		FCCD263F2A9DFD370007F5F6 /* General.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCCD263E2A9DFD370007F5F6 /* General.txt */; };
 		FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26402A9DFE250007F5F6 /* CustomButton.swift */; };
 		FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26422A9E08910007F5F6 /* BackgroundView.swift */; };
 		FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */; };
@@ -48,7 +48,7 @@
 		FCCD26322A9DFC550007F5F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FCCD26342A9DFC560007F5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCCD26372A9DFC560007F5F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FCCD263E2A9DFD370007F5F6 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		FCCD263E2A9DFD370007F5F6 /* General.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = General.txt; sourceTree = "<group>"; };
 		FCCD26402A9DFE250007F5F6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FCCD26422A9E08910007F5F6 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpScreen.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
 				FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */,
-				FCCD263E2A9DFD370007F5F6 /* start.txt */,
+				FCCD263E2A9DFD370007F5F6 /* General.txt */,
 				FC5A540A2B66D7EC003E4952 /* sound.mp3 */,
 				FC5A54082B6696A1003E4952 /* astronautMain.json */,
 				FCE922F02B60FE8800856F9C /* astronaut.json */,
@@ -217,7 +217,7 @@
 				FCCD26382A9DFC560007F5F6 /* Preview Assets.xcassets in Resources */,
 				FC5A540B2B66D7EC003E4952 /* sound.mp3 in Resources */,
 				FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */,
-				FCCD263F2A9DFD370007F5F6 /* start.txt in Resources */,
+				FCCD263F2A9DFD370007F5F6 /* General.txt in Resources */,
 				FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
 				FCE922F12B60FE8800856F9C /* astronaut.json in Resources */,

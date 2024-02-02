@@ -1,8 +1,150 @@
-Transfiguration
-Apparition
-Mandrake
-Hippogriff
-Basilisk
-Squib
-Muggle
+Harry Potter
+Hermione Granger
+Ron Weasley
+Hogwarts
 Dumbledore
+Voldemort
+Quidditch
+Gryffindor
+Slytherin
+Hufflepuff
+Ravenclaw
+Muggle
+Wand
+Patronus
+Dementor
+Snape
+Malfoy
+Polyjuice Potion
+Diagon Alley
+The Sorting Hat
+Fawkes
+Horcrux
+Hagrid
+Nimbus 2000
+The Burrow
+Death Eater
+Azkaban
+The Marauder's Map
+Basilisk
+The Triwizard Tournament
+Goblet of Fire
+House Elf
+Dobby
+The Forbidden Forest
+The Whomping Willow
+Butterbeer
+The Golden Snitch
+The Chamber of Secrets
+The Mirror of Erised
+The Philosopher's Stone
+Luna Lovegood
+The Knight Bus
+Bellatrix Lestrange
+The Elder Wand
+The Pensieve
+The Half-Blood Prince
+The Order of the Phoenix
+The Weasley Twins
+Moaning Myrtle
+The Leaky Cauldron
+Platform 9 ¾
+Parseltongue
+Gringotts
+The Daily Prophet
+The Cloak of Invisibility
+Sirius Black
+Remus Lupin
+Thestral
+Portkey
+Spellbook
+The Yule Ball
+Cedric Diggory
+Fleur Delacour
+Viktor Krum
+Mad-Eye Moody
+The Sorcerer's Stone
+The Goblet of Fire
+The Deathly Hallows
+Sectumsempra
+Lumos
+Nox
+Accio
+Expelliarmus
+Alohomora
+Crucio
+Avada Kedavra
+Imperio
+Wingardium Leviosa
+The Lovegood House
+The Room of Requirement
+The Slytherin Locket
+The Hufflepuff Cup
+The Ravenclaw Diadem
+The Gaunt Ring
+Nagini
+The Tales of Beedle the Bard
+The Quibbler
+Floo Powder
+Godric Gryffindor
+Salazar Slytherin
+Helga Hufflepuff
+Rowena Ravenclaw
+The Battle of Hogwarts
+The Lightning Scar
+The Forbidden Section
+The Giant Squid
+The Firebolt
+The Triwizard Cup
+The Veil
+The Hog's Head
+The Golden Trio
+Kreacher
+Winky
+The Ministry of Magic
+The Prophecy
+The Grim
+Tonks
+The Portraits of Hogwarts
+The Time-Turner
+The Felix Felicis
+The Vanishing Cabinet
+The Sword of Gryffindor
+The Hogwarts Express
+The Black Family Tapestry
+The Shrieking Shack
+The Dueling Club
+The Quidditch World Cup
+The Hogwarts Choir
+The Spellotape
+The Quaffle
+The Bludgers
+The Beaters
+The Seeker
+The Chaser
+The Keeper
+The Prefects' Bathroom
+The Gillyweed
+The Horcrux Hunt
+The Deathly Hallows Symbol
+The Three Broomsticks
+The Dark Mark
+The Polyjuice Mistake
+The Hogwarts Letters
+The Grindylow
+The Inferi
+The Floo Network
+The OWLs and NEWTs
+The Slytherin's Serpent
+The Gryffindor's Lion
+The Hufflepuff's Badger
+The Ravenclaw's Eagle
+The Sorting Ceremony
+The Pumpkin Pasties
+The Chocolate Frogs
+The Wizard Chess
+The Magical Creatures Class
+The Defense Against the Dark Arts
+The History of Magic
+The Herbology Greenhouses
+The Flying Lessons

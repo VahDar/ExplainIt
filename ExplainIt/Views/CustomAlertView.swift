@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
-    @Binding var wordSwipeData: [(word: String, swiped: Bool)]
+    @Binding var wordSwipeData: [(word: String, swiped: Bool, isLastWord: Bool)]
     @Binding var points: Int
+    @State private var selectedTeamForLastWord: String?
     @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
         wordSwipeData.reduce(0) { result, data in
@@ -24,19 +25,35 @@ struct CustomAlertView: View {
                 .font(.title)
                 .padding()
             List {
-                ForEach($wordSwipeData, id: \.word) { $data in
+                ForEach($wordSwipeData.indices, id: \.self) { index in
                     HStack {
-                        Text(data.word)
+                        Text(wordSwipeData[index].word)
                             .foregroundStyle(Color.blue)
                         Spacer()
-                        if data.swiped {
+                        if wordSwipeData[index].swiped {
                             Image(systemName: "checkmark")
-                                .foregroundStyle(Color.green)
+                                .foregroundStyle(Color.blue)
+                        }
+                        if wordSwipeData[index].isLastWord {
+                            Picker("Select Team", selection: $selectedTeamForLastWord) {
+                                ForEach(viewModel.teams, id: \.self) { team in
+                                    Text(team).tag(team as String?)
+                                        .foregroundStyle(Color.blue)
+                                }
+                            }
+                            .pickerStyle(MenuPickerStyle())
+                            .onChange(of: selectedTeamForLastWord) { newValue in
+                                if let teamName = newValue {
+                                    viewModel.updateTeamPoints(team: teamName, points: 1) // Начисляем 1 очко выбранной команде за последнее слово
+                                    wordSwipeData[index].isLastWord = false // Сбрасываем флаг последнего слова
+                                }
+                            }
                         }
                     }
                     .onTapGesture {
-                        data.swiped.toggle()
+                        wordSwipeData[index].swiped.toggle()
                         points = calculatedPoints
+//                        viewModel.objectWillChange.send()
                     }
                 }
                 .listRowBackground(Color.clear)

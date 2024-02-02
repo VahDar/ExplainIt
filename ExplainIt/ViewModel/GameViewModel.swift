@@ -16,7 +16,7 @@ class GameViewModel: ObservableObject {
     @Published var currentTeamIndex = 0
     @Published var teamPoints: [String: Int] = [:]
     @Published var teamRounds: [String: Int] = [:]
-    @Published var swipedWords: [(word: String, swiped: Bool)] = []
+    @Published var swipedWords: [(word: String, swiped: Bool, isLastWord: Bool)] = []
     @Published var isGameScreenPresented: Bool = false
     @Published var isFinalRoundPhase: Bool = false
     @Published var isWinnerActive: Bool = false
@@ -37,21 +37,6 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    func checkReset() {
-        print("rootWord - \(rootWord)")
-        print("roundTime - \(roundTime)")
-        print("requiredPoints - \(requiredPoints)")
-        print("teams - \(teams)")
-        print("currentTeamIndex - \(currentTeamIndex)")
-        print("teamPoints - \(teamPoints)")
-        print("teamRounds - \(teamRounds)")
-        print("swipedWords - \(swipedWords)")
-        print("isGameScreenPresented - \(isGameScreenPresented)")
-        print("isFinalRoundPhase - \(isFinalRoundPhase)")
-        print("isWinnerActive - \(isWinnerActive)")
-        print("winners - \(winners)")
-        
-    }
     func moveToNextTeam() {
         print("Index Team: - \(currentTeamIndex)")
         let wasLastTeam = currentTeamIndex == teams.count - 1
@@ -70,6 +55,7 @@ class GameViewModel: ObservableObject {
         }
         
         isGameScreenPresented = false
+        loadWords(forTopic: currentTopic)
         isGameScreenPresented = true
         
         // Increase the round counter for the current team
@@ -81,22 +67,7 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    func resetGame() {
-        rootWord = ""
-        roundTime = 30
-        requiredPoints = 20
-        teams = []
-        currentTeamIndex = 0
-        teamPoints = [:]
-        teamRounds = [:]
-        swipedWords = []
-        isGameScreenPresented = false
-        isFinalRoundPhase = false
-        isWinnerActive = false
-        backgroundImagePath = ""
-        winners = ""
-        currentTopic = ""
-    }
+    
     
     func updateTeamPoints(team: String, points: Int) {
         if let existingPoints = teamPoints[team] {
@@ -156,11 +127,11 @@ class GameViewModel: ObservableObject {
         swipedWords.removeAll()
     }
     
-    func updateSwipe(word: String, swiped: Bool) {
+    func updateSwipe(word: String, swiped: Bool, isLast: Bool = false) {
         if let index = swipedWords.firstIndex(where: { $0.word == word }) {
             swipedWords[index].swiped = swiped
         } else {
-            swipedWords.append((word, swiped))
+            swipedWords.append((word, swiped, isLast))
         }
     }
     
@@ -179,6 +150,23 @@ class GameViewModel: ObservableObject {
     func backgroundImageName(for topic: String) -> String {
             return UIImage(named: topic) != nil ? topic : "defaultBackground"
         }
+    
+    func resetGame() {
+        rootWord = ""
+        roundTime = 30
+        requiredPoints = 20
+        teams = []
+        currentTeamIndex = 0
+        teamPoints = [:]
+        teamRounds = [:]
+        swipedWords = []
+        isGameScreenPresented = false
+        isFinalRoundPhase = false
+        isWinnerActive = false
+        backgroundImagePath = ""
+        winners = ""
+        currentTopic = ""
+    }
 }
 
 extension GameViewModel {

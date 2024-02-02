@@ -32,8 +32,6 @@ struct ContentView: View {
                         isTeamScreenActive = true
                         viewModel.clearGameData()
                         viewModel.resetGame()
-//                        viewModel.checkReset()
-//                        viewModel.checkDataCleared()
                     }
                     .padding(.bottom)
             }
