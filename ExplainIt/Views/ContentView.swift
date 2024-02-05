@@ -28,7 +28,7 @@ struct ContentView: View {
                     .frame(width: 100, height: 100)
                     .scaleEffect(0.2)
                     .padding(.bottom)
-                    CustomButton(name: "New game") {
+                    CustomButton(name: "New Game") {
                         isTeamScreenActive = true
                         viewModel.clearGameData()
                         viewModel.resetGame()
