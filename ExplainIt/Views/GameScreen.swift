@@ -54,19 +54,6 @@ struct GameScreen: View {
                         .gesture(
                             DragGesture()
                                 .onEnded({ gesture in
-//                                    let swipeDistance = gesture.translation.height
-//                                    if swipeDistance < 0 {
-//                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: true)
-//                                    } else if swipeDistance > 0 {
-//                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: false)
-//                                    }
-//                                    
-//                                    if timerEnded {
-//                                        isTimerEnd = true
-//                                    } else {
-//                                        viewModel.loadWords(forTopic: viewModel.currentTopic)
-//                                    }
-//                                })
                                     let swipeDistance = gesture.translation.height
                                                                        let swiped = swipeDistance < 0
                                                                        lastWordSwiped = true // Отмечаем, что был сделан свайп

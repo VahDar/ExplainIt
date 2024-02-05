@@ -12,12 +12,13 @@ struct CustomAlertView: View {
     @Binding var wordSwipeData: [(word: String, swiped: Bool, isLastWord: Bool)]
     @Binding var points: Int
     @State private var selectedTeamForLastWord: String?
+    @State private var lastWordPointsAssigned = false
     @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
-        wordSwipeData.reduce(0) { result, data in
-            result + (data.swiped ? 1 : -1)
+        wordSwipeData.filter { !$0.isLastWord }.reduce(0) { $0 + ($1.swiped ? 1: -1)
         }
     }
+    
     var body: some View {
         VStack {
             Text("\(viewModel.teams[viewModel.currentTeamIndex])")
@@ -30,11 +31,11 @@ struct CustomAlertView: View {
                         Text(wordSwipeData[index].word)
                             .foregroundStyle(Color.blue)
                         Spacer()
-                        if wordSwipeData[index].swiped {
+                        if wordSwipeData[index].swiped && !wordSwipeData[index].isLastWord {
                             Image(systemName: "checkmark")
                                 .foregroundStyle(Color.blue)
                         }
-                        if wordSwipeData[index].isLastWord {
+                        if wordSwipeData[index].isLastWord  && wordSwipeData[index].swiped {
                             Picker("Select Team", selection: $selectedTeamForLastWord) {
                                 ForEach(viewModel.teams, id: \.self) { team in
                                     Text(team).tag(team as String?)
@@ -44,16 +45,16 @@ struct CustomAlertView: View {
                             .pickerStyle(MenuPickerStyle())
                             .onChange(of: selectedTeamForLastWord) { newValue in
                                 if let teamName = newValue {
-                                    viewModel.updateTeamPoints(team: teamName, points: 1) // Начисляем 1 очко выбранной команде за последнее слово
-                                    wordSwipeData[index].isLastWord = false // Сбрасываем флаг последнего слова
+                                    viewModel.updateTeamPoints(team: teamName, points: 1)
                                 }
                             }
                         }
                     }
                     .onTapGesture {
-                        wordSwipeData[index].swiped.toggle()
-                        points = calculatedPoints
-//                        viewModel.objectWillChange.send()
+                        if !wordSwipeData[index].isLastWord {
+                            wordSwipeData[index].swiped.toggle()
+                            points = calculatedPoints
+                        }
                     }
                 }
                 .listRowBackground(Color.clear)
@@ -65,9 +66,13 @@ struct CustomAlertView: View {
                 .padding()
             CustomButton(name: "Next") {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
+                if let selectedTeam = selectedTeamForLastWord, let lastWord = wordSwipeData.first(where: { $0.isLastWord }) {
+                    if lastWord.swiped {
+                        // Если последнее слово угадано, добавляем очко выбранной команде
+                        viewModel.updateTeamPoints(team: selectedTeam, points: 1)
+                    }
+                }
                 isTeamInfoActive = true
-                var transaction = Transaction()
-                transaction.disablesAnimations = true
             }
             .padding()
         }
