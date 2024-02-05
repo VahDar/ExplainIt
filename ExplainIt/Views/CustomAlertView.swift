@@ -11,7 +11,7 @@ struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool, isLastWord: Bool)]
     @Binding var points: Int
-    @State private var selectedTeamForLastWord: String?
+    @State private var selectedTeamForLastWord: String? = nil
     @State private var lastWordPointsAssigned = false
     @State private var isTeamInfoActive = false
     private var calculatedPoints: Int {
@@ -37,6 +37,7 @@ struct CustomAlertView: View {
                         }
                         if wordSwipeData[index].isLastWord  && wordSwipeData[index].swiped {
                             Picker("Select Team", selection: $selectedTeamForLastWord) {
+                                Text("Choose team").tag(String?.none)
                                 ForEach(viewModel.teams, id: \.self) { team in
                                     Text(team).tag(team as String?)
                                         .foregroundStyle(Color.blue)
@@ -45,7 +46,7 @@ struct CustomAlertView: View {
                             .pickerStyle(MenuPickerStyle())
                             .onChange(of: selectedTeamForLastWord) { newValue in
                                 if let teamName = newValue {
-                                    viewModel.updateTeamPoints(team: teamName, points: 1)
+                                    viewModel.updateTeamPoints(team: teamName, points: 0)
                                 }
                             }
                         }
