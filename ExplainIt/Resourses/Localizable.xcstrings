@@ -18,6 +18,12 @@
             "state" : "translated",
             "value" : "%lld points"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld балів"
+          }
         }
       }
     },
@@ -27,6 +33,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld sec"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld сек"
           }
         }
       }
@@ -38,6 +50,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add Team"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати команду"
           }
         }
       }
@@ -58,6 +76,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose a Topic:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виберіть тему:"
           }
         }
       }
@@ -100,6 +124,12 @@
             "state" : "translated",
             "value" : "Swipe to delete a team"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проведіть пальцем, щоб видалити команду"
+          }
         }
       }
     },
@@ -109,6 +139,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maximum number of teams reached!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зібрано максимальну кількість команд!"
           }
         }
       }
@@ -132,6 +168,12 @@
             "state" : "translated",
             "value" : "Next"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далі"
+          }
         }
       }
     },
@@ -142,6 +184,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Next"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далі"
           }
         }
       }
@@ -173,6 +221,12 @@
             "state" : "translated",
             "value" : "Poits: %lld"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Балів: %lld"
+          }
         }
       }
     },
@@ -182,6 +236,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press and hold to enter team name"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть і утримуйте, щоб ввести назву команди "
           }
         }
       }
@@ -204,6 +264,12 @@
             "state" : "translated",
             "value" : "Required Points:"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необхідні бали:"
+          }
         }
       }
     },
@@ -213,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Required points: %lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необхідні бали: %lld"
           }
         }
       }
@@ -233,6 +305,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Round Time:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Час Раунду:"
           }
         }
       }
@@ -306,6 +384,12 @@
             "state" : "translated",
             "value" : "Now play team"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зараз грає команда"
+          }
         }
       }
     },
@@ -327,6 +411,12 @@
             "state" : "translated",
             "value" : "Turn on/off timer sound: "
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути/Вимкнути звук таймера:"
+          }
         }
       }
     },
@@ -336,6 +426,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Winner: "
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переможець:"
           }
         }
       }
