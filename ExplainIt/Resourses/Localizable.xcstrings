@@ -8,6 +8,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -60,12 +66,28 @@
         }
       }
     },
-    "Cancle" : {
+    "Cancel" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancle"
+            "value" : "Cancel"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відмінити"
+          }
+        }
+      }
+    },
+    "Choose a team" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a team"
           }
         }
       }
@@ -81,17 +103,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Виберіть тему:"
-          }
-        }
-      }
-    },
-    "Choose team" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose team"
+            "value" : "Виберіть Тему:"
           }
         }
       }
@@ -113,22 +125,11 @@
             "state" : "translated",
             "value" : "If you guessed the word swipe up, if not, swipe down."
           }
-        }
-      }
-    },
-    "Instructions team name prt2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Swipe to delete a team"
-          }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Проведіть пальцем, щоб видалити команду"
+            "value" : "Якщо ви вгадали слово, проведіть пальцем угору, якщо ні, проведіть пальцем вниз."
           }
         }
       }
@@ -156,6 +157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "New Game"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нова Гра"
           }
         }
       }
@@ -201,6 +208,12 @@
             "state" : "translated",
             "value" : "Now play %@ team"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зараз грає %@ команда"
+          }
         }
       }
     },
@@ -211,21 +224,27 @@
             "state" : "translated",
             "value" : "Ok"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підтвердити"
+          }
         }
       }
     },
-    "Poits: %lld" : {
+    "Points: %lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Poits: %lld"
+            "value" : "Points: %lld"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Балів: %lld"
+            "value" : "Бали: %lld"
           }
         }
       }
@@ -253,6 +272,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Random"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Випадкове"
+          }
+        }
+      }
+    },
+    "Required Points" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required Points"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необхідні Бали"
           }
         }
       }
@@ -322,15 +363,21 @@
             "state" : "translated",
             "value" : "Save"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти"
+          }
         }
       }
     },
-    "Select Team" : {
+    "Select a team" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Select Team"
+            "value" : "Select a team"
           }
         }
       }
@@ -343,6 +390,12 @@
             "state" : "translated",
             "value" : "Start"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почати"
+          }
         }
       }
     },
@@ -353,12 +406,24 @@
             "state" : "translated",
             "value" : "Swipe to delete a team"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проведіть пальцем, щоб видалити команду"
+          }
         }
       }
     },
     "Team %lld Name" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team %lld Name"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Team %lld Name"
@@ -372,6 +437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Team name"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Імʼя команди"
           }
         }
       }
@@ -389,17 +460,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зараз грає команда"
-          }
-        }
-      }
-    },
-    "Topic" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose a Topic"
           }
         }
       }

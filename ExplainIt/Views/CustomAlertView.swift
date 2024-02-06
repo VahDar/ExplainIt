@@ -36,8 +36,8 @@ struct CustomAlertView: View {
                                 .foregroundStyle(Color.blue)
                         }
                         if wordSwipeData[index].isLastWord  && wordSwipeData[index].swiped {
-                            Picker("Select Team", selection: $selectedTeamForLastWord) {
-                                Text("Choose team").tag(String?.none)
+                            Picker("Select a team", selection: $selectedTeamForLastWord) {
+                                Text("Choose a team").tag(String?.none)
                                 ForEach(viewModel.teams, id: \.self) { team in
                                     Text(team).tag(team as String?)
                                         .foregroundStyle(Color.blue)
@@ -61,7 +61,7 @@ struct CustomAlertView: View {
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Poits: \(calculatedPoints)")
+            Text("Points: \(calculatedPoints)")
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()

@@ -78,7 +78,7 @@ struct TeamName: View {
                     viewModel.teams = teamNames
                 }
             }
-            Button("Cancle", role: .cancel) {}
+            Button("Cancel", role: .cancel) {}
         }
         .alert("Maximum number of teams reached!", isPresented: $isWarningAlertPresented) {
             Button("Ok", role: .cancel) {}
