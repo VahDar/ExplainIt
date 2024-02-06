@@ -1,6 +1,36 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%lld points" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld points"
+          }
+        }
+      }
+    },
+    "%lld sec" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld sec"
+          }
+        }
+      }
+    },
     "Add Team" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -12,13 +42,52 @@
         }
       }
     },
-    "Instructions team name" : {
-      "extractionState" : "manual",
+    "Cancle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Press and hold to enter team name"
+            "value" : "Cancle"
+          }
+        }
+      }
+    },
+    "Choose a Topic:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a Topic:"
+          }
+        }
+      }
+    },
+    "Choose team" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose team"
+          }
+        }
+      }
+    },
+    "Enter Team Name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter Team Name"
+          }
+        }
+      }
+    },
+    "If you guessed the word swipe up, if not, swipe down." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you guessed the word swipe up, if not, swipe down."
           }
         }
       }
@@ -30,6 +99,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Swipe to delete a team"
+          }
+        }
+      }
+    },
+    "Maximum number of teams reached!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maximum number of teams reached!"
           }
         }
       }
@@ -56,6 +135,57 @@
         }
       }
     },
+    "Next button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "Now play %@ team" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now play %@ team"
+          }
+        }
+      }
+    },
+    "Ok" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "Poits: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poits: %lld"
+          }
+        }
+      }
+    },
+    "Press and hold to enter a team name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press and hold to enter team name"
+          }
+        }
+      }
+    },
     "Random" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -63,6 +193,149 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Random"
+          }
+        }
+      }
+    },
+    "Required Points:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required Points:"
+          }
+        }
+      }
+    },
+    "Required points: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required points: %lld"
+          }
+        }
+      }
+    },
+    "Round Time" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Round Time"
+          }
+        }
+      }
+    },
+    "Round Time:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Round Time:"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "Select Team" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Team"
+          }
+        }
+      }
+    },
+    "Start button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        }
+      }
+    },
+    "Swipe to delete a team" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swipe to delete a team"
+          }
+        }
+      }
+    },
+    "Team %lld Name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team %lld Name"
+          }
+        }
+      }
+    },
+    "Team name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team name"
+          }
+        }
+      }
+    },
+    "Title what team play" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now play team"
+          }
+        }
+      }
+    },
+    "Topic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a Topic"
+          }
+        }
+      }
+    },
+    "Turn on/off timer sound: " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn on/off timer sound: "
+          }
+        }
+      }
+    },
+    "Winner: " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winner: "
           }
         }
       }

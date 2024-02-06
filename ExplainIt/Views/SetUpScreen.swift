@@ -39,7 +39,7 @@ struct SetUpScreen: View {
                     .padding(.top, 40)
                 
                     HStack {
-                        Text("Round time:")
+                        Text("Round Time:")
                             .foregroundStyle(.blue)
                         
                         Picker("Round Time", selection: $selectedDuration) {
