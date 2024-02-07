@@ -89,6 +89,12 @@
             "state" : "translated",
             "value" : "Choose a team"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виберіть команду"
+          }
         }
       }
     },
@@ -114,6 +120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter Team Name"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введіть назву команди"
           }
         }
       }
@@ -337,6 +349,12 @@
             "state" : "translated",
             "value" : "Round Time"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Час Раунду"
+          }
         }
       }
     },
@@ -378,6 +396,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select a team"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виберіть команду"
           }
         }
       }
