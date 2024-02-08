@@ -15,17 +15,17 @@ struct GameScreen: View {
                 VStack {
                     if !isViewVisible {
                         VStack {
-                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex]) team".localized)
+                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex]) team")
                                 .foregroundStyle(Color.blue)
                                 .padding()
-                            Text("If you guessed the word swipe up, if not, swipe down.".localized)
+                            Text("If you guessed the word swipe up, if not, swipe down.")
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 40))
                                 .fontWeight(.bold)
                                 .padding(.leading, 25)
                                 .padding(.trailing, 25)
                             
-                            CustomButton(name: "Start".localized) {
+                            CustomButton(name: "Start") {
                                 startRound()
                                 viewModel.clearSwipeWords()
                             }

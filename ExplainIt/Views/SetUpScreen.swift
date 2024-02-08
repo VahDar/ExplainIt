@@ -51,7 +51,7 @@ struct SetUpScreen: View {
                         .background(Color.clear)
                     }
                     .padding(.top, 40)
-                Toggle("Turn on/off timer sound: ".localized, isOn: $viewModel.isSoundEnabled)
+                Toggle("Turn on/off timer sound: ", isOn: $viewModel.isSoundEnabled)
                     .tint(.blue)
                     .foregroundStyle(Color.blue)
                     .padding(.horizontal, 80)
@@ -59,7 +59,7 @@ struct SetUpScreen: View {
                 CustomDivider()
                 
                     VStack {
-                        Text("Choose a Topic:".localized)
+                        Text("Choose a Topic:")
                             .foregroundStyle(.blue)
                         ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
@@ -98,7 +98,7 @@ struct SetUpScreen: View {
                 }
                 .frame(height: 300)
                 .padding()
-                CustomDisabledButton(name: "Next".localized, action: {
+                CustomDisabledButton(name: "Next", action: {
                     startGame()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)

@@ -2,34 +2,20 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@"
-          }
-        }
-      }
+
     },
     "%lld points" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " points"
+            "value" : "%lld points"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " балів"
+            "value" : "%lld балів"
           }
         }
       }
@@ -39,36 +25,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " sec"
+            "value" : "%lld sec"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " сек"
-          }
-        }
-      }
-    },
-    "Add Team" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add Team"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Додати команду"
+            "value" : "%lld сек"
           }
         }
       }
     },
     "Cancel" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -85,7 +53,6 @@
       }
     },
     "Choose a team" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -102,7 +69,6 @@
       }
     },
     "Choose a Topic:" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -113,13 +79,12 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Виберіть Тему:"
+            "value" : "Виберіть тему:"
           }
         }
       }
     },
     "Enter Team Name" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -136,7 +101,6 @@
       }
     },
     "If you guessed the word swipe up, if not, swipe down." : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -153,7 +117,6 @@
       }
     },
     "Maximum number of teams reached!" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -186,59 +149,23 @@
         }
       }
     },
-    "Next" : {
-      "extractionState" : "manual",
+    "Now play %@ team" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Next"
+            "value" : "Now play %@ team"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Далі"
-          }
-        }
-      }
-    },
-    "Next Team" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next Team"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Наступа Команда"
-          }
-        }
-      }
-    },
-    "Now play team" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Now play team"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зараз грає команда"
+            "value" : "Зараз грає %@ команда"
           }
         }
       }
     },
     "Ok" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -249,47 +176,44 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Підтвердити"
+            "value" : "Так"
           }
         }
       }
     },
     "Points: %lld" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Points: "
+            "value" : "Points: %lld"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Бали: "
+            "state" : "translated",
+            "value" : "Бали: %lld"
           }
         }
       }
     },
     "Press and hold to enter a team name" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Press and hold to enter team name"
+            "value" : "Press and hold to enter a team name"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Натисніть і утримуйте, щоб ввести назву команди "
+            "value" : "Натисніть і утримуйте, щоб ввести назву команди"
           }
         }
       }
     },
     "Random" : {
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -305,76 +229,23 @@
         }
       }
     },
-    "Required Points" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Required Points:"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Необхідні Бали:"
-          }
-        }
-      }
-    },
     "Required points: %lld" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Required Points: "
+            "value" : "Required points: %lld"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Необхідні Бали: "
-          }
-        }
-      }
-    },
-    "Round Time" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Round Time"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Час Раунду"
-          }
-        }
-      }
-    },
-    "Round Time:" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Round Time:"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Час Раунду:"
+            "value" : "Необхідні бали: %lld"
           }
         }
       }
     },
     "Save" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -391,7 +262,6 @@
       }
     },
     "Select a team" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -407,25 +277,7 @@
         }
       }
     },
-    "Start" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Почати"
-          }
-        }
-      }
-    },
     "Swipe to delete a team" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -442,24 +294,22 @@
       }
     },
     "Team %lld Name" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Team  Name"
+            "value" : "Team %lld Name"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Імʼя Команди"
+            "state" : "translated",
+            "value" : "Назва %lld Команди"
           }
         }
       }
     },
     "Team name" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -470,30 +320,12 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Імʼя команди"
-          }
-        }
-      }
-    },
-    "Title what team play" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Now play team"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Зараз грає команда"
+            "value" : "Назва команди"
           }
         }
       }
     },
     "Turn on/off timer sound: " : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -504,13 +336,12 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Увімк./Вимк.звук таймера:"
+            "value" : "Увімкн./Вимкн. звук таймеру: "
           }
         }
       }
     },
     "Winner: " : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -521,7 +352,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Переможець:"
+            "value" : "Переможець: "
           }
         }
       }

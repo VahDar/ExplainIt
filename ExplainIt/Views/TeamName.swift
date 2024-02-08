@@ -24,11 +24,11 @@ struct TeamName: View {
             List {
                 ForEach(0..<teamNames.count, id: \.self) { index in
                     HStack {
-                        TextField("Team \(index + 1) Name".localized, text: $teamNames[index])
+                        TextField("Team \(index + 1) Name", text: $teamNames[index])
                             .textFieldStyle(PlainTextFieldStyle())
                             .foregroundStyle(.white)
                         Spacer()
-                        Text("Random".localized)
+                        Text("Random")
                             .onTapGesture {
                                 teamNames[index] = randomNames.randomElement() ?? ""
                                 viewModel.teams = teamNames
@@ -45,18 +45,20 @@ struct TeamName: View {
                 }
                 .onDelete(perform: removeTeam)
                 .listRowBackground(Color.clear)
-                CustomButton(name: "Add Team".localized) {
+                CustomButton(name: "Add Team") {
                     addTeam()
                 }
                 .padding()
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Press and hold to enter a team name".localized)
+            Text("Press and hold to enter a team name")
                 .foregroundStyle(Color.blue)
-            Text("Swipe to delete a team".localized)
+                .multilineTextAlignment(.center)
+            Text("Swipe to delete a team")
                 .foregroundStyle(Color.blue)
-            CustomDisabledButton(name: "Next".localized, action: {
+                .multilineTextAlignment(.center)
+            CustomDisabledButton(name: "Next", action: {
                 isSetUpScreenActive = true
             }, isDisabled: teamNames.isEmpty)
         }
@@ -70,24 +72,24 @@ struct TeamName: View {
             SetUpScreen()
                 .environmentObject(viewModel)
         }
-        .alert("Team name".localized, isPresented: $isAlertPresented) {
-            TextField("Enter Team Name".localized, text: $temporaryTeamName)
-            Button("Save".localized) {
+        .alert("Team name", isPresented: $isAlertPresented) {
+            TextField("Enter Team Name", text: $temporaryTeamName)
+            Button("Save") {
                 if let editingIndex = editingTeamIndex {
                     teamNames[editingIndex] = temporaryTeamName
                     viewModel.teams = teamNames
                 }
             }
-            Button("Cancel".localized, role: .cancel) {}
+            Button("Cancel", role: .cancel) {}
         }
-        .alert("Maximum number of teams reached!".localized, isPresented: $isWarningAlertPresented) {
-            Button("Ok".localized, role: .cancel) {}
+        .alert("Maximum number of teams reached!", isPresented: $isWarningAlertPresented) {
+            Button("Ok", role: .cancel) {}
         }
     }
     private func addTeam() {
         if teamNames.count < 8 {
             let newTeamNumber = teamNames.count + 1
-            teamNames.append("Team \(newTeamNumber)".localized)
+            teamNames.append("Team \(newTeamNumber)")
             viewModel.teams = teamNames
         } else {
             isWarningAlertPresented = true
