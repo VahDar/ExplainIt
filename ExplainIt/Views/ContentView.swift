@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    @AppStorage("language")
+    private var language = LocalizationService.shared.language
     @State private var isTeamScreenActive = false
+    @State private var isUkrainian = false
     @State private var selectedDuration = 30
     @State private var numberOfTeams = 0
-    
     @StateObject var viewModel = GameViewModel()
     var timerDurations: [Int]
     
@@ -28,19 +29,40 @@ struct ContentView: View {
                     .frame(width: 100, height: 100)
                     .scaleEffect(0.2)
                     .padding(.bottom)
-                CustomButton(name: "New Game".localized) {
-                        isTeamScreenActive = true
-                        viewModel.clearGameData()
-                        viewModel.resetGame()
-                    }
-                    .padding(.bottom)
-                CustomButton(name: "Language") {
-                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                           UIApplication.shared.open(url)
-                       }
+                    .offset(y: -30)
+                
+                CustomButton(name: "New Game".localized(language)) {
+                    isTeamScreenActive = true
+                    viewModel.clearGameData()
+                    viewModel.resetGame()
                 }
                 .padding(.bottom)
+                
+                HStack {
+                    Button {
+                        isUkrainian.toggle()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                    }
+                    
+                    if isUkrainian {
+                        Image("UA")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    } else {                        Image("USA")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                    
+                    Button {
+                        isUkrainian.toggle()
+                    } label: {
+                        Image(systemName: "chevron.right")
+                    }
+
+                }
             }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             
@@ -55,7 +77,9 @@ struct ContentView: View {
                 WinnerAlertView().environmentObject(viewModel)
             }
         }
-        
+        .onChange(of: isUkrainian) { newValue in
+                    LocalizationService.shared.language = newValue ? .ukrainian : .english_us
+                }
         .onAppear {
             viewModel.loadGameData()
         }

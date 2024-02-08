@@ -54,6 +54,7 @@
       }
     },
     "Cancel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -102,6 +103,7 @@
       }
     },
     "Enter Team Name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -151,6 +153,7 @@
       }
     },
     "Maximum number of teams reached!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -228,6 +231,7 @@
       }
     },
     "Ok" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -260,6 +264,7 @@
       }
     },
     "Press and hold to enter a team name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -276,6 +281,7 @@
       }
     },
     "Random" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -362,6 +368,7 @@
       }
     },
     "Save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -411,6 +418,7 @@
       }
     },
     "Swipe to delete a team" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -427,6 +435,7 @@
       }
     },
     "Team %lld Name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -443,6 +452,7 @@
       }
     },
     "Team name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TeamName: View {
     @State private var teamNames: [String] = []
+    @State private var language = LocalizationService.shared.language
     @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
     @State private var isSetUpScreenActive = false
     @State private var isAlertPresented = false
@@ -24,11 +25,11 @@ struct TeamName: View {
             List {
                 ForEach(0..<teamNames.count, id: \.self) { index in
                     HStack {
-                        TextField("Team \(index + 1) Name", text: $teamNames[index])
+                        TextField("Team \(index + 1) Name".localized(language), text: $teamNames[index])
                             .textFieldStyle(PlainTextFieldStyle())
                             .foregroundStyle(.white)
                         Spacer()
-                        Text("Random")
+                        Text("Random".localized(language))
                             .onTapGesture {
                                 teamNames[index] = randomNames.randomElement() ?? ""
                                 viewModel.teams = teamNames
@@ -45,20 +46,20 @@ struct TeamName: View {
                 }
                 .onDelete(perform: removeTeam)
                 .listRowBackground(Color.clear)
-                CustomButton(name: "Add Team".localized) {
+                CustomButton(name: "Add Team".localized(language)) {
                     addTeam()
                 }
                 .padding()
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Press and hold to enter a team name")
+            Text("Press and hold to enter a team name".localized(language))
                 .foregroundStyle(Color.blue)
                 .multilineTextAlignment(.center)
-            Text("Swipe to delete a team")
+            Text("Swipe to delete a team".localized(language))
                 .foregroundStyle(Color.blue)
                 .multilineTextAlignment(.center)
-            CustomDisabledButton(name: "Next".localized, action: {
+            CustomDisabledButton(name: "Next".localized(language), action: {
                 isSetUpScreenActive = true
             }, isDisabled: teamNames.isEmpty)
         }
@@ -72,18 +73,18 @@ struct TeamName: View {
             SetUpScreen()
                 .environmentObject(viewModel)
         }
-        .alert("Team name", isPresented: $isAlertPresented) {
-            TextField("Enter Team Name", text: $temporaryTeamName)
-            Button("Save") {
+        .alert("Team name".localized(language), isPresented: $isAlertPresented) {
+            TextField("Enter Team Name".localized(language), text: $temporaryTeamName)
+            Button("Save".localized(language)) {
                 if let editingIndex = editingTeamIndex {
                     teamNames[editingIndex] = temporaryTeamName
                     viewModel.teams = teamNames
                 }
             }
-            Button("Cancel", role: .cancel) {}
+            Button("Cancel".localized(language), role: .cancel) {}
         }
-        .alert("Maximum number of teams reached!", isPresented: $isWarningAlertPresented) {
-            Button("Ok", role: .cancel) {}
+        .alert("Maximum number of teams reached!".localized(language), isPresented: $isWarningAlertPresented) {
+            Button("Ok".localized(language), role: .cancel) {}
         }
     }
     private func addTeam() {
@@ -102,6 +103,6 @@ struct TeamName: View {
         }
 }
 
-#Preview {
-    TeamName(timerDurations: [60])
-}
+//#Preview {
+//    TeamName(timerDurations: [60])
+//}

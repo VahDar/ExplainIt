@@ -24,14 +24,14 @@ struct WinnerAlertView: View {
                 .foregroundStyle(Color.blue)
                 .padding()
                 .offset(y: -140)
-                SettingAnimationView(animationFileName: "astronaut".localized, loopMode: .loop)
+                SettingAnimationView(animationFileName: "astronaut", loopMode: .loop)
                     .frame(width: 100, height: 100)
                     .scaleEffect(0.2)
                     .padding()
             }
             .padding(.bottom)
             VStack {
-                CustomButton(name: "Finish".localized) {
+                CustomButton(name: "Finish") {
                     self.presentationMode.wrappedValue.dismiss()
                     viewModel.resetGame()
                     viewModel.clearGameData()

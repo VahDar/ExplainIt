@@ -26,7 +26,7 @@ struct GameScreen: View {
                                 .padding(.trailing, 25)
                                 .multilineTextAlignment(.center)
                             
-                            CustomButton(name: "Start".localized) {
+                            CustomButton(name: "Start") {
                                 startRound()
                                 viewModel.clearSwipeWords()
                             }

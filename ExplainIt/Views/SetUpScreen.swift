@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SetUpScreen: View {
+//    private var language = LocalizationService.shared.language
     @State var selectedDuration: Int = 30
     @State var selectedPoint: Int = 20
     @State private var teamName = ["Manatee"]
@@ -26,7 +27,7 @@ struct SetUpScreen: View {
                 CustomDivider()
                     .offset(y: 30)
                     HStack {
-                        Text("Required Points:".localized)
+                        Text("Required Points:")
                             .foregroundStyle(Color.blue)
                         Picker("Required Points", selection: $selectedPoint) {
                             ForEach(requiredPoints, id: \.self) {
@@ -39,7 +40,7 @@ struct SetUpScreen: View {
                     .padding(.top, 40)
                 
                     HStack {
-                        Text("Round Time:".localized)
+                        Text("Round Time:")
                             .foregroundStyle(.blue)
                         
                         Picker("Round Time", selection: $selectedDuration) {
@@ -98,7 +99,7 @@ struct SetUpScreen: View {
                 }
                 .frame(height: 300)
                 .padding()
-                CustomDisabledButton(name: "Next".localized, action: {
+                CustomDisabledButton(name: "Next", action: {
                     startGame()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)
