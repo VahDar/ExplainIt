@@ -15,17 +15,17 @@ struct GameScreen: View {
                 VStack {
                     if !isViewVisible {
                         VStack {
-                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex]) team")
+                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex]) team".localized)
                                 .foregroundStyle(Color.blue)
                                 .padding()
-                            Text("If you guessed the word swipe up, if not, swipe down.")
+                            Text("If you guessed the word swipe up, if not, swipe down.".localized)
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 40))
                                 .fontWeight(.bold)
                                 .padding(.leading, 25)
                                 .padding(.trailing, 25)
                             
-                            CustomButton(name: "Start") {
+                            CustomButton(name: "Start".localized) {
                                 startRound()
                                 viewModel.clearSwipeWords()
                             }
@@ -36,12 +36,9 @@ struct GameScreen: View {
                             TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 timerEnded = true
                                 if !lastWordSwiped {
-                                                                   viewModel.updateSwipe(word: viewModel.rootWord, swiped: false, isLast: true)
-                                                                   isTimerEnd = true
-                                                               }
-//                                if viewModel.swipedWords.isEmpty {
-//                                    isTimerEnd = true
-//                                }
+                                    viewModel.updateSwipe(word: viewModel.rootWord, swiped: false, isLast: true)
+                                    isTimerEnd = true
+                                }
                             })
                             .environmentObject(viewModel)
                             Text(viewModel.rootWord)
@@ -55,18 +52,17 @@ struct GameScreen: View {
                             DragGesture()
                                 .onEnded({ gesture in
                                     let swipeDistance = gesture.translation.height
-                                                                       let swiped = swipeDistance < 0
-                                                                       lastWordSwiped = true // Отмечаем, что был сделан свайп
-                                                                       
-                                                                       if timerEnded {
-                                                                           // Если таймер уже завершился, считаем это слово последним
-                                                                           viewModel.updateSwipe(word: viewModel.rootWord, swiped: swiped, isLast: true)
-                                                                           isTimerEnd = true
-                                                                       } else {
-                                                                           viewModel.updateSwipe(word: viewModel.rootWord, swiped: swiped)
-                                                                           viewModel.loadWords(forTopic: viewModel.currentTopic)
-                                                                       }
-                                                                   })
+                                    let swiped = swipeDistance < 0
+                                    lastWordSwiped = true
+                                    
+                                    if timerEnded {
+                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: swiped, isLast: true)
+                                        isTimerEnd = true
+                                    } else {
+                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: swiped)
+                                        viewModel.loadWords(forTopic: viewModel.currentTopic)
+                                    }
+                                })
                         )
                     }
                 }

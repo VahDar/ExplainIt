@@ -36,8 +36,8 @@ struct CustomAlertView: View {
                                 .foregroundStyle(Color.blue)
                         }
                         if wordSwipeData[index].isLastWord  && wordSwipeData[index].swiped {
-                            Picker("Select a team", selection: $selectedTeamForLastWord) {
-                                Text("Choose a team").tag(String?.none)
+                            Picker("Select a team".localized, selection: $selectedTeamForLastWord) {
+                                Text("Choose a team".localized).tag(String?.none)
                                 ForEach(viewModel.teams, id: \.self) { team in
                                     Text(team).tag(team as String?)
                                         .foregroundStyle(Color.blue)
@@ -61,11 +61,11 @@ struct CustomAlertView: View {
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Points: \(calculatedPoints)")
+            Text("Points: \(calculatedPoints)".localized)
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()
-            CustomButton(name: "Next") {
+            CustomButton(name: "Next".localized) {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 if let selectedTeam = selectedTeamForLastWord, let lastWord = wordSwipeData.first(where: { $0.isLastWord }) {
                     if lastWord.swiped {

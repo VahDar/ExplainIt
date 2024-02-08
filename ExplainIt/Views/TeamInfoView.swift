@@ -11,7 +11,7 @@ struct TeamInfoView: View {
     @EnvironmentObject var viewModel: GameViewModel
     var body: some View {
         VStack {
-            Text("Required points: \(viewModel.requiredPoints)")
+            Text("Required points: \(viewModel.requiredPoints)".localized)
                 .foregroundStyle(Color.blue)
                 .font(.title)
                 .padding()
@@ -20,14 +20,14 @@ struct TeamInfoView: View {
                     Text(team)
                         .foregroundStyle(Color.blue)
                     Spacer()
-                    Text("\(viewModel.teamPoints[team, default: 0]) points")
+                    Text("\(viewModel.teamPoints[team, default: 0]) points".localized)
                         .foregroundStyle(Color.blue)
                 }
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
             
-            CustomButton(name: "Next Team") {
+            CustomButton(name: "Next Team".localized) {
                 viewModel.moveToNextTeam()
             }
             .padding()

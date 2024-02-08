@@ -17,21 +17,21 @@ struct WinnerAlertView: View {
         VStack {
             VStack {
                 Group {
-                    Text("Winner: ").font(.title2)
+                    Text("Winner: ".localized).font(.title2)
                     + Text("\(viewModel.winners)")
                         .font(.title)
                 }
                 .foregroundStyle(Color.blue)
                 .padding()
                 .offset(y: -140)
-                SettingAnimationView(animationFileName: "astronaut", loopMode: .loop)
+                SettingAnimationView(animationFileName: "astronaut".localized, loopMode: .loop)
                     .frame(width: 100, height: 100)
                     .scaleEffect(0.2)
                     .padding()
             }
             .padding(.bottom)
             VStack {
-                CustomButton(name: "Finish") {
+                CustomButton(name: "Finish".localized) {
                     self.presentationMode.wrappedValue.dismiss()
                     viewModel.resetGame()
                     viewModel.clearGameData()

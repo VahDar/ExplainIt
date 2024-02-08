@@ -10,6 +10,7 @@
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
 		FC0E0B742B6033F20024BE9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FC0E0B732B6033F20024BE9F /* Lottie */; };
+		FC16E60A2B754021007FB5AD /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16E6092B754021007FB5AD /* String+extension.swift */; };
 		FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */; };
 		FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1744D02B4C806000AF4ABB /* TeamName.swift */; };
 		FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17C43E2B54435E00C34015 /* CustomAlertView.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
+		FC16E6092B754021007FB5AD /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Harry Potter.txt"; sourceTree = "<group>"; };
 		FC1744D02B4C806000AF4ABB /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
 		FC17C43E2B54435E00C34015 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
 				FCF36FDC2B71367200B31DB0 /* Resourses */,
 				FCCD26362A9DFC560007F5F6 /* Preview Content */,
+				FC16E6092B754021007FB5AD /* String+extension.swift */,
 			);
 			path = ExplainIt;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */,
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
 				FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */,
+				FC16E60A2B754021007FB5AD /* String+extension.swift in Sources */,
 				FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */,
 				FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */,
 				FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */,
