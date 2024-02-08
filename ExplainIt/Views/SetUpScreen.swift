@@ -28,7 +28,7 @@ struct SetUpScreen: View {
                     HStack {
                         Text("Required Points:".localized)
                             .foregroundStyle(Color.blue)
-                        Picker("Required Points".localized, selection: $selectedPoint) {
+                        Picker("Required Points", selection: $selectedPoint) {
                             ForEach(requiredPoints, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -42,7 +42,7 @@ struct SetUpScreen: View {
                         Text("Round Time:".localized)
                             .foregroundStyle(.blue)
                         
-                        Picker("Round Time".localized, selection: $selectedDuration) {
+                        Picker("Round Time", selection: $selectedDuration) {
                             ForEach(timerDurations, id: \.self) {
                                 Text($0, format: .number)
                             }
@@ -98,7 +98,7 @@ struct SetUpScreen: View {
                 }
                 .frame(height: 300)
                 .padding()
-                CustomDisabledButton(name: "Next", action: {
+                CustomDisabledButton(name: "Next".localized, action: {
                     startGame()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)

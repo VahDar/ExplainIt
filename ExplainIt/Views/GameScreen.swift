@@ -15,7 +15,7 @@ struct GameScreen: View {
                 VStack {
                     if !isViewVisible {
                         VStack {
-                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex]) team")
+                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex])")
                                 .foregroundStyle(Color.blue)
                                 .padding()
                             Text("If you guessed the word swipe up, if not, swipe down.")
@@ -24,8 +24,9 @@ struct GameScreen: View {
                                 .fontWeight(.bold)
                                 .padding(.leading, 25)
                                 .padding(.trailing, 25)
+                                .multilineTextAlignment(.center)
                             
-                            CustomButton(name: "Start") {
+                            CustomButton(name: "Start".localized) {
                                 startRound()
                                 viewModel.clearSwipeWords()
                             }

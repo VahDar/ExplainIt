@@ -36,6 +36,23 @@
         }
       }
     },
+    "Add Team" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Team"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати Команду"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "localizations" : {
         "en" : {
@@ -100,6 +117,23 @@
         }
       }
     },
+    "Finish" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закінчити"
+          }
+        }
+      }
+    },
     "If you guessed the word swipe up, if not, swipe down." : {
       "localizations" : {
         "en" : {
@@ -149,18 +183,46 @@
         }
       }
     },
-    "Now play %@ team" : {
+    "Next" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Now play %@ team"
+            "value" : "Next"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Зараз грає %@ команда"
+            "value" : "Далі"
+          }
+        }
+      }
+    },
+    "Next Team" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наступна Команда"
+          }
+        }
+      }
+    },
+    "Now play %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now play %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зараз грає %@"
           }
         }
       }
@@ -229,6 +291,33 @@
         }
       }
     },
+    "Required Points" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required Points"
+          }
+        }
+      }
+    },
+    "Required Points:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required Points:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необхідні бали:"
+          }
+        }
+      }
+    },
     "Required points: %lld" : {
       "localizations" : {
         "en" : {
@@ -241,6 +330,33 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Необхідні бали: %lld"
+          }
+        }
+      }
+    },
+    "Round Time" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Round Time"
+          }
+        }
+      }
+    },
+    "Round Time:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Round Time:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Час раунду:"
           }
         }
       }
@@ -273,6 +389,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Виберіть команду"
+          }
+        }
+      }
+    },
+    "Start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почати"
           }
         }
       }

@@ -45,7 +45,7 @@ struct TeamName: View {
                 }
                 .onDelete(perform: removeTeam)
                 .listRowBackground(Color.clear)
-                CustomButton(name: "Add Team") {
+                CustomButton(name: "Add Team".localized) {
                     addTeam()
                 }
                 .padding()
@@ -58,7 +58,7 @@ struct TeamName: View {
             Text("Swipe to delete a team")
                 .foregroundStyle(Color.blue)
                 .multilineTextAlignment(.center)
-            CustomDisabledButton(name: "Next", action: {
+            CustomDisabledButton(name: "Next".localized, action: {
                 isSetUpScreenActive = true
             }, isDisabled: teamNames.isEmpty)
         }

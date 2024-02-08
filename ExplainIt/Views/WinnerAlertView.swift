@@ -31,7 +31,7 @@ struct WinnerAlertView: View {
             }
             .padding(.bottom)
             VStack {
-                CustomButton(name: "Finish") {
+                CustomButton(name: "Finish".localized) {
                     self.presentationMode.wrappedValue.dismiss()
                     viewModel.resetGame()
                     viewModel.clearGameData()

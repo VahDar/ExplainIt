@@ -65,7 +65,7 @@ struct CustomAlertView: View {
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()
-            CustomButton(name: "Next") {
+            CustomButton(name: "Next".localized) {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 if let selectedTeam = selectedTeamForLastWord, let lastWord = wordSwipeData.first(where: { $0.isLastWord }) {
                     if lastWord.swiped {

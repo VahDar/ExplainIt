@@ -27,7 +27,7 @@ struct TeamInfoView: View {
             }
             .scrollContentBackground(.hidden)
             
-            CustomButton(name: "Next Team") {
+            CustomButton(name: "Next Team".localized) {
                 viewModel.moveToNextTeam()
             }
             .padding()
