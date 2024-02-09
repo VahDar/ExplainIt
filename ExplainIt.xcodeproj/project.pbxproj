@@ -29,6 +29,7 @@
 		FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */; };
 		FCD94BB42B73C4AB0004B6EE /* LanguageSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD94BB32B73C4AB0004B6EE /* LanguageSetting.swift */; };
 		FCDC46EF2B76600F007B9286 /* TextGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDC46EE2B76600F007B9286 /* TextGradient.swift */; };
+		FCDC46F22B769E52007B9286 /* backgroundAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = FCDC46F12B769E52007B9286 /* backgroundAnimation.json */; };
 		FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */; };
 		FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8CEF72B503A8800011E0F /* CustomDivider.swift */; };
 		FCE922F12B60FE8800856F9C /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = FCE922F02B60FE8800856F9C /* astronaut.json */; };
@@ -60,6 +61,7 @@
 		FCD64EC02AC19C3600B8985B /* SetUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpScreen.swift; sourceTree = "<group>"; };
 		FCD94BB32B73C4AB0004B6EE /* LanguageSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSetting.swift; sourceTree = "<group>"; };
 		FCDC46EE2B76600F007B9286 /* TextGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGradient.swift; sourceTree = "<group>"; };
+		FCDC46F12B769E52007B9286 /* backgroundAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = backgroundAnimation.json; sourceTree = "<group>"; };
 		FCE8322D2AAA1ABD00D1CB00 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		FCE8CEF72B503A8800011E0F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		FCE922F02B60FE8800856F9C /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
+				FCDC46F12B769E52007B9286 /* backgroundAnimation.json */,
 				FCE922F02B60FE8800856F9C /* astronaut.json */,
 				FC5A54082B6696A1003E4952 /* astronautMain.json */,
 				FC5A540A2B66D7EC003E4952 /* sound.mp3 */,
@@ -248,6 +251,7 @@
 				FC16E6102B754A1D007FB5AD /* Localizable.xcstrings in Resources */,
 				FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */,
 				FCCD263F2A9DFD370007F5F6 /* General.txt in Resources */,
+				FCDC46F22B769E52007B9286 /* backgroundAnimation.json in Resources */,
 				FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
 				FCE922F12B60FE8800856F9C /* astronaut.json in Resources */,

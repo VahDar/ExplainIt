@@ -42,7 +42,7 @@ struct WinnerAlertView: View {
             .offset(y: 100)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(BackgroundView())
+        .background(SettingAnimationView(animationFileName: "backgroundAnimation", loopMode: .loop))
     }
 }
 

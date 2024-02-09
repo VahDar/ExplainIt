@@ -81,7 +81,8 @@ struct ContentView: View {
             }
             
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(BackgroundView())
+            .background(SettingAnimationView(animationFileName: "backgroundAnimation", loopMode: .loop))
+            
             
             .navigationDestination(isPresented: $isTeamScreenActive) {
                 TeamName(timerDurations: timerDurations)
