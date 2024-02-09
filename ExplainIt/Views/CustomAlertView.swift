@@ -70,7 +70,6 @@ struct CustomAlertView: View {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 if let selectedTeam = selectedTeamForLastWord, let lastWord = wordSwipeData.first(where: { $0.isLastWord }) {
                     if lastWord.swiped {
-                        // Если последнее слово угадано, добавляем очко выбранной команде
                         viewModel.updateTeamPoints(team: selectedTeam, points: 1)
                     }
                 }
@@ -81,6 +80,7 @@ struct CustomAlertView: View {
         .navigationDestination(isPresented: $isTeamInfoActive) {
             TeamInfoView()
                 .environmentObject(viewModel)
+                .navigationBarBackButtonHidden(true)
         }
     }
 }

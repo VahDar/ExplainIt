@@ -9,10 +9,11 @@ struct GameScreen: View {
     @State private var lastWordSwiped = false
     @State private var timerView: TimerView?
     @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                // MARK: - Need Fix bug with random words when start a new round
                 VStack {
                     if !isViewVisible {
                         VStack {
@@ -21,7 +22,7 @@ struct GameScreen: View {
                                 .padding()
                             Text("If you guessed the word swipe up, if not, swipe down.".localized(language))
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
-                                .font(.system(size: 40))
+                                .font(.system(size: 36))
                                 .fontWeight(.bold)
                                 .padding(.leading, 25)
                                 .padding(.trailing, 25)
@@ -77,7 +78,7 @@ struct GameScreen: View {
                 if isTimerEnd {
                     CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3))
                         .environmentObject(viewModel)
-                        .frame(width: 300, height: 500)
+                        .frame(width: 370, height: 700)
                         .background(BackgroundView())
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .shadow(radius: 10)
@@ -86,6 +87,14 @@ struct GameScreen: View {
                         )
                 }
             }
+            .navigationBarItems(leading: Button {
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack{
+                    Image(systemName: "chevron.left")
+                    Text("Main")
+                }
+            })
         }
     }
     

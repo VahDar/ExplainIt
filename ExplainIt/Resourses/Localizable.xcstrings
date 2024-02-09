@@ -22,6 +22,7 @@
       }
     },
     "%lld sec" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -155,6 +156,26 @@
           }
         }
       }
+    },
+    "Language" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мова"
+          }
+        }
+      }
+    },
+    "Main" : {
+
     },
     "Maximum number of teams reached!" : {
       "extractionState" : "stale",
@@ -407,6 +428,12 @@
         }
       }
     },
+    "Settings" : {
+
+    },
+    "SPACE ALIAS" : {
+
+    },
     "Start" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -437,6 +464,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проведіть пальцем, щоб видалити команду"
+          }
+        }
+      }
+    },
+    "Team" : {
+
+    },
+    "Team %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team %lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Команда %lld"
           }
         }
       }

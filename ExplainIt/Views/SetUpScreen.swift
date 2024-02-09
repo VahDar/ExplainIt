@@ -19,50 +19,55 @@ struct SetUpScreen: View {
     @State private var selectedTopic: String?
     @State private var topics = ["General", "Harry Potter"]
     @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationStack {
             VStack {
+                
                 Spacer()
                 CustomDivider()
                     .offset(y: 30)
-                    HStack {
-                        Text("Required Points:".localized(language))
-                            .foregroundStyle(Color.blue)
-                        Picker("Required Points", selection: $selectedPoint) {
-                            ForEach(requiredPoints, id: \.self) {
-                                Text($0, format: .number)
-                            }
+                HStack(alignment: .center) {
+                    Text("Required Points:".localized(language))
+                        .foregroundStyle(Color.blue)
+                    Picker("Required Points", selection: $selectedPoint) {
+                        ForEach(requiredPoints, id: \.self) {
+                            Text($0, format: .number)
                         }
-                        .pickerStyle(.menu)
-                        .background(Color.clear)
                     }
-                    .padding(.top, 40)
+                    .pickerStyle(.menu)
+                    .background(Color.clear)
+                }
+                .padding(.top, 40)
                 
-                    HStack {
-                        Text("Round Time:".localized(language))
-                            .foregroundStyle(.blue)
-                        
-                        Picker("Round Time", selection: $selectedDuration) {
-                            ForEach(timerDurations, id: \.self) {
-                                Text($0, format: .number)
-                            }
+                HStack(alignment: .center) {
+                    
+                    Text("Round Time:".localized(language))
+                        .foregroundStyle(.blue)
+                    
+                    Picker("Round Time", selection: $selectedDuration) {
+                        ForEach(timerDurations, id: \.self) {
+                            Text($0, format: .number)
                         }
-                        .pickerStyle(.menu)
-                        .background(Color.clear)
                     }
-                    .padding(.top, 40)
-                Toggle("Turn on/off timer sound: ".localized(language), isOn: $viewModel.isSoundEnabled)
-                    .tint(.blue)
-                    .foregroundStyle(Color.blue)
-                    .padding(.horizontal, 80)
-                    .padding(.top, 40)
+                    .pickerStyle(.menu)
+                    .background(Color.clear)
+                }
+                .padding(.top, 40)
+                VStack(alignment: .center) {
+                    Toggle("Turn on/off timer sound: ".localized(language), isOn: $viewModel.isSoundEnabled)
+                        .tint(.blue)
+                        .foregroundStyle(Color.blue)
+                        .padding(.horizontal, 60)
+                        .padding(.top, 40)
+                }
                 CustomDivider()
                 
-                    VStack {
-                        Text("Choose a Topic:".localized(language))
-                            .foregroundStyle(.blue)
-                        ScrollView {
+                VStack {
+                    Text("Choose a Topic:".localized(language))
+                        .foregroundStyle(.blue)
+                    ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
                             ForEach(topics, id: \.self) {
                                 topic in
@@ -111,7 +116,16 @@ struct SetUpScreen: View {
             .navigationDestination(isPresented: $isGameScreenActive) {
                 GameScreen()
                     .environmentObject(viewModel)
+                    .navigationBarBackButtonHidden(true)
             }
+            .navigationBarItems(leading: Button {
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack{
+                    Image(systemName: "chevron.left")
+                    Text("Team")
+                }
+            })
         }
         
     }

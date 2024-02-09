@@ -18,18 +18,22 @@ struct ContentView: View {
     var timerDurations: [Int]
     
     init(selectedDuration: Int, timerDurations: [Int]) {
-            self._selectedDuration = State(initialValue: selectedDuration)
-            self.timerDurations = timerDurations
-        }
+        self._selectedDuration = State(initialValue: selectedDuration)
+        self.timerDurations = timerDurations
+        self._isUkrainian = State(initialValue: LocalizationService.shared.language == .ukrainian)
+    }
     
     var body: some View {
         NavigationStack {
             VStack {
+                TextGradient()
+                    .padding()
+                    .offset(y: -120)
                 SettingAnimationView(animationFileName: "astronautMain", loopMode: .loop)
                     .frame(width: 100, height: 100)
-                    .scaleEffect(0.2)
+                    .scaleEffect(0.25)
                     .padding(.bottom)
-                    .offset(y: -30)
+                    .offset(y: -35)
                 
                 CustomButton(name: "New Game".localized(language)) {
                     isTeamScreenActive = true
@@ -37,29 +41,35 @@ struct ContentView: View {
                     viewModel.resetGame()
                 }
                 .padding(.bottom)
-                
-                HStack {
-                    Button {
-                        isUkrainian.toggle()
-                    } label: {
-                        Image(systemName: "chevron.left")
+                VStack {
+                    Text("Language".localized(language))
+                        .foregroundStyle(Color(red: 79/255, green: 74/255, blue: 183/255))
+                        .font(.title.bold())
+                    HStack {
+                        Button {
+                            isUkrainian.toggle()
+                        } label: {
+                            Image(systemName: "chevron.left")
+                        }
+                        .padding()
+                        
+                        if isUkrainian {
+                            Image("UA")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                        } else {
+                            Image("USA")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                        }
+                        
+                        Button {
+                            isUkrainian.toggle()
+                        } label: {
+                            Image(systemName: "chevron.right")
+                        }
+                        .padding()
                     }
-                    
-                    if isUkrainian {
-                        Image("UA")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    } else {                        Image("USA")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }
-                    
-                    Button {
-                        isUkrainian.toggle()
-                    } label: {
-                        Image(systemName: "chevron.right")
-                    }
-
                 }
             }
             
@@ -69,17 +79,23 @@ struct ContentView: View {
             .navigationDestination(isPresented: $isTeamScreenActive) {
                 TeamName(timerDurations: timerDurations)
                     .environmentObject(viewModel)
+                    .navigationBarBackButtonHidden(true)
             }
             .navigationDestination(isPresented: $viewModel.isGameScreenPresented) {
-                GameScreen().environmentObject(viewModel)
+                GameScreen()
+                    .environmentObject(viewModel)
+                    .navigationBarBackButtonHidden(true)
             }
             .navigationDestination(isPresented: $viewModel.isWinnerActive) {
-                WinnerAlertView().environmentObject(viewModel)
+                WinnerAlertView()
+                    .environmentObject(viewModel)
+                    .navigationBarBackButtonHidden(true)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .onChange(of: isUkrainian) { newValue in
-                    LocalizationService.shared.language = newValue ? .ukrainian : .english_us
-                }
+            LocalizationService.shared.language = newValue ? .ukrainian : .english_us
+        }
         .onAppear {
             viewModel.loadGameData()
         }

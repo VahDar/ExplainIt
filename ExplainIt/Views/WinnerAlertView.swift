@@ -20,7 +20,7 @@ struct WinnerAlertView: View {
                 Group {
                     Text("Winner: ".localized(language)).font(.title2)
                     + Text("\(viewModel.winners)")
-                        .font(.title)
+                        .font(.title.bold())
                 }
                 .foregroundStyle(Color.blue)
                 .padding()

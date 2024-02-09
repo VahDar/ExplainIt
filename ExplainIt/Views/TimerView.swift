@@ -28,8 +28,8 @@ struct TimerView: View {
                         startTimer()
                     }
             }
-            Text("\(Int(timerDuration > 0 ? timerDuration - timerValue * timerDuration : 60)) sec")
-                .foregroundColor(.white)
+//            Text("\(Int(timerDuration > 0 ? timerDuration - timerValue * timerDuration : 60)) sec")
+//                .foregroundColor(.white)
             
         }
         .onAppear {

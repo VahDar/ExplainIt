@@ -18,6 +18,7 @@ struct TeamName: View {
     @State private var editingTeamIndex: Int?
     @State private var numberOfTeams = 0
     @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     var timerDurations: [Int]
     
     var body: some View {
@@ -72,7 +73,16 @@ struct TeamName: View {
         .navigationDestination(isPresented: $isSetUpScreenActive) {
             SetUpScreen()
                 .environmentObject(viewModel)
+                .navigationBarBackButtonHidden(true)
         }
+        .navigationBarItems(leading: Button {
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            HStack{
+                Image(systemName: "chevron.left")
+                Text("Main")
+            }
+        })
         .alert("Team name".localized(language), isPresented: $isAlertPresented) {
             TextField("Enter Team Name".localized(language), text: $temporaryTeamName)
             Button("Save".localized(language)) {
