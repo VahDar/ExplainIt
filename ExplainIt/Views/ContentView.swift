@@ -41,6 +41,13 @@ struct ContentView: View {
                     viewModel.resetGame()
                 }
                 .padding(.bottom)
+                
+                CustomDisabledButton(name: "Continue", action: {
+                    isTeamScreenActive = false
+                    viewModel.isGameScreenPresented = true
+                }, isDisabled: !viewModel.isGameStarted)
+                .padding(.bottom)
+                
                 VStack {
                     Text("Language".localized(language))
                         .foregroundStyle(Color(red: 79/255, green: 74/255, blue: 183/255))

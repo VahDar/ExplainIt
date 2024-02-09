@@ -134,6 +134,7 @@ struct SetUpScreen: View {
         viewModel.roundTime = selectedDuration
         viewModel.requiredPoints = selectedPoint
         viewModel.loadWords(forTopic: viewModel.currentTopic)
+        viewModel.isGameStarted = true
     }
 }
 

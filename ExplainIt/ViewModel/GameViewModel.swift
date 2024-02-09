@@ -21,6 +21,7 @@ class GameViewModel: ObservableObject {
     @Published var isFinalRoundPhase: Bool = false
     @Published var isWinnerActive: Bool = false
     @Published var isSoundEnabled: Bool = true
+    @Published var isGameStarted: Bool = false
     @Published var backgroundImagePath: String = ""
     @Published var winners: String = ""
     var currentTopic = ""
@@ -163,6 +164,7 @@ class GameViewModel: ObservableObject {
         isGameScreenPresented = false
         isFinalRoundPhase = false
         isWinnerActive = false
+        isGameStarted = false
         backgroundImagePath = ""
         winners = ""
         currentTopic = ""

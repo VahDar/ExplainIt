@@ -87,7 +87,8 @@ struct GameScreen: View {
                         )
                 }
             }
-            .navigationBarItems(leading: Button {
+            
+            .navigationBarItems(leading: isViewVisible ? nil : Button {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
                 HStack{
