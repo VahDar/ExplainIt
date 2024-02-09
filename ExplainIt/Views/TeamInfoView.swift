@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TeamInfoView: View {
     @EnvironmentObject var viewModel: GameViewModel
+    @State private var language = LocalizationService.shared.language
+    
     var body: some View {
         VStack {
-            Text("Required points: \(viewModel.requiredPoints)")
+            Text("Required points: %lld".localized(language, args: viewModel.requiredPoints))
                 .foregroundStyle(Color.blue)
                 .font(.title)
                 .padding()
@@ -20,14 +22,14 @@ struct TeamInfoView: View {
                     Text(team)
                         .foregroundStyle(Color.blue)
                     Spacer()
-                    Text("\(viewModel.teamPoints[team, default: 0]) points")
+                    Text("%lld points".localized(language, args: viewModel.teamPoints[team, default: 0]))
                         .foregroundStyle(Color.blue)
                 }
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
             
-            CustomButton(name: "Next Team") {
+            CustomButton(name: "Next Team".localized(language)) {
                 viewModel.moveToNextTeam()
             }
             .padding()

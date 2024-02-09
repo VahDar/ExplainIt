@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GameScreen: View {
+    @State private var language = LocalizationService.shared.language
     @State private var isViewVisible = false
     @State private var isTimerEnd = false
     @State private var isTimerRunning = false
@@ -15,10 +16,10 @@ struct GameScreen: View {
                 VStack {
                     if !isViewVisible {
                         VStack {
-                            Text("Now play \(viewModel.teams[viewModel.currentTeamIndex])")
+                            Text("Now play %@".localized(language, args: viewModel.teams[viewModel.currentTeamIndex]))
                                 .foregroundStyle(Color.blue)
                                 .padding()
-                            Text("If you guessed the word swipe up, if not, swipe down.")
+                            Text("If you guessed the word swipe up, if not, swipe down.".localized(language))
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 40))
                                 .fontWeight(.bold)
@@ -26,7 +27,7 @@ struct GameScreen: View {
                                 .padding(.trailing, 25)
                                 .multilineTextAlignment(.center)
                             
-                            CustomButton(name: "Start") {
+                            CustomButton(name: "Start".localized(language)) {
                                 startRound()
                                 viewModel.clearSwipeWords()
                             }

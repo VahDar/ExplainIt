@@ -11,6 +11,7 @@ struct CustomAlertView: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool, isLastWord: Bool)]
     @Binding var points: Int
+    @State private var language = LocalizationService.shared.language
     @State private var selectedTeamForLastWord: String? = nil
     @State private var lastWordPointsAssigned = false
     @State private var isTeamInfoActive = false
@@ -37,7 +38,7 @@ struct CustomAlertView: View {
                         }
                         if wordSwipeData[index].isLastWord  && wordSwipeData[index].swiped {
                             Picker("Select a team", selection: $selectedTeamForLastWord) {
-                                Text("Choose a team").tag(String?.none)
+                                Text("Choose a team".localized(language)).tag(String?.none)
                                 ForEach(viewModel.teams, id: \.self) { team in
                                     Text(team).tag(team as String?)
                                         .foregroundStyle(Color.blue)
@@ -61,11 +62,11 @@ struct CustomAlertView: View {
                 .listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            Text("Points: \(calculatedPoints)")
+            Text("Points: %lld".localized(language, args: calculatedPoints))
                 .font(.title)
                 .foregroundStyle(Color.blue)
                 .padding()
-            CustomButton(name: "Next") {
+            CustomButton(name: "Next".localized(language)) {
                 viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
                 if let selectedTeam = selectedTeamForLastWord, let lastWord = wordSwipeData.first(where: { $0.isLastWord }) {
                     if lastWord.swiped {

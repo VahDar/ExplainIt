@@ -90,7 +90,7 @@ struct TeamName: View {
     private func addTeam() {
         if teamNames.count < 8 {
             let newTeamNumber = teamNames.count + 1
-            teamNames.append("Team \(newTeamNumber)")
+            teamNames.append("Team \(newTeamNumber)".localized(language))
             viewModel.teams = teamNames
         } else {
             isWarningAlertPresented = true

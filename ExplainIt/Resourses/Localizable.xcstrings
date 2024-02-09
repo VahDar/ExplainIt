@@ -5,6 +5,7 @@
 
     },
     "%lld points" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -71,6 +72,7 @@
       }
     },
     "Choose a team" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -87,6 +89,7 @@
       }
     },
     "Choose a Topic:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -137,6 +140,7 @@
       }
     },
     "If you guessed the word swipe up, if not, swipe down." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -215,6 +219,7 @@
       }
     },
     "Now play %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -248,6 +253,7 @@
       }
     },
     "Points: %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -325,6 +331,7 @@
       }
     },
     "Required points: %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -469,6 +476,7 @@
       }
     },
     "Turn on/off timer sound: " : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -485,6 +493,7 @@
       }
     },
     "Winner: " : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

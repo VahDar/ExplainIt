@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SetUpScreen: View {
-//    private var language = LocalizationService.shared.language
+    private var language = LocalizationService.shared.language
     @State var selectedDuration: Int = 30
     @State var selectedPoint: Int = 20
     @State private var teamName = ["Manatee"]
@@ -27,7 +27,7 @@ struct SetUpScreen: View {
                 CustomDivider()
                     .offset(y: 30)
                     HStack {
-                        Text("Required Points:")
+                        Text("Required Points:".localized(language))
                             .foregroundStyle(Color.blue)
                         Picker("Required Points", selection: $selectedPoint) {
                             ForEach(requiredPoints, id: \.self) {
@@ -40,7 +40,7 @@ struct SetUpScreen: View {
                     .padding(.top, 40)
                 
                     HStack {
-                        Text("Round Time:")
+                        Text("Round Time:".localized(language))
                             .foregroundStyle(.blue)
                         
                         Picker("Round Time", selection: $selectedDuration) {
@@ -52,7 +52,7 @@ struct SetUpScreen: View {
                         .background(Color.clear)
                     }
                     .padding(.top, 40)
-                Toggle("Turn on/off timer sound: ", isOn: $viewModel.isSoundEnabled)
+                Toggle("Turn on/off timer sound: ".localized(language), isOn: $viewModel.isSoundEnabled)
                     .tint(.blue)
                     .foregroundStyle(Color.blue)
                     .padding(.horizontal, 80)
@@ -60,7 +60,7 @@ struct SetUpScreen: View {
                 CustomDivider()
                 
                     VStack {
-                        Text("Choose a Topic:")
+                        Text("Choose a Topic:".localized(language))
                             .foregroundStyle(.blue)
                         ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
@@ -99,7 +99,7 @@ struct SetUpScreen: View {
                 }
                 .frame(height: 300)
                 .padding()
-                CustomDisabledButton(name: "Next", action: {
+                CustomDisabledButton(name: "Next".localized(language), action: {
                     startGame()
                     isGameScreenActive = true
                 }, isDisabled: selectedTopic == nil)
