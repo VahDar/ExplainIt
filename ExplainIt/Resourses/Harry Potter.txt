@@ -126,7 +126,6 @@ The Keeper
 The Prefects' Bathroom
 The Gillyweed
 The Horcrux Hunt
-The Deathly Hallows Symbol
 The Three Broomsticks
 The Dark Mark
 The Polyjuice Mistake
@@ -148,3 +147,62 @@ The Defense Against the Dark Arts
 The History of Magic
 The Herbology Greenhouses
 The Flying Lessons
+Zonko's Joke Shop
+Peeves the Poltergeist
+The Marauders
+Wizengamot
+Grindelwald
+Ollivanders Wand Shop
+The Triwizard Maze
+Beauxbatons Academy of Magic
+Durmstrang Institute
+Veritaserum
+The Quidditch Pitch
+The Patronus Charm
+The Unbreakable Vow
+The Knight of Walpurgis
+Deluminator
+The Vanishing Spell
+The Summoning Charm
+The Disarming Charm
+The Bat-Bogey Hex
+The Stupefy Spell
+The Imperius Curse
+The Cruciatus Curse
+The Killing Curse
+The Weasleys' Wizard Wheezes
+The Slug Club
+Diadem of Ravenclaw
+The Resurrection Stone
+Horcruxes
+The Prisoner of Azkaban
+Amortentia
+Arithmancy
+Blast-Ended Skrewt
+Boggart
+Bowtruckle
+Crumple-Horned Snorkack
+Dirigible Plum
+Erumpent
+Fidelius Charm
+Firenze
+Gringott's Dragon
+Hinkypunk
+Horcrux Curse
+Ilvermorny
+Kneazle
+Legilimency
+Manticore
+Merpeople
+Niffler
+Occlumency
+Parselmouth
+Protego
+Pygmy Puff
+Quidditch Keeper
+Ravenclaw's Lost Diadem
+Room of Hidden Things
+Scamander
+Silencing Charm
+Squib
+Transfiguration

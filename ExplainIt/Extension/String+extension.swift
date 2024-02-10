@@ -13,13 +13,6 @@ enum Language: String {
 }
 
 extension String {
-   
-    var localized: String {
-            NSLocalizedString(
-                self,
-                comment: "\(self) could not be found in Localizable.xcstrings"
-            )
-        }
     
     func localized(_ language: Language) -> String {
         let path = Bundle.main.path(forResource: language.rawValue, ofType: "lproj")
@@ -38,16 +31,6 @@ extension String {
            let format = NSLocalizedString(self, bundle: bundle, value: "", comment: "")
            return String(format: format, locale: Locale.current, arguments: args)
        }
-//    func localized(_ language: Language, args arguments: CVarArg...) -> String {
-//        let path = Bundle.main.path(forResource: language.rawValue, ofType: "lproj")
-//        let bundle: Bundle
-//        if let path = path {
-//            bundle = Bundle(path: path) ?? .main
-//        } else {
-//            bundle = .main
-//        }
-//        return String(format: localized(bundle: bundle), arguments: arguments)
-//    }
 
     private func localized(bundle: Bundle) -> String {
         return NSLocalizedString(self, bundle: bundle, value: "", comment: "")
@@ -75,8 +58,3 @@ class LocalizationService {
         }
     }
 }
-//
-//class LocalizationService {
-//    static let shared = LocalizationService()
-//    var language: Language = .english_us
-//}

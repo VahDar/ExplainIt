@@ -15,6 +15,7 @@
 		FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */; };
 		FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1744D02B4C806000AF4ABB /* TeamName.swift */; };
 		FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17C43E2B54435E00C34015 /* CustomAlertView.swift */; };
+		FC2B5F962B778CD500BBFA25 /* GeneralUA.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC2B5F952B778CD500BBFA25 /* GeneralUA.txt */; };
 		FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A32D32B47292900B3CB0F /* GameViewModel.swift */; };
 		FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */ = {isa = PBXBuildFile; fileRef = FC5A54082B6696A1003E4952 /* astronautMain.json */; };
 		FC5A540B2B66D7EC003E4952 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC5A540A2B66D7EC003E4952 /* sound.mp3 */; };
@@ -46,6 +47,7 @@
 		FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Harry Potter.txt"; sourceTree = "<group>"; };
 		FC1744D02B4C806000AF4ABB /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
 		FC17C43E2B54435E00C34015 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		FC2B5F952B778CD500BBFA25 /* GeneralUA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneralUA.txt; sourceTree = "<group>"; };
 		FC3A32D32B47292900B3CB0F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FC5A54082B6696A1003E4952 /* astronautMain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronautMain.json; sourceTree = "<group>"; };
 		FC5A540A2B66D7EC003E4952 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				FC5A540A2B66D7EC003E4952 /* sound.mp3 */,
 				FCCD263E2A9DFD370007F5F6 /* General.txt */,
 				FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */,
+				FC2B5F952B778CD500BBFA25 /* GeneralUA.txt */,
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
 				FC16E60F2B754A1D007FB5AD /* Localizable.xcstrings */,
 			);
@@ -253,6 +256,7 @@
 				FCCD263F2A9DFD370007F5F6 /* General.txt in Resources */,
 				FCDC46F22B769E52007B9286 /* backgroundAnimation.json in Resources */,
 				FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */,
+				FC2B5F962B778CD500BBFA25 /* GeneralUA.txt in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
 				FCE922F12B60FE8800856F9C /* astronaut.json in Resources */,
 			);

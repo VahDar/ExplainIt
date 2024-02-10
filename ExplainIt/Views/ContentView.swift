@@ -42,7 +42,7 @@ struct ContentView: View {
                 }
                 .padding(.bottom)
                 
-                CustomDisabledButton(name: "Continue", action: {
+                CustomDisabledButton(name: "Continue".localized(language), action: {
                     isTeamScreenActive = false
                     viewModel.isGameScreenPresented = true
                 }, isDisabled: !viewModel.isGameStarted)
@@ -81,7 +81,9 @@ struct ContentView: View {
             }
             
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(SettingAnimationView(animationFileName: "backgroundAnimation", loopMode: .loop))
+            .background(SettingAnimationView(animationFileName: "backgroundAnimation", loopMode: .loop)
+                .allowsHitTesting(false)
+            )
             
             
             .navigationDestination(isPresented: $isTeamScreenActive) {
