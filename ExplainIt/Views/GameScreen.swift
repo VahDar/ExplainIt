@@ -8,6 +8,7 @@ struct GameScreen: View {
     @State private var timerEnded = false
     @State private var lastWordSwiped = false
     @State private var timerView: TimerView?
+    @State private var pauseTimer = false
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     
@@ -36,7 +37,7 @@ struct GameScreen: View {
                     }
                     if isViewVisible {
                         ZStack {
-                            TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
+                            TimerView(isTimerRunning: $isTimerRunning, isPaused: $pauseTimer, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 timerEnded = true
                                 if !lastWordSwiped {
                                     viewModel.updateSwipe(word: viewModel.rootWord, swiped: false, isLast: true)
@@ -44,6 +45,9 @@ struct GameScreen: View {
                                 }
                             })
                             .environmentObject(viewModel)
+                            
+                            
+                            
                             Text(viewModel.rootWord)
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 40))
@@ -68,6 +72,17 @@ struct GameScreen: View {
                                     }
                                 })
                         )
+                        
+                        Button(action: {
+                            pauseTimer.toggle()
+                        }) {
+                            Image(systemName: pauseTimer ? "play.fill" : "pause.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(.blue)
+                        }
+                        .padding()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -103,6 +118,7 @@ struct GameScreen: View {
     func startRound() {
         isViewVisible = true
         isTimerRunning = true
+        pauseTimer = false
     }
 }
 

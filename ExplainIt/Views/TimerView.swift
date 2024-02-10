@@ -11,10 +11,12 @@ import AVFoundation
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
     @Binding var isTimerRunning: Bool
+    @Binding var isPaused: Bool
     @EnvironmentObject var viewModel: GameViewModel
     var timerDuration: TimeInterval
     var onTimerEnd: () -> Void
     @State private var audioPlayer: AVAudioPlayer?
+    @State private var timer: Timer?
     
     var body: some View {
         VStack {
@@ -28,27 +30,34 @@ struct TimerView: View {
                         startTimer()
                     }
             }
-//            Text("\(Int(timerDuration > 0 ? timerDuration - timerValue * timerDuration : 60)) sec")
-//                .foregroundColor(.white)
-            
         }
         .onAppear {
             prepareAudioPlayer()
         }
+        .onChange(of: isPaused) { newValue in
+            if !newValue {
+                if isTimerRunning {
+                    startTimer()
+                }
+            } else {
+                pauseTimer()
+            }
+        }
     }
-
-     func startTimer() {
+    
+    func startTimer() {
+        guard !isPaused else {return}
         isTimerRunning = true
         var isSoundPlayed = false
-         
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             
             if timerValue < 1.0 {
                 withAnimation(.linear(duration: 1.0)) {
                     timerValue += 1.0 / timerDuration
                 }
                 
-            let timerLeft = timerDuration - (CGFloat(timerValue) * timerDuration)
+                let timerLeft = timerDuration - (CGFloat(timerValue) * timerDuration)
                 if viewModel.isSoundEnabled && timerLeft <= 5 && !isSoundPlayed {
                     audioPlayer?.play()
                     isSoundPlayed = true
@@ -58,9 +67,15 @@ struct TimerView: View {
                 onTimerEnd()
             }
         }
-        RunLoop.current.add(timer, forMode: .common)
-         
-        
+        if let timer = timer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
+    }
+    
+    private func pauseTimer() {
+        timer?.invalidate()
+        timer = nil
+        isTimerRunning = false
     }
     
     private func prepareAudioPlayer() {
@@ -72,8 +87,10 @@ struct TimerView: View {
             print("Error with download audio file")
         }
     }
-
+    
     private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
         isTimerRunning = false
         onTimerEnd()
     }
@@ -83,8 +100,9 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     @State static var isTimerRunning = true
+    @State static var isPaused = false
     @State static var timerDuration = 30
     static var previews: some View {
-        TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(timerDuration), onTimerEnd: {})
+        TimerView(isTimerRunning: $isTimerRunning, isPaused: $isPaused, timerDuration: TimeInterval(timerDuration), onTimerEnd: {})
     }
 }
