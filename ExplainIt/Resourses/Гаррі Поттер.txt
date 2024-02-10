@@ -1,0 +1,208 @@
+Harry Potter - Гаррі Поттер
+Hermione Granger - Герміона Грейнджер
+Ron Weasley - Рон Візлі
+Hogwarts - Гоґвортс
+Dumbledore - Дамблдор
+Voldemort - Волдеморт
+Quidditch - Квідич
+Gryffindor - Ґрифіндор
+Slytherin - Слизерин
+Hufflepuff - Пуффендуй
+Ravenclaw - Когтевран
+Muggle - Маґл
+Wand - Паличка
+Patronus - Патронус
+Dementor - Дементор
+Snape - Снейп
+Malfoy - Мелфой
+Polyjuice Potion - Зілля Полісок
+Diagon Alley - Діагон Аллея
+The Sorting Hat - Сортувальний Капелюх
+Fawkes - Фокс
+Horcrux - Хоркрукс
+Hagrid - Геґрід
+Nimbus 2000 - Німбус 2000
+The Burrow - Нора
+Death Eater - Смертежер
+Azkaban - Азкабан
+The Marauder's Map - Мапа Мародерів
+Basilisk - Базиліск
+The Triwizard Tournament - Тримагічний Турнір
+Goblet of Fire - Келих Вогню
+House Elf - Домовик
+Dobby - Доббі
+The Forbidden Forest - Заборонений Ліс
+The Whomping Willow - Б'юча Верба
+Butterbeer - Медовуха
+The Golden Snitch - Золотий Снитч
+The Chamber of Secrets - Камера Таємниць
+The Mirror of Erised - Дзеркало Ерізеда
+The Philosopher's Stone - Камінь Філософії
+Luna Lovegood - Луна Лавгуд
+The Knight Bus - Нічний Автобус
+Bellatrix Lestrange - Белатрікс Лестрейндж
+The Elder Wand - Стародавній Посох
+The Pensieve - Мисленний Котел
+The Half-Blood Prince - Принц-напівкровка
+The Order of the Phoenix - Орден Фенікса
+The Weasley Twins - Близнюки Візлі
+Moaning Myrtle - Стогонуча Міртла
+The Leaky Cauldron - Проліский Казан
+Platform 9 ¾ - Платформа 9 ¾
+Parseltongue - Зміємова
+Gringotts - Ґрінґотс
+The Daily Prophet - Щоденний Пророк
+The Cloak of Invisibility - Плащ Невидимки
+Sirius Black - Сіріус Блек
+Remus Lupin - Ремус Люпін
+Thestral - Тестрал
+Portkey - Портал-ключ
+Spellbook - Книга Заклять
+The Yule Ball - Юльський Бал
+Cedric Diggory - Седрік Діггорі
+Fleur Delacour - Флер Делакур
+Viktor Krum - Віктор Крум
+Mad-Eye Moody - Безокий Муді
+The Sorcerer's Stone - Камінь Мудреця
+The Goblet of Fire - Келих Вогню
+The Deathly Hallows - Смертельні Реліквії
+Sectumsempra - Сектумсемпра
+Lumos - Люмос
+Nox - Нокс
+Accio - Акціо
+Expelliarmus - Експеліармус
+Alohomora - Алохомора
+Crucio - Круціо
+Avada Kedavra - Авада Кедавра
+Imperio - Імперіо
+Wingardium Leviosa - Вінґардіум Левіоса
+The Lovegood House - Будинок Лавгудів
+The Room of Requirement - Кімната Вимог
+The Slytherin Locket - Локет Слизерина
+The Hufflepuff Cup - Кубок Пуффендуя
+The Ravenclaw Diadem - Діадема Когтеврана
+The Gaunt Ring - Перстень Ґонтів
+Nagini - Нагіні
+The Tales of Beedle the Bard - Казки Бідля Барда
+The Quibbler - Вигадник
+Floo Powder - Порошок Флу
+Godric Gryffindor - Ґодрік Ґрифіндор
+Salazar Slytherin - Салазар Слизерин
+Helga Hufflepuff - Гельґа Пуффендуй
+Rowena Ravenclaw - Ровена Когтевран
+The Battle of Hogwarts - Битва за Гоґвортс
+The Lightning Scar - Шрам-блискавка
+The Forbidden Section - Заборонена Секція
+The Giant Squid - Гігантський Кальмар
+The Firebolt - Вогняна Блискавка
+The Triwizard Cup - Кубок Тримагічного Турніру
+The Veil - Завіса
+The Hog's Head - Голова Вепра
+The Golden Trio - Золоте Тріо
+Kreacher - Крічер
+Winky - Вінкі
+The Ministry of Magic - Міністерство Магії
+The Prophecy - Пророцтво
+The Grim - Ґрім
+Tonks - Тонкс
+The Portraits of Hogwarts - Портрети Гоґвортса
+The Time-Turner - Поворот-час
+The Felix Felicis - Фелікс Феліціс
+The Vanishing Cabinet - Шафа-невидимка
+The Sword of Gryffindor - Меч Ґрифіндора
+The Hogwarts Express - Експрес Гоґвортс
+The Black Family Tapestry - Гобелен родини Блеків
+The Shrieking Shack - Хижа Скрику
+The Dueling Club - Клуб Дуелей
+The Quidditch World Cup - Кубок Світу з Квідичу
+The Hogwarts Choir - Хор Гоґвортса
+The Spellotape - Чарівна Стрічка
+The Quaffle - Квофл
+The Bludgers - Блоджери
+The Beaters - Бійці
+The Seeker - Шукач
+The Chaser - Гонщик
+The Keeper - Воротар
+The Prefects' Bathroom - Ванна Префектів
+The Gillyweed - Гілівід
+The Horcrux Hunt - Полювання за Хоркруксами
+The Three Broomsticks - Три Мітли
+The Dark Mark - Темна Печатка
+The Polyjuice Mistake - Помилка з Полісоком
+The Hogwarts Letters - Листи з Гоґвортса
+The Grindylow - Ґріндилов
+The Inferi - Інфері
+The Floo Network - Мережа Флу
+The OWLs and NEWTs - СОВи та НОМи
+The Slytherin's Serpent - Змія Слизерина
+The Gryffindor's Lion - Лев Ґрифіндора
+The Hufflepuff's Badger - Борсук Пуффендуя
+The Ravenclaw's Eagle - Орел Когтеврана
+The Sorting Ceremony - Церемонія Сортування
+The Pumpkin Pasties - Гарбузові Пиріжки
+The Chocolate Frogs - Шоколадні Жаби
+The Wizard Chess - Чарівні Шахи
+The Magical Creatures Class - Клас Магічних Істот
+The Defense Against the Dark Arts - Захист від Темних Мистецтв
+The History of Magic - Історія Магії
+The Herbology Greenhouses - Теплиці з Гербології
+The Flying Lessons - Уроки Польотів
+Zonko's Joke Shop - Магазин Жартів Зонко
+Peeves the Poltergeist - Полтергейст Півз
+The Marauders - Мародери
+Wizengamot - Візенґамот
+Grindelwald - Ґріндельвальд
+Ollivanders Wand Shop - Магазин Паличок Олівандера
+The Triwizard Maze - Лабіринт Тримагічного Турніру
+Beauxbatons Academy of Magic - Академія Магії Бобатон
+Durmstrang Institute - Інститут Дурмстранг
+Veritaserum - Верітасерум
+The Quidditch Pitch - Квідичне Поле
+The Patronus Charm - Чари Патронуса
+The Unbreakable Vow - Непорушна Клятва
+The Knight of Walpurgis - Лицар Вальпургієвої Ночі
+Deluminator - Делюмінатор
+The Vanishing Spell - Закляття Невидимості
+The Summoning Charm - Заклинання Виклику
+The Disarming Charm - Заклинання Роззброєння
+The Bat-Bogey Hex - Прокляття Кажанового Мокротиння
+The Stupefy Spell - Закляття Оглушення
+The Imperius Curse - Прокляття Імперіуса
+The Cruciatus Curse - Прокляття Круціатуса
+The Killing Curse - Прокляття Смерті
+The Weasleys' Wizard Wheezes - Фокуси та Витівки Візлів
+The Slug Club - Клуб Слизняка
+Diadem of Ravenclaw - Діадема Когтеврана
+The Resurrection Stone - Камінь Воскресіння
+Horcruxes - Хоркрукси
+The Prisoner of Azkaban - В'язень Азкабану
+Amortentia - Амортенція
+Arithmancy - Аритманція
+Blast-Ended Skrewt - Скрючний Бласт
+Boggart - Боггарт
+Bowtruckle - Бовтрук
+Crumple-Horned Snorkack - Морщинистий Сноркак
+Dirigible Plum - Плавуча Слива
+Erumpent - Ерумпент
+Fidelius Charm - Чари Фіделіуса
+Firenze - Фіренце
+Gringott's Dragon - Дракон Ґрінґотса
+Hinkypunk - Інкіпанк
+Horcrux Curse - Прокляття Хоркрукса
+Ilvermorny - Ілверморні
+Kneazle - Кнізл
+Legilimency - Леґіліменція
+Manticore - Мантікора
+Merpeople - Морські Люди
+Niffler - Ніффлер
+Occlumency - Оклюменція
+Parselmouth - Парселмов
+Protego - Протего
+Pygmy Puff - Пігмейський Пуф
+Quidditch Keeper - Воротар Квідичу
+Ravenclaw's Lost Diadem - Загублена Діадема Когтеврана
+Room of Hidden Things - Кімната Прихованих Речей
+Scamander - Скамандер
+Silencing Charm - Закляття Німості
+Squib - Сквиб
+Transfiguration - Трансфігурація

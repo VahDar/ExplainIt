@@ -17,7 +17,9 @@ struct SetUpScreen: View {
     @State private var isButtonPressed = false
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
-    @State private var topics = ["General", "Harry Potter"]
+    var topics: [String] {
+        LocalizationService.shared.language == .ukrainian ? ["Загальна тема", "Гаррі Поттер"] : ["General", "Harry Potter"]
+    }
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     

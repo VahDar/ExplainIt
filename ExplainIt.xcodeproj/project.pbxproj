@@ -10,12 +10,13 @@
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
 		FC0E0B742B6033F20024BE9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FC0E0B732B6033F20024BE9F /* Lottie */; };
+		FC0FCA3D2B77CC220026016B /* Гаррі Поттер.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC0FCA3C2B77CC220026016B /* Гаррі Поттер.txt */; };
 		FC16E60A2B754021007FB5AD /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16E6092B754021007FB5AD /* String+extension.swift */; };
 		FC16E6102B754A1D007FB5AD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FC16E60F2B754A1D007FB5AD /* Localizable.xcstrings */; };
 		FC1744CF2B4C5B6400AF4ABB /* Harry Potter.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */; };
 		FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1744D02B4C806000AF4ABB /* TeamName.swift */; };
 		FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17C43E2B54435E00C34015 /* CustomAlertView.swift */; };
-		FC2B5F962B778CD500BBFA25 /* GeneralUA.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC2B5F952B778CD500BBFA25 /* GeneralUA.txt */; };
+		FC2B5F962B778CD500BBFA25 /* Загальна тема.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC2B5F952B778CD500BBFA25 /* Загальна тема.txt */; };
 		FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A32D32B47292900B3CB0F /* GameViewModel.swift */; };
 		FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */ = {isa = PBXBuildFile; fileRef = FC5A54082B6696A1003E4952 /* astronautMain.json */; };
 		FC5A540B2B66D7EC003E4952 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC5A540A2B66D7EC003E4952 /* sound.mp3 */; };
@@ -42,12 +43,13 @@
 /* Begin PBXFileReference section */
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
+		FC0FCA3C2B77CC220026016B /* Гаррі Поттер.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Гаррі Поттер.txt"; sourceTree = "<group>"; };
 		FC16E6092B754021007FB5AD /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		FC16E60F2B754A1D007FB5AD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Harry Potter.txt"; sourceTree = "<group>"; };
 		FC1744D02B4C806000AF4ABB /* TeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamName.swift; sourceTree = "<group>"; };
 		FC17C43E2B54435E00C34015 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
-		FC2B5F952B778CD500BBFA25 /* GeneralUA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GeneralUA.txt; sourceTree = "<group>"; };
+		FC2B5F952B778CD500BBFA25 /* Загальна тема.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Загальна тема.txt"; sourceTree = "<group>"; };
 		FC3A32D32B47292900B3CB0F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FC5A54082B6696A1003E4952 /* astronautMain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronautMain.json; sourceTree = "<group>"; };
 		FC5A540A2B66D7EC003E4952 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
@@ -177,7 +179,8 @@
 				FC5A540A2B66D7EC003E4952 /* sound.mp3 */,
 				FCCD263E2A9DFD370007F5F6 /* General.txt */,
 				FC1744CE2B4C5B6300AF4ABB /* Harry Potter.txt */,
-				FC2B5F952B778CD500BBFA25 /* GeneralUA.txt */,
+				FC0FCA3C2B77CC220026016B /* Гаррі Поттер.txt */,
+				FC2B5F952B778CD500BBFA25 /* Загальна тема.txt */,
 				FCCD26342A9DFC560007F5F6 /* Assets.xcassets */,
 				FC16E60F2B754A1D007FB5AD /* Localizable.xcstrings */,
 			);
@@ -256,8 +259,9 @@
 				FCCD263F2A9DFD370007F5F6 /* General.txt in Resources */,
 				FCDC46F22B769E52007B9286 /* backgroundAnimation.json in Resources */,
 				FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */,
-				FC2B5F962B778CD500BBFA25 /* GeneralUA.txt in Resources */,
+				FC2B5F962B778CD500BBFA25 /* Загальна тема.txt in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
+				FC0FCA3D2B77CC220026016B /* Гаррі Поттер.txt in Resources */,
 				FCE922F12B60FE8800856F9C /* astronaut.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

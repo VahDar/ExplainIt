@@ -49,6 +49,7 @@ struct GameScreen: View {
                                 .font(.system(size: 40))
                                 .fontWeight(.bold)
                                 .frame(width: 300, height: 300)
+                                .multilineTextAlignment(.center)
                                 .contentShape(Rectangle())
                         }
                         .gesture(
