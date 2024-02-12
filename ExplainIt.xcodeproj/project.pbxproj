@@ -18,6 +18,8 @@
 		FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17C43E2B54435E00C34015 /* CustomAlertView.swift */; };
 		FC2B5F962B778CD500BBFA25 /* Загальна тема.txt in Resources */ = {isa = PBXBuildFile; fileRef = FC2B5F952B778CD500BBFA25 /* Загальна тема.txt */; };
 		FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A32D32B47292900B3CB0F /* GameViewModel.swift */; };
+		FC47A7502B7A659B00EE366B /* PausedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47A74F2B7A659B00EE366B /* PausedButton.swift */; };
+		FC47A7522B7A67AE00EE366B /* Continue.json in Resources */ = {isa = PBXBuildFile; fileRef = FC47A7512B7A67AE00EE366B /* Continue.json */; };
 		FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */ = {isa = PBXBuildFile; fileRef = FC5A54082B6696A1003E4952 /* astronautMain.json */; };
 		FC5A540B2B66D7EC003E4952 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC5A540A2B66D7EC003E4952 /* sound.mp3 */; };
 		FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB00F662A9E42310003F964 /* GradientLineView.swift */; };
@@ -51,6 +53,8 @@
 		FC17C43E2B54435E00C34015 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		FC2B5F952B778CD500BBFA25 /* Загальна тема.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Загальна тема.txt"; sourceTree = "<group>"; };
 		FC3A32D32B47292900B3CB0F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		FC47A74F2B7A659B00EE366B /* PausedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausedButton.swift; sourceTree = "<group>"; };
+		FC47A7512B7A67AE00EE366B /* Continue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Continue.json; sourceTree = "<group>"; };
 		FC5A54082B6696A1003E4952 /* astronautMain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronautMain.json; sourceTree = "<group>"; };
 		FC5A540A2B66D7EC003E4952 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		FCB00F662A9E42310003F964 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				FCE8CEF72B503A8800011E0F /* CustomDivider.swift */,
 				FCFCC9B02B5C3DDD00E5412E /* CustomItemView.swift */,
 				FCDC46EE2B76600F007B9286 /* TextGradient.swift */,
+				FC47A74F2B7A659B00EE366B /* PausedButton.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 		FCF36FDC2B71367200B31DB0 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				FC47A7512B7A67AE00EE366B /* Continue.json */,
 				FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */,
 				FCDC46F12B769E52007B9286 /* backgroundAnimation.json */,
 				FCE922F02B60FE8800856F9C /* astronaut.json */,
@@ -262,6 +268,7 @@
 				FC2B5F962B778CD500BBFA25 /* Загальна тема.txt in Resources */,
 				FCCD26352A9DFC560007F5F6 /* Assets.xcassets in Resources */,
 				FC0FCA3D2B77CC220026016B /* Гаррі Поттер.txt in Resources */,
+				FC47A7522B7A67AE00EE366B /* Continue.json in Resources */,
 				FCE922F12B60FE8800856F9C /* astronaut.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +287,7 @@
 				FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */,
 				FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */,
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
+				FC47A7502B7A659B00EE366B /* PausedButton.swift in Sources */,
 				FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */,
 				FC16E60A2B754021007FB5AD /* String+extension.swift in Sources */,
 				FCE8322E2AAA1ABD00D1CB00 /* TimerView.swift in Sources */,

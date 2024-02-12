@@ -102,7 +102,9 @@ import AVFoundation
 struct TimerView: View {
     @State private var to: CGFloat = 0
     @State private var count = 0
-    @State private var timerPaused = false
+    @Binding var timerPaused: Bool
+    @State private var isSoundPlayed = false
+    @Binding var showPauseAnimation: Bool
     @Binding var isTimerRunning: Bool
     @EnvironmentObject var viewModel: GameViewModel
     var timerDuration: TimeInterval
@@ -123,44 +125,57 @@ struct TimerView: View {
                 prepareAudioPlayer()
             }
             .onReceive(self.time) { _ in
-                var isSoundPlayed = false
-                if self.isTimerRunning && !self.timerPaused {
-                    if self.count < Int(self.timerDuration) {
-                        self.count += 1
-                        withAnimation(.linear(duration: 1.0)) {
-                            self.to = CGFloat(self.count) / CGFloat(self.timerDuration)
-                        }
-
-                        let timerLeft = self.timerDuration - TimeInterval(self.count)
-                        if self.viewModel.isSoundEnabled && timerLeft <= 5 && !isSoundPlayed {
-                            self.audioPlayer?.play()
-                            isSoundPlayed = true
-                        }
-                    } else {
-                        self.isTimerRunning = false
-                        self.onTimerEnd()
-                    }
-                }
+                updateTimer()
             }
 
-            Button(action: {
-                self.timerPaused.toggle()
-                if self.timerPaused {
-                    self.isTimerRunning = false
-                } else {
-                    self.isTimerRunning = true
+            if !timerPaused {
+                Button(action: {
+                    self.pauseTimer()
+                }) {
+                    Image(systemName: "pause.circle")
+                        .foregroundColor(.blue)
+                        .font(.largeTitle)
+//                        .padding(.vertical, 10)
+//                        .frame(width: 60)
+//                        .background(Color(red: 79/255, green: 74/255, blue: 183/255))
+//                        .clipShape(Circle())
                 }
-            }) {
-                Text(timerPaused ? "Продолжить" : "Пауза")
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-                    .frame(width: 200)
-                    .background(Color.blue)
-                    .clipShape(Capsule())
+                .padding()
+                .offset(x: -100, y: 100)
             }
-            .padding()
         }
     }
+
+    private func updateTimer() {
+        if self.isTimerRunning && !self.timerPaused {
+            if self.count < Int(self.timerDuration) {
+                self.count += 1
+                withAnimation(.linear(duration: 1.0)) {
+                    self.to = CGFloat(self.count) / CGFloat(self.timerDuration)
+                }
+
+                let timerLeft = self.timerDuration - TimeInterval(self.count)
+                if self.viewModel.isSoundEnabled && timerLeft <= 5 && !self.isSoundPlayed {
+                    self.audioPlayer?.play()
+                    self.isSoundPlayed = true
+                }
+            } else {
+                self.isTimerRunning = false
+                self.onTimerEnd()
+            }
+        }
+    }
+
+    private func pauseTimer() {
+        showPauseAnimation = true
+        timerPaused = true
+        isTimerRunning = false
+    }
+
+//    private func resumeTimer() {
+//        timerPaused = false
+//        isTimerRunning = true
+//    }
 
     private func prepareAudioPlayer() {
         guard let soundURL = Bundle.main.url(forResource: "sound", withExtension: "mp3") else { return }

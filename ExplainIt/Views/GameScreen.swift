@@ -4,9 +4,11 @@ struct GameScreen: View {
     @State private var language = LocalizationService.shared.language
     @State private var isViewVisible = false
     @State private var isTimerEnd = false
+    @State private var timerPaused = false
     @State private var isTimerRunning = false
     @State private var timerEnded = false
     @State private var lastWordSwiped = false
+    @State private var showPauseAnimation = false 
     @State private var timerView: TimerView?
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -36,7 +38,7 @@ struct GameScreen: View {
                     }
                     if isViewVisible {
                         ZStack {
-                            TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
+                            TimerView(timerPaused: $timerPaused, showPauseAnimation: $showPauseAnimation, isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 timerEnded = true
                                 if !lastWordSwiped {
                                     viewModel.updateSwipe(word: viewModel.rootWord, swiped: false, isLast: true)
@@ -44,8 +46,6 @@ struct GameScreen: View {
                                 }
                             })
                             .environmentObject(viewModel)
-                            
-                            
                             
                             Text(viewModel.rootWord)
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
@@ -71,6 +71,7 @@ struct GameScreen: View {
                                     }
                                 })
                         )
+                        
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -79,6 +80,7 @@ struct GameScreen: View {
                         .blur(radius: isTimerEnd ? 10 : 0)
                 )
                 .blur(radius: isTimerEnd ? 10 : 0)
+                .blur(radius: showPauseAnimation ? 10 : 0)
                 if isTimerEnd {
                     CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3))
                         .environmentObject(viewModel)
@@ -90,8 +92,22 @@ struct GameScreen: View {
                             .stroke(Color.gray, lineWidth: 2)
                         )
                 }
-            }
+                if showPauseAnimation {
+                    Color.black.opacity(0.2)
+                        .zIndex(0)
+                    PausedButton {
+                            self.resumeTimer()
+                        }
+                        .transition(.scale) // Анимация появления
+                        .zIndex(1) // Убедитесь, что анимация отображается поверх других элементов
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                        
             
+            }
+            .onAppear {
+                self.isTimerRunning = true // Запуск таймера при появлении экрана
+            }
             .navigationBarItems(leading: isViewVisible ? nil : Button {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
@@ -103,6 +119,17 @@ struct GameScreen: View {
         }
     }
     
+//func pauseTimer() {
+//    isTimerRunning = false
+//    showPauseAnimation = true
+//}
+
+func resumeTimer() {
+    isTimerRunning = true
+    timerPaused = false
+    showPauseAnimation = false
+}
+
     func startRound() {
         isViewVisible = true
         isTimerRunning = true
