@@ -36,7 +36,7 @@ struct GameScreen: View {
                     }
                     if isViewVisible {
                         ZStack {
-                            TimerView(timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
+                            TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 timerEnded = true
                                 if !lastWordSwiped {
                                     viewModel.updateSwipe(word: viewModel.rootWord, swiped: false, isLast: true)
@@ -71,17 +71,6 @@ struct GameScreen: View {
                                     }
                                 })
                         )
-                        Button(action: {
-                            viewModel.isTimerRunning.toggle()
-                            viewModel.isTimerRunning ? timerView?.pauseTimer() : timerView?.startTimer()
-                               
-                        }) {
-                            Text(viewModel.isTimerRunning ? "Pause" : "Start")
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(viewModel.isTimerRunning ? Color.red : Color.green)
-                                .cornerRadius(10)
-                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -116,7 +105,7 @@ struct GameScreen: View {
     
     func startRound() {
         isViewVisible = true
-        viewModel.isTimerRunning = true
+        isTimerRunning = true
     }
 }
 

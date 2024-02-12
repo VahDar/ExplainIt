@@ -290,9 +290,6 @@
         }
       }
     },
-    "Pause" : {
-
-    },
     "Points: %lld" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -572,6 +569,12 @@
           }
         }
       }
+    },
+    "Пауза" : {
+
+    },
+    "Продолжить" : {
+
     }
   },
   "version" : "1.0"
