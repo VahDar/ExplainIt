@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class GameViewModel: ObservableObject {
+    @Published var isTimerRunning: Bool = false
     @Published var rootWord = ""
     @Published var roundTime: Int = 30
     @Published var requiredPoints: Int = 20

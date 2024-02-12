@@ -10,7 +10,7 @@ import AVFoundation
 
 struct TimerView: View {
     @State private var timerValue: CGFloat = 0.0
-    @Binding var isTimerRunning: Bool
+//    @Binding var isTimerRunning: Bool
     @EnvironmentObject var viewModel: GameViewModel
     var timerDuration: TimeInterval
     var onTimerEnd: () -> Void
@@ -35,7 +35,7 @@ struct TimerView: View {
         }
     }
             func startTimer() {
-                isTimerRunning = true
+                viewModel.isTimerRunning = true
                 var isSoundPlayed = false
                 
                 timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
@@ -71,10 +71,26 @@ struct TimerView: View {
         }
     }
     
+    func toggleTimer() {
+       
+        
+        if viewModel.isTimerRunning {
+            pauseTimer()
+        } else {
+            
+            startTimer()
+        }
+      
+    }
+    
+    func pauseTimer() {
+        timer?.invalidate()
+    }
+    
     private func stopTimer() {
 //        timer?.invalidate()
 //        timer = nil
-        isTimerRunning = false
+        viewModel.isTimerRunning = false
         onTimerEnd()
     }
 }
@@ -86,6 +102,6 @@ struct TimerView_Previews: PreviewProvider {
     @State static var isPaused = false
     @State static var timerDuration = 30
     static var previews: some View {
-        TimerView(isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(timerDuration), onTimerEnd: {})
+        TimerView( timerDuration: TimeInterval(timerDuration), onTimerEnd: {})
     }
 }

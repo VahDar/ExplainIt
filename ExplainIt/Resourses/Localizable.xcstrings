@@ -290,6 +290,9 @@
         }
       }
     },
+    "Pause" : {
+
+    },
     "Points: %lld" : {
       "extractionState" : "stale",
       "localizations" : {
