@@ -94,13 +94,13 @@ struct GameScreen: View {
                 }
                 if showPauseAnimation {
                     Color.black.opacity(0.2)
+                        .ignoresSafeArea(.all)
                         .zIndex(0)
                     PausedButton {
                             self.resumeTimer()
                         }
-                        .transition(.scale) // Анимация появления
-                        .zIndex(1) // Убедитесь, что анимация отображается поверх других элементов
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .transition(.scale)
+                        .zIndex(1)
                 }
                         
             
