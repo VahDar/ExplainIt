@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //MARK: - Properties
+    
     @AppStorage("language")
     private var language = LocalizationService.shared.language
     @State private var isTeamScreenActive = false
     @State private var isUkrainian = false
-    @State private var selectedDuration = 30
-    @State private var numberOfTeams = 0
+    @State private var selectedDuration: Int
     @StateObject var viewModel = GameViewModel()
     var timerDurations: [Int]
+    
+    // MARK: - Initializer
     
     init(selectedDuration: Int, timerDurations: [Int]) {
         self._selectedDuration = State(initialValue: selectedDuration)
@@ -23,69 +27,18 @@ struct ContentView: View {
         self._isUkrainian = State(initialValue: LocalizationService.shared.language == .ukrainian)
     }
     
+    // MARK: - Body
+    
     var body: some View {
         NavigationStack {
             VStack {
-                TextGradient()
-                    .padding()
-                    .offset(y: -120)
-                SettingAnimationView(animationFileName: "astronautMain", loopMode: .loop)
-                    .frame(width: 100, height: 100)
-                    .scaleEffect(0.25)
-                    .padding(.bottom)
-                    .offset(y: -35)
-                
-                CustomButton(name: "New Game".localized(language)) {
-                    isTeamScreenActive = true
-                    viewModel.clearGameData()
-                    viewModel.resetGame()
-                }
-                .padding(.bottom)
-                
-                CustomDisabledButton(name: "Continue".localized(language), action: {
-                    isTeamScreenActive = false
-                    viewModel.isGameScreenPresented = true
-                }, isDisabled: !viewModel.isGameStarted)
-                .padding(.bottom)
-                
-                VStack {
-                    Text("Language".localized(language))
-                        .foregroundStyle(Color(red: 79/255, green: 74/255, blue: 183/255))
-                        .font(.title.bold())
-                    HStack {
-                        Button {
-                            isUkrainian.toggle()
-                        } label: {
-                            Image(systemName: "chevron.left")
-                        }
-                        .padding()
-                        
-                        if isUkrainian {
-                            Image("UA")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                        } else {
-                            Image("USA")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                        }
-                        
-                        Button {
-                            isUkrainian.toggle()
-                        } label: {
-                            Image(systemName: "chevron.right")
-                        }
-                        .padding()
-                    }
-                }
+                gameSettingsView
+                languageSelectionView
             }
-            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(SettingAnimationView(animationFileName: "backgroundAnimation", loopMode: .loop)
-                .allowsHitTesting(false)
-            )
-            
-            
+            .background(backgroundAnimationView)
+            .onChange(of: isUkrainian, perform: updateLanguage)
+            .onAppear(perform: viewModel.loadGameData)
             .navigationDestination(isPresented: $isTeamScreenActive) {
                 TeamName(timerDurations: timerDurations)
                     .environmentObject(viewModel)
@@ -102,20 +55,84 @@ struct ContentView: View {
                     .navigationBarBackButtonHidden(true)
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .onChange(of: isUkrainian) { newValue in
-            LocalizationService.shared.language = newValue ? .ukrainian : .english_us
+    }
+    
+    // MARK: - View Components
+    
+    private var languageSelectionView: some View {
+        VStack {
+            Text("Language".localized(language))
+                .foregroundStyle(Color(red: 79/255, green: 74/255, blue: 183/255))
+                .font(.title.bold())
+            HStack {
+                Button(action: { isUkrainian.toggle() }) {
+                    Image(systemName: "chevron.left")
+                }
+                .padding()
+                
+                LanguageImage(isUkrainian: $isUkrainian)
+                    .frame(width: 30, height: 30)
+                
+                Button(action: { isUkrainian.toggle() }) {
+                    Image(systemName: "chevron.right")
+                }
+                .padding()
+            }
         }
-        .onAppear {
-            viewModel.loadGameData()
+    }
+    
+    private var gameSettingsView: some View {
+        VStack {
+            TextGradient()
+                .padding()
+                .offset(y: -120)
+            SettingAnimationView(animationFileName: "astronautMain", loopMode: .loop)
+                .frame(width: 100, height: 100)
+                .scaleEffect(0.25)
+                .padding(.bottom)
+                .offset(y: -35)
+            
+            CustomButton(name: "New Game".localized(language)) {
+                isTeamScreenActive = true
+                viewModel.clearGameData()
+                viewModel.resetGame()
+            }
+            .padding(.bottom)
+            
+            CustomDisabledButton(name: "Continue".localized(language), action: {
+                isTeamScreenActive = false
+                viewModel.isGameScreenPresented = true
+            }, isDisabled: !viewModel.isGameStarted)
+            .padding(.bottom)
+        }
+    }
+    
+    private var backgroundAnimationView: some View {
+        SettingAnimationView(animationFileName: "backgroundAnimation", loopMode: .loop)
+            .allowsHitTesting(false)
+    }
+    
+    // MARK: - Methods
+    
+    private func updateLanguage(newValue: Bool) {
+        language = newValue ? .ukrainian : .english_us
+    }
+    
+    // MARK: - Preview
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView(selectedDuration: 30, timerDurations: [30, 60, 90])
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    @State static var selectedDuration = 30
-    @State static var timerDurations = [30]
-    static var previews: some View {
-        ContentView(selectedDuration: selectedDuration, timerDurations: timerDurations)
+// Assuming LanguageImage is a struct for displaying the language flag
+struct LanguageImage: View {
+    @Binding var isUkrainian: Bool
+    
+    var body: some View {
+        Image(isUkrainian ? "UA" : "USA")
+            .resizable()
     }
 }
