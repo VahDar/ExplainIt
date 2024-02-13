@@ -8,61 +8,25 @@
 import SwiftUI
 
 struct TeamName: View {
+    
+    // MARK: - Properties
     @State private var teamNames: [String] = []
     @State private var language = LocalizationService.shared.language
-    @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just a winners", "Manatee"]
+    @State private var randomNames = ["Crazy cucumber", "Best", "Pony", "Just winners", "Manatee"]
     @State private var isSetUpScreenActive = false
     @State private var isAlertPresented = false
     @State private var isWarningAlertPresented = false
     @State private var temporaryTeamName = ""
     @State private var editingTeamIndex: Int?
-    @State private var numberOfTeams = 0
     @EnvironmentObject var viewModel: GameViewModel
-    @Environment(\.presentationMode) var presentationMode
     var timerDurations: [Int]
     
+    // MARK: - Body
     var body: some View {
         VStack {
-            List {
-                ForEach(0..<teamNames.count, id: \.self) { index in
-                    HStack {
-                        TextField("Team \(index + 1) Name".localized(language), text: $teamNames[index])
-                            .textFieldStyle(PlainTextFieldStyle())
-                            .foregroundStyle(.white)
-                        Spacer()
-                        Text("Random".localized(language))
-                            .onTapGesture {
-                                teamNames[index] = randomNames.randomElement() ?? ""
-                                viewModel.teams = teamNames
-                            }
-                            .foregroundStyle(Color.blue)
-                        
-                    }
-                    .padding(.horizontal, 18)
-                    .onLongPressGesture {
-                        self.temporaryTeamName = self.teamNames[index]
-                        self.editingTeamIndex = index
-                        self.isAlertPresented = true
-                    }
-                }
-                .onDelete(perform: removeTeam)
-                .listRowBackground(Color.clear)
-                CustomButton(name: "Add Team".localized(language)) {
-                    addTeam()
-                }
-                .padding()
-                .listRowBackground(Color.clear)
-            }
-            .scrollContentBackground(.hidden)
-            Text("Press and hold to enter a team name".localized(language))
-                .foregroundStyle(Color.blue)
-                .multilineTextAlignment(.center)
-            Text("Swipe to delete a team".localized(language))
-                .foregroundStyle(Color.blue)
-                .multilineTextAlignment(.center)
-            CustomDisabledButton(name: "Next".localized(language), action: {
-                isSetUpScreenActive = true
-            }, isDisabled: teamNames.isEmpty)
+            teamList
+            instructionsView
+            navigationButton
         }
         .onAppear {
             viewModel.teams = teamNames
@@ -70,19 +34,6 @@ struct TeamName: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
-        .navigationDestination(isPresented: $isSetUpScreenActive) {
-            SetUpScreen()
-                .environmentObject(viewModel)
-                .navigationBarBackButtonHidden(true)
-        }
-        .navigationBarItems(leading: Button {
-            self.presentationMode.wrappedValue.dismiss()
-        } label: {
-            HStack{
-                Image(systemName: "chevron.left")
-                Text("Main")
-            }
-        })
         .alert("Team name".localized(language), isPresented: $isAlertPresented) {
             TextField("Enter Team Name".localized(language), text: $temporaryTeamName)
             Button("Save".localized(language)) {
@@ -94,23 +45,84 @@ struct TeamName: View {
             Button("Cancel".localized(language), role: .cancel) {}
         }
         .alert("Maximum number of teams reached!".localized(language), isPresented: $isWarningAlertPresented) {
-            Button("Ok".localized(language), role: .cancel) {}
+            Button("OK".localized(language), role: .cancel) {}
+        }
+        
+        // Conditional navigation
+        .navigationDestination(isPresented: $isSetUpScreenActive) {
+                        SetUpScreen()
+                .environmentObject(viewModel)
+                .navigationBarBackButtonHidden(true)
+         }
+    }
+
+    // MARK: - View Components
+
+    private var teamList: some View {
+        List {
+            ForEach(0..<teamNames.count, id: \.self) { index in
+                HStack {
+                    TextField("Team \(index + 1) Name".localized(language), text: $teamNames[index])
+                        .textFieldStyle(PlainTextFieldStyle())
+                        .foregroundStyle(.white)
+                    Spacer()
+                    Text("Random".localized(language))
+                        .onTapGesture {
+                            teamNames[index] = randomNames.randomElement() ?? ""
+                            viewModel.teams = teamNames
+                        }
+                        .foregroundStyle(Color.blue)
+                }
+                .padding(.horizontal, 18)
+                .onLongPressGesture {
+                    self.temporaryTeamName = self.teamNames[index]
+                    self.editingTeamIndex = index
+                    self.isAlertPresented = true
+                }
+            }
+            .onDelete(perform: removeTeam)
+            .listRowBackground(Color.clear)
+            CustomButton(name: "Add Team".localized(language)) {
+                addTeam()
+            }
+            .padding()
+            .listRowBackground(Color.clear)
+        }
+        .scrollContentBackground(.hidden)
+    }
+
+    private var instructionsView: some View {
+        VStack {
+            Text("Press and hold to enter a team name".localized(language))
+                .foregroundStyle(Color.blue)
+                .multilineTextAlignment(.center)
+            Text("Swipe to delete a team".localized(language))
+                .foregroundStyle(Color.blue)
+                .multilineTextAlignment(.center)
         }
     }
+
+    private var navigationButton: some View {
+        CustomDisabledButton(name: "Next".localized(language), action: {
+            isSetUpScreenActive = true
+        }, isDisabled: teamNames.isEmpty)
+    }
+
+    // MARK: - Methods
+
     private func addTeam() {
         if teamNames.count < 8 {
-            let newTeamNumber = teamNames.count + 1
-            teamNames.append("Team \(newTeamNumber)".localized(language))
+            teamNames.append("Team \(teamNames.count + 1)")
             viewModel.teams = teamNames
         } else {
             isWarningAlertPresented = true
         }
     }
-    
+
     private func removeTeam(at offsets: IndexSet) {
-            teamNames.remove(atOffsets: offsets)
-            viewModel.teams = teamNames
-        }
+        teamNames.remove(atOffsets: offsets)
+        viewModel.teams = teamNames
+    }
 }
 
 //#Preview {
