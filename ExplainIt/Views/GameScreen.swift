@@ -71,7 +71,6 @@ struct GameScreen: View {
                                     }
                                 })
                         )
-                        
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -102,8 +101,6 @@ struct GameScreen: View {
                         .transition(.scale)
                         .zIndex(1)
                 }
-                        
-            
             }
             .onAppear {
                 self.isTimerRunning = true // Запуск таймера при появлении экрана

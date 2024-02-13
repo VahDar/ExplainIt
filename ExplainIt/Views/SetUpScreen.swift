@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SetUpScreen: View {
+    
+    //MARK: - Properties
     private var language = LocalizationService.shared.language
     @State var selectedDuration: Int = 30
     @State var selectedPoint: Int = 20
@@ -23,10 +25,10 @@ struct SetUpScreen: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             VStack {
-                
                 Spacer()
                 CustomDivider()
                     .offset(y: 30)
@@ -64,11 +66,12 @@ struct SetUpScreen: View {
                         .padding(.horizontal, 60)
                         .padding(.top, 40)
                 }
-                CustomDivider()
                 
+                CustomDivider()
                 VStack {
                     Text("Choose a Topic:".localized(language))
                         .foregroundStyle(.blue)
+                    
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
                             ForEach(topics, id: \.self) {
@@ -106,6 +109,7 @@ struct SetUpScreen: View {
                 }
                 .frame(height: 300)
                 .padding()
+                
                 CustomDisabledButton(name: "Next".localized(language), action: {
                     startGame()
                     isGameScreenActive = true
@@ -131,6 +135,8 @@ struct SetUpScreen: View {
         }
         
     }
+    
+    // MARK: - Methods
     func startGame() {
         viewModel.currentTopic = selectedTopic ?? "General"
         viewModel.roundTime = selectedDuration
@@ -140,6 +146,7 @@ struct SetUpScreen: View {
     }
 }
 
+// MARK: - Preview
 struct SetUpScreen_Previews: PreviewProvider {
     static var previews: some View {
         SetUpScreen()

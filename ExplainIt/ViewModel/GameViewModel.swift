@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class GameViewModel: ObservableObject {
+    
+    // MARK: Published Properties
     @Published var rootWord = ""
     @Published var roundTime: Int = 30
     @Published var requiredPoints: Int = 20
@@ -24,20 +26,16 @@ class GameViewModel: ObservableObject {
     @Published var isGameStarted: Bool = false
     @Published var backgroundImagePath: String = ""
     @Published var winners: String = ""
-    var currentTopic = ""
     
+    // MARK: Properties
+     var currentTopic = ""
     
+    // MARK: Initialization
     init() {
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
-            self?.saveGameData()
-        }
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
-            self?.saveGameData()
-        }
+        setupNotifications()
     }
     
+    // MARK: Public Methods
     func moveToNextTeam() {
         print("Index Team: - \(currentTeamIndex)")
         let wasLastTeam = currentTeamIndex == teams.count - 1
@@ -68,8 +66,6 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    
-    
     func updateTeamPoints(team: String, points: Int) {
         if let existingPoints = teamPoints[team] {
             teamPoints[team] = existingPoints + points
@@ -78,23 +74,62 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    private func findNextTeamForExtraRound() -> Int? {
-        let maxRoundsPlayed = teamRounds.values.max() ?? 0
-        let minRoundsPlayed = teamRounds.values.min() ?? 0
-        
-        //If not needed extra round return nil
-        if maxRoundsPlayed == minRoundsPlayed {
-            isFinalRoundPhase = false
-            return nil
+    func clearSwipeWords() {
+        swipedWords.removeAll()
+    }
+    
+    func updateSwipe(word: String, swiped: Bool, isLast: Bool = false) {
+        if let index = swipedWords.firstIndex(where: { $0.word == word }) {
+            swipedWords[index].swiped = swiped
+        } else {
+            swipedWords.append((word, swiped, isLast))
         }
-        
-        // Serching a team with min value of rounds
-        for (index, team) in teams.enumerated() {
-            if let roundsPlayed = teamRounds[team], roundsPlayed < maxRoundsPlayed {
-                return index
+    }
+    
+    func loadWords(forTopic topicName: String) {
+        currentTopic = topicName
+        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
+            if let startWords = try? String(contentsOf: startWordsURL) {
+                let allWords = startWords.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "manatee"
+                return
             }
         }
-        return nil
+        fatalError("Could not load start.txt from bundle")
+    }
+    
+    func backgroundImageName(for topic: String) -> String {
+        return UIImage(named: topic) != nil ? topic : "defaultBackground"
+    }
+    
+    func resetGame() {
+        rootWord = ""
+        roundTime = 30
+        requiredPoints = 20
+        teams = []
+        currentTeamIndex = 0
+        teamPoints = [:]
+        teamRounds = [:]
+        swipedWords = []
+        isGameScreenPresented = false
+        isFinalRoundPhase = false
+        isWinnerActive = false
+        isGameStarted = false
+        backgroundImagePath = ""
+        winners = ""
+        currentTopic = ""
+    }
+    
+    // MARK: Private Methods
+    private func setupNotifications() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
+        
+        notificationCenter.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
     }
     
     private func checkForGameEnd() {
@@ -124,55 +159,29 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    func clearSwipeWords() {
-        swipedWords.removeAll()
-    }
-    
-    func updateSwipe(word: String, swiped: Bool, isLast: Bool = false) {
-        if let index = swipedWords.firstIndex(where: { $0.word == word }) {
-            swipedWords[index].swiped = swiped
-        } else {
-            swipedWords.append((word, swiped, isLast))
+    private func findNextTeamForExtraRound() -> Int? {
+        let maxRoundsPlayed = teamRounds.values.max() ?? 0
+        let minRoundsPlayed = teamRounds.values.min() ?? 0
+        
+        //If not needed extra round return nil
+        if maxRoundsPlayed == minRoundsPlayed {
+            isFinalRoundPhase = false
+            return nil
         }
-    }
-    
-    func loadWords(forTopic topicName: String) {
-       currentTopic = topicName
-        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
-            if let startWords = try? String(contentsOf: startWordsURL) {
-                let allWords = startWords.components(separatedBy: "\n")
-                rootWord = allWords.randomElement() ?? "manatee"
-                return
+        
+        // Serching a team with min value of rounds
+        for (index, team) in teams.enumerated() {
+            if let roundsPlayed = teamRounds[team], roundsPlayed < maxRoundsPlayed {
+                return index
             }
         }
-       fatalError("Could not load start.txt from bundle")
-    }
-    
-    func backgroundImageName(for topic: String) -> String {
-            return UIImage(named: topic) != nil ? topic : "defaultBackground"
-        }
-    
-    func resetGame() {
-        rootWord = ""
-        roundTime = 30
-        requiredPoints = 20
-        teams = []
-        currentTeamIndex = 0
-        teamPoints = [:]
-        teamRounds = [:]
-        swipedWords = []
-        isGameScreenPresented = false
-        isFinalRoundPhase = false
-        isWinnerActive = false
-        isGameStarted = false
-        backgroundImagePath = ""
-        winners = ""
-        currentTopic = ""
+        return nil
     }
 }
 
 extension GameViewModel {
     
+    // MARK: Data Persistence
     func saveGameData() {
         let encoder = JSONEncoder()
         if let encodedTeams = try? encoder.encode(teams),
@@ -201,7 +210,7 @@ extension GameViewModel {
            let loadedTeamRounds = try? decoder.decode([String: Int].self, from: teamRoundsData),
            let loadedRoundTime = try? decoder.decode(Int.self, from: roundTimeData),
            let loadedRequiredPoints = try? decoder.decode(Int.self, from: requiredPointsData) {
-
+            
             teams = loadedTeams
             teamPoints = loadedTeamPoints
             teamRounds = loadedTeamRounds
