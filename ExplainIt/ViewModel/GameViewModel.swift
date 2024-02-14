@@ -98,6 +98,12 @@ class GameViewModel: ObservableObject {
         fatalError("Could not load start.txt from bundle")
     }
     
+    func countWordsInFile(named fileName: String) -> Int {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt"),
+              let content = try? String(contentsOfFile: path) else { return 0 }
+        return content.components(separatedBy: "\n").filter { !$0.isEmpty }.count
+    }
+    
     func backgroundImageName(for topic: String) -> String {
         return UIImage(named: topic) != nil ? topic : "defaultBackground"
     }

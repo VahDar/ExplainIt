@@ -19,9 +19,19 @@ struct SetUpScreen: View {
     @State private var isButtonPressed = false
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
-    var topics: [String] {
-        LocalizationService.shared.language == .ukrainian ? ["Загальна тема", "Гаррі Поттер"] : ["General", "Harry Potter"]
-    }
+//        var topics: [String] {
+//            LocalizationService.shared.language == .ukrainian ? ["Загальна тема", "Гаррі Поттер"] : ["General", "Harry Potter"]
+//        }
+    
+    var topics: [Topic] { 
+        LocalizationService.shared.language == .ukrainian ? [
+            Topic(name: "Загальна тема", difficulty: "Easy".localized(language), wordCount: countWordsInFile(named: "Загальна тема")),
+        Topic(name: "Гаррі Поттер", difficulty: "Hard".localized(language), wordCount: countWordsInFile(named: "Гаррі Поттер"))
+    ] : [
+        Topic(name: "General", difficulty: "Easy", wordCount: countWordsInFile(named: "General")),
+        Topic(name: "Harry Potter", difficulty: "Hard", wordCount: countWordsInFile(named: "Harry Potter"))
+    ] }
+    
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     
@@ -74,13 +84,12 @@ struct SetUpScreen: View {
                     
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
-                            ForEach(topics, id: \.self) {
-                                topic in
+                            ForEach(topics, id: \.name) { topic in
                                 Button {
-                                    selectedTopic = topic
+                                    selectedTopic = topic.name
                                 } label: {
                                     ZStack {
-                                        Image(viewModel.backgroundImageName(for: topic))
+                                        Image(viewModel.backgroundImageName(for: topic.name))
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .frame(height: 100)
@@ -89,15 +98,30 @@ struct SetUpScreen: View {
                                             .opacity(0.5)
                                         VStack {
                                             Spacer()
-                                            Text(topic)
+                                            
+                                            Text(topic.name)
                                                 .foregroundStyle(Color.blue)
                                                 .font(.headline)
                                                 .padding(5)
                                                 .background(RoundedRectangle(cornerRadius: 5)
-                                                    .stroke(selectedTopic == topic ? Color(red: 79/255, green: 74/255, blue: 183/255) : Color.black, lineWidth: 2)
+                                                    .stroke(selectedTopic == topic.name ? Color(red: 79/255, green: 74/255, blue: 183/255) : Color.black, lineWidth: 2)
                                                 )
-                                                .background(selectedTopic == topic ? Color(red: 79/255, green: 74/255, blue: 183/255) : Color.black.opacity(0.5))
+                                                .background(selectedTopic == topic.name ? Color(red: 79/255, green: 74/255, blue: 183/255) : Color.black.opacity(0.5))
+                                                .offset(y: 37)
+                                            
+                                            Text("\(topic.difficulty) - \(topic.wordCount) words")
+                                                .foregroundStyle(topic.difficulty == "Hard" && "Важко" ? Color.red : Color.green)
+                                                .font(.headline)
+                                                .padding(5)
+                                                .background(RoundedRectangle(cornerRadius: 5)
+                                                    .stroke(Color.black,
+                                                            lineWidth: 2)
+                                                )
+                                                .background( Color.black.opacity(0.5)
+                                                )
+                                                .offset(x: 100, y: -65)
                                         }
+                                        
                                     }
                                 }
                                 .frame(height: 100)
@@ -144,6 +168,14 @@ struct SetUpScreen: View {
         viewModel.loadWords(forTopic: viewModel.currentTopic)
         viewModel.isGameStarted = true
     }
+    
+    
+}
+
+func countWordsInFile(named fileName: String) -> Int {
+    guard let path = Bundle.main.path(forResource: fileName, ofType: "txt"),
+          let content = try? String(contentsOfFile: path) else { return 0 }
+    return content.components(separatedBy: "\n").filter { !$0.isEmpty }.count
 }
 
 // MARK: - Preview
@@ -151,4 +183,12 @@ struct SetUpScreen_Previews: PreviewProvider {
     static var previews: some View {
         SetUpScreen()
     }
+}
+
+
+// MARK: - Topic Information
+struct Topic {
+    let name: String
+    let difficulty: String
+    let wordCount: Int
 }

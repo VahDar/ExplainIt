@@ -4,6 +4,16 @@
     "%@" : {
 
     },
+    "%@ - %lld words" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$lld words"
+          }
+        }
+      }
+    },
     "%lld points" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -123,6 +133,23 @@
         }
       }
     },
+    "Easy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Easy"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Легко"
+          }
+        }
+      }
+    },
     "Enter Team Name" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -153,6 +180,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Закінчити"
+          }
+        }
+      }
+    },
+    "Hard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hard"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Важко"
           }
         }
       }
