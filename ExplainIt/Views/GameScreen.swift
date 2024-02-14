@@ -8,7 +8,9 @@ struct GameScreen: View {
     @State private var isTimerRunning = false
     @State private var timerEnded = false
     @State private var lastWordSwiped = false
-    @State private var showPauseAnimation = false 
+    @State private var showPauseAnimation = false
+    @State private var wordOffset = CGSize.zero
+    @State private var wordOpacity = 1.0
     @State private var timerView: TimerView?
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -46,28 +48,47 @@ struct GameScreen: View {
                                 }
                             })
                             .environmentObject(viewModel)
-                            
+                            .overlay(
                             Text(viewModel.rootWord)
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
-                                .font(.system(size: 40))
+                                .font(.system(size: 30))
                                 .fontWeight(.bold)
                                 .frame(width: 300, height: 300)
                                 .multilineTextAlignment(.center)
                                 .contentShape(Rectangle())
+                                .offset(wordOffset)
+                                .opacity(wordOpacity)
+                                .offset(y: -30)
+                            , alignment: .center
+                            )
                         }
                         .gesture(
                             DragGesture()
+                                .onChanged({ gesture in
+                                    wordOffset = gesture.translation
+                                })
                                 .onEnded({ gesture in
                                     let swipeDistance = gesture.translation.height
-                                    let swiped = swipeDistance < 0
+                                    let swipedUp = swipeDistance < 0
                                     lastWordSwiped = true
                                     
-                                    if timerEnded {
-                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: swiped, isLast: true)
-                                        isTimerEnd = true
-                                    } else {
-                                        viewModel.updateSwipe(word: viewModel.rootWord, swiped: swiped)
-                                        viewModel.loadWords(forTopic: viewModel.currentTopic)
+                                    withAnimation(.easeIn(duration: 0.3)) {
+                                        self.wordOffset = CGSize(width: 0, height: swipedUp ? -200 : 200)
+                                        self.wordOpacity = 0
+                                    }
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                        
+                                        wordOffset = .zero
+                                        wordOpacity = 1
+                                        
+                                        if timerEnded {
+                                            viewModel.updateSwipe(word: viewModel.rootWord, swiped: swipedUp, isLast: true)
+                                            isTimerEnd = true
+                                        } else {
+                                            viewModel.updateSwipe(word: viewModel.rootWord, swiped: swipedUp)
+                                            viewModel.loadWords(forTopic: viewModel.currentTopic)
+                                        }
                                     }
                                 })
                         )
@@ -96,10 +117,10 @@ struct GameScreen: View {
                         .ignoresSafeArea(.all)
                         .zIndex(0)
                     PausedButton {
-                            self.resumeTimer()
-                        }
-                        .transition(.scale)
-                        .zIndex(1)
+                        self.resumeTimer()
+                    }
+                    .transition(.scale)
+                    .zIndex(1)
                 }
             }
             .onAppear {
@@ -116,17 +137,17 @@ struct GameScreen: View {
         }
     }
     
-//func pauseTimer() {
-//    isTimerRunning = false
-//    showPauseAnimation = true
-//}
-
-func resumeTimer() {
-    isTimerRunning = true
-    timerPaused = false
-    showPauseAnimation = false
-}
-
+    //func pauseTimer() {
+    //    isTimerRunning = false
+    //    showPauseAnimation = true
+    //}
+    
+    func resumeTimer() {
+        isTimerRunning = true
+        timerPaused = false
+        showPauseAnimation = false
+    }
+    
     func startRound() {
         isViewVisible = true
         isTimerRunning = true
