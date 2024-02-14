@@ -59,6 +59,7 @@ struct GameScreen: View {
                                 .offset(wordOffset)
                                 .opacity(wordOpacity)
                                 .offset(y: -30)
+                                .padding(.horizontal, 5)
                             , alignment: .center
                             )
                         }
@@ -110,7 +111,7 @@ struct GameScreen: View {
                         .shadow(radius: 10)
                         .overlay(RoundedRectangle(cornerRadius: 15)
                             .stroke(Color.gray, lineWidth: 2)
-                        )
+                    )
                 }
                 if showPauseAnimation {
                     Color.black.opacity(0.2)
@@ -124,7 +125,7 @@ struct GameScreen: View {
                 }
             }
             .onAppear {
-                self.isTimerRunning = true // Запуск таймера при появлении экрана
+                self.isTimerRunning = true
             }
             .navigationBarItems(leading: isViewVisible ? nil : Button {
                 self.presentationMode.wrappedValue.dismiss()
@@ -136,11 +137,6 @@ struct GameScreen: View {
             })
         }
     }
-    
-    //func pauseTimer() {
-    //    isTimerRunning = false
-    //    showPauseAnimation = true
-    //}
     
     func resumeTimer() {
         isTimerRunning = true
