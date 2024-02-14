@@ -19,9 +19,6 @@ struct SetUpScreen: View {
     @State private var isButtonPressed = false
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
-//        var topics: [String] {
-//            LocalizationService.shared.language == .ukrainian ? ["Загальна тема", "Гаррі Поттер"] : ["General", "Harry Potter"]
-//        }
     
     var topics: [Topic] { 
         LocalizationService.shared.language == .ukrainian ? [
@@ -35,54 +32,69 @@ struct SetUpScreen: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     
+    // MARK: - Initializer
+    init() {
+           let appearance = UINavigationBarAppearance()
+           appearance.configureWithTransparentBackground()
+           appearance.backgroundImage = UIImage()
+           appearance.shadowImage = UIImage()
+           appearance.backgroundColor = .clear
+
+          
+           UINavigationBar.appearance().standardAppearance = appearance
+           UINavigationBar.appearance().compactAppearance = appearance
+           UINavigationBar.appearance().scrollEdgeAppearance = appearance
+       }
+    
     // MARK: - Body
     var body: some View {
         NavigationStack {
-            VStack {
-                Spacer()
-                CustomDivider()
-                    .offset(y: 30)
-                HStack(alignment: .center) {
-                    Text("Required Points:".localized(language))
-                        .foregroundStyle(Color.blue)
-                    Picker("Required Points", selection: $selectedPoint) {
-                        ForEach(requiredPoints, id: \.self) {
-                            Text($0, format: .number)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .background(Color.clear)
-                }
-                .padding(.top, 40)
-                
-                HStack(alignment: .center) {
-                    
-                    Text("Round Time:".localized(language))
-                        .foregroundStyle(.blue)
-                    
-                    Picker("Round Time", selection: $selectedDuration) {
-                        ForEach(timerDurations, id: \.self) {
-                            Text($0, format: .number)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .background(Color.clear)
-                }
-                .padding(.top, 40)
-                VStack(alignment: .center) {
-                    Toggle("Turn on/off timer sound: ".localized(language), isOn: $viewModel.isSoundEnabled)
-                        .tint(.blue)
-                        .foregroundStyle(Color.blue)
-                        .padding(.horizontal, 60)
-                        .padding(.top, 40)
-                }
-                
-                CustomDivider()
+            ScrollView {
                 VStack {
-                    Text("Choose a Topic:".localized(language))
-                        .foregroundStyle(.blue)
+                    CustomDivider()
+                        .offset(y: 30)
+                    HStack(alignment: .center) {
+                        Text("Required Points:".localized(language))
+                            .foregroundStyle(Color.blue)
+                        Picker("Required Points", selection: $selectedPoint) {
+                            ForEach(requiredPoints, id: \.self) {
+                                Text($0, format: .number)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .background(Color.clear)
+                    }
+                    .padding(.top, 40)
                     
-                    ScrollView {
+                    HStack(alignment: .center) {
+                        
+                        Text("Round Time:".localized(language))
+                            .foregroundStyle(.blue)
+                        
+                        Picker("Round Time", selection: $selectedDuration) {
+                            ForEach(timerDurations, id: \.self) {
+                                Text($0, format: .number)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .background(Color.clear)
+                    }
+                    .padding(.top, 40)
+                    VStack(alignment: .center) {
+                        Toggle("Turn on/off timer sound: ".localized(language), isOn: $viewModel.isSoundEnabled)
+                            .tint(.blue)
+                            .foregroundStyle(Color.blue)
+                            .padding(.horizontal, 60)
+                            .padding(.top, 40)
+                    }
+                    
+                    CustomDivider()
+                        .padding(.top)
+                    VStack {
+                        Text("Choose a Topic:".localized(language))
+                            .foregroundStyle(.blue)
+                        
+                        
                         LazyVGrid(columns: [GridItem(.flexible(minimum: UIScreen.main.bounds.width - 36, maximum: UIScreen.main.bounds.width - 36))], spacing: 15) {
                             ForEach(topics, id: \.name) { topic in
                                 Button {
@@ -111,7 +123,7 @@ struct SetUpScreen: View {
                                             
                                             Text("\(topic.difficulty) - \(topic.wordCount) words")
                                                 .foregroundStyle(topic.difficulty == "Hard".localized(language) ? Color.red : Color.green)
-                                                
+                                            
                                                 .font(.headline)
                                                 .padding(5)
                                                 .background(RoundedRectangle(cornerRadius: 5)
@@ -131,17 +143,17 @@ struct SetUpScreen: View {
                         .padding(.horizontal, 18)
                         .padding(.top, 40)
                     }
+                    
+                    .frame(height: 300)
+                    .padding()
+                    
+                    CustomDisabledButton(name: "Next".localized(language), action: {
+                        startGame()
+                        isGameScreenActive = true
+                    }, isDisabled: selectedTopic == nil)
+                    .padding()
                 }
-                .frame(height: 300)
-                .padding()
-                
-                CustomDisabledButton(name: "Next".localized(language), action: {
-                    startGame()
-                    isGameScreenActive = true
-                }, isDisabled: selectedTopic == nil)
-                .padding()
             }
-            .padding(.top, -240)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(BackgroundView())
             .navigationDestination(isPresented: $isGameScreenActive) {
@@ -149,6 +161,8 @@ struct SetUpScreen: View {
                     .environmentObject(viewModel)
                     .navigationBarBackButtonHidden(true)
             }
+            .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("")
             .navigationBarItems(leading: Button {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
@@ -168,9 +182,7 @@ struct SetUpScreen: View {
         viewModel.requiredPoints = selectedPoint
         viewModel.loadWords(forTopic: viewModel.currentTopic)
         viewModel.isGameStarted = true
-    }
-    
-    
+    } 
 }
 
 func countWordsInFile(named fileName: String) -> Int {

@@ -37,7 +37,7 @@ struct CustomDivider: View {
                .blur(radius: 2)
            }
            .frame(height: lineHeight) // Задаем фрейм с желаемой высотой
-           .padding(.top, 55)
+//           .padding(.top, 55)
        }
    }
 struct CustomDivider_Previews: PreviewProvider {
