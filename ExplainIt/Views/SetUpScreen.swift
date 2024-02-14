@@ -110,7 +110,8 @@ struct SetUpScreen: View {
                                                 .offset(y: 37)
                                             
                                             Text("\(topic.difficulty) - \(topic.wordCount) words")
-                                                .foregroundStyle(topic.difficulty == "Hard" && "Важко" ? Color.red : Color.green)
+                                                .foregroundStyle(topic.difficulty == "Hard".localized(language) ? Color.red : Color.green)
+                                                
                                                 .font(.headline)
                                                 .padding(5)
                                                 .background(RoundedRectangle(cornerRadius: 5)
