@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC0CA1352B7E977C009C0A25 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */; };
+		FC0CA1372B7E9836009C0A25 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1362B7E9836009C0A25 /* TeamManager.swift */; };
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
 		FC0E0B742B6033F20024BE9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FC0E0B732B6033F20024BE9F /* Lottie */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		FC0CA1362B7E9836009C0A25 /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
 		FC0FCA3C2B77CC220026016B /* Гаррі Поттер.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Гаррі Поттер.txt"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
 				FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */,
+				FC0CA1362B7E9836009C0A25 /* TeamManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */,
 				FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */,
 				FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */,
+				FC0CA1372B7E9836009C0A25 /* TeamManager.swift in Sources */,
 				FCFCC9AF2B597C2200E5412E /* TeamInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
