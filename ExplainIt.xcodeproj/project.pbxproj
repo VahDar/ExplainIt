@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC0CA1352B7E977C009C0A25 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */; };
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
 		FC0E0B742B6033F20024BE9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FC0E0B732B6033F20024BE9F /* Lottie */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
 		FC0FCA3C2B77CC220026016B /* Гаррі Поттер.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Гаррі Поттер.txt"; sourceTree = "<group>"; };
@@ -90,12 +92,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FC17C4402B5571A600C34015 /* ViewModel */ = {
+		FC17C4402B5571A600C34015 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
+				FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */,
 			);
-			path = ViewModel;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		FCB00F682A9E4D110003F964 /* Views */ = {
@@ -150,7 +153,7 @@
 			children = (
 				FCDC46F02B7673B0007B9286 /* Extension */,
 				FCB00F682A9E4D110003F964 /* Views */,
-				FC17C4402B5571A600C34015 /* ViewModel */,
+				FC17C4402B5571A600C34015 /* Managers */,
 				FCB00F692A9E4D830003F964 /* CustomElements */,
 				FCF36FDC2B71367200B31DB0 /* Resourses */,
 				FCCD26362A9DFC560007F5F6 /* Preview Content */,
@@ -295,6 +298,7 @@
 				FCE8CEF82B503A8800011E0F /* CustomDivider.swift in Sources */,
 				FC3A32D42B47292900B3CB0F /* GameViewModel.swift in Sources */,
 				FCD64EC12AC19C3600B8985B /* SetUpScreen.swift in Sources */,
+				FC0CA1352B7E977C009C0A25 /* PersistenceManager.swift in Sources */,
 				FCDC46EF2B76600F007B9286 /* TextGradient.swift in Sources */,
 				FC1744D12B4C806000AF4ABB /* TeamName.swift in Sources */,
 				FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */,
