@@ -13,6 +13,8 @@ class TeamManager: ObservableObject {
     @Published var currentTeamIndex = 0
     @Published var teamPoints: [String: Int] = [:]
     @Published var teamRounds: [String: Int] = [:]
+    @Published var isFinalRoundPhase: Bool = false
+    @Published var winners: String = ""
     
     func moveToNextTeam() {
         print("Index Team: - \(currentTeamIndex)")
@@ -70,4 +72,32 @@ class TeamManager: ObservableObject {
         }
         return nil
     }
+    
+    private func checkForGameEnd() {
+        let teamsNeedingExtraRounds = teamPoints.filter { $0.value >= requiredPoints }
+        
+        let potentialWinners = teamPoints.filter { $0.value >= requiredPoints }
+        
+        // If there are teams that have not played as many rounds as the team(s) with the maximum rounds played,
+        // set the game to enter the final round phase for these teams to catch up.
+        if teamsNeedingExtraRounds.isEmpty {
+            isFinalRoundPhase = true
+            print("Additional rounds required for some teams.")
+        }
+        
+        // If all teams have played the same number of rounds, check for winners.
+        if !potentialWinners.isEmpty {
+            // Identify the team with the highest points as the winner.
+            // This accounts for the scenario where multiple teams may have reached the required points.
+            let winner = potentialWinners.max(by: { $0.value < $1.value })
+            winners = winner?.key ?? "not winner"
+            isWinnerActive = true
+            isFinalRoundPhase = false
+            print("Winner is: \(winners) with \(winner?.value ?? 0) points!")
+        } else {
+            // If no team has reached the required points, the game can continue, or you may implement other logic to handle this scenario.
+            print("No winners yet. Game continues or another end game logic applies.")
+        }
+    }
+    
 }
