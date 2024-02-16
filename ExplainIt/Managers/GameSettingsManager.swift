@@ -14,26 +14,35 @@ class GameSettingsManager: ObservableObject {
     @Published var requiredPoints: Int = 20
     @Published var isSoundEnabled: Bool = true
     @Published var backgroundImagePath: String = ""
+    @Published var isGameStarted: Bool = false
+    
+    let teamsManager: TeamsManager
+    let wordsManager: WordsManager
+    
+    init(teamsManager: TeamsManager, wordsManager: WordsManager) {
+        self.teamsManager = teamsManager
+        self.wordsManager = wordsManager
+    }
     
     func backgroundImageName(for topic: String) -> String {
         return UIImage(named: topic) != nil ? topic : "defaultBackground"
     }
     
     func resetGame() {
-        rootWord = ""
+        wordsManager.rootWord = ""
         roundTime = 30
         requiredPoints = 20
-        teams = []
-        currentTeamIndex = 0
-        teamPoints = [:]
-        teamRounds = [:]
-        swipedWords = []
-        isGameScreenPresented = false
-        isFinalRoundPhase = false
-        isWinnerActive = false
+        teamsManager.teams = []
+        teamsManager.currentTeamIndex = 0
+        teamsManager.teamPoints = [:]
+        teamsManager.teamRounds = [:]
+        wordsManager.swipedWords = []
+        teamsManager.isGameScreenPresented = false
+        teamsManager.isFinalRoundPhase = false
+        teamsManager.isWinnerActive = false
         isGameStarted = false
         backgroundImagePath = ""
-        winners = ""
-        currentTopic = ""
+        teamsManager.winners = ""
+        wordsManager.currentTopic = ""
     }
 }

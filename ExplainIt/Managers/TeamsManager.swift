@@ -7,14 +7,24 @@
 
 import Foundation
 
-class TeamManager: ObservableObject {
+class TeamsManager: ObservableObject {
     
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
     @Published var teamPoints: [String: Int] = [:]
     @Published var teamRounds: [String: Int] = [:]
     @Published var isFinalRoundPhase: Bool = false
+    @Published var isGameScreenPresented: Bool = false
+    @Published var isWinnerActive: Bool = false
     @Published var winners: String = ""
+    
+    let settingsManager: GameSettingsManager
+    let wordsManagger: WordsManager
+    
+    init(settingsManager: GameSettingsManager, wordsManagger: WordsManager) {
+        self.settingsManager = settingsManager
+        self.wordsManagger = wordsManagger
+    }
     
     func moveToNextTeam() {
         print("Index Team: - \(currentTeamIndex)")
@@ -34,7 +44,7 @@ class TeamManager: ObservableObject {
         }
         
         isGameScreenPresented = false
-        loadWords(forTopic: currentTopic)
+        wordsManagger.loadWords(forTopic: wordsManagger.currentTopic)
         isGameScreenPresented = true
         
         // Increase the round counter for the current team
@@ -74,9 +84,9 @@ class TeamManager: ObservableObject {
     }
     
     private func checkForGameEnd() {
-        let teamsNeedingExtraRounds = teamPoints.filter { $0.value >= requiredPoints }
+        let teamsNeedingExtraRounds = teamPoints.filter { $0.value >= settingsManager.requiredPoints }
         
-        let potentialWinners = teamPoints.filter { $0.value >= requiredPoints }
+        let potentialWinners = teamPoints.filter { $0.value >= settingsManager.requiredPoints }
         
         // If there are teams that have not played as many rounds as the team(s) with the maximum rounds played,
         // set the game to enter the final round phase for these teams to catch up.

@@ -9,11 +9,11 @@ import Foundation
 
 class PersistenceManager: ObservableObject {
     
-    let teamManager: TeamManager
+    let teamManager: TeamsManager
     let wordsManager: WordsManager
     let settingsManager: GameSettingsManager
        
-       init(teamManager: TeamManager, wordsManager: WordsManager, settingsManager: GameSettingsManager) {
+       init(teamManager: TeamsManager, wordsManager: WordsManager, settingsManager: GameSettingsManager) {
            self.teamManager = teamManager
            self.wordsManager = wordsManager
            self.settingsManager = settingsManager

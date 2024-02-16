@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC0CA1352B7E977C009C0A25 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */; };
-		FC0CA1372B7E9836009C0A25 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1362B7E9836009C0A25 /* TeamManager.swift */; };
+		FC0CA1372B7E9836009C0A25 /* TeamsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1362B7E9836009C0A25 /* TeamsManager.swift */; };
 		FC0CA1392B7E9BE7009C0A25 /* WordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */; };
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		FC0CA1362B7E9836009C0A25 /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
+		FC0CA1362B7E9836009C0A25 /* TeamsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsManager.swift; sourceTree = "<group>"; };
 		FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsManager.swift; sourceTree = "<group>"; };
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
 				FC7851372B7F5A2C00C4FEA1 /* GameSettingsManager.swift */,
 				FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */,
-				FC0CA1362B7E9836009C0A25 /* TeamManager.swift */,
+				FC0CA1362B7E9836009C0A25 /* TeamsManager.swift */,
 				FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */,
 			);
 			path = Managers;
@@ -314,7 +314,7 @@
 				FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */,
 				FC0CA1392B7E9BE7009C0A25 /* WordsManager.swift in Sources */,
 				FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */,
-				FC0CA1372B7E9836009C0A25 /* TeamManager.swift in Sources */,
+				FC0CA1372B7E9836009C0A25 /* TeamsManager.swift in Sources */,
 				FCFCC9AF2B597C2200E5412E /* TeamInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
