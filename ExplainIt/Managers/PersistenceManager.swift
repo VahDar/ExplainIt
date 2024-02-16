@@ -9,13 +9,23 @@ import Foundation
 
 class PersistenceManager: ObservableObject {
     
+    let teamManager: TeamManager
+    let wordsManager: WordsManager
+    let settingsManager: GameSettingsManager
+       
+       init(teamManager: TeamManager, wordsManager: WordsManager, settingsManager: GameSettingsManager) {
+           self.teamManager = teamManager
+           self.wordsManager = wordsManager
+           self.settingsManager = settingsManager
+       }
+    
     func saveGameData() {
         let encoder = JSONEncoder()
-        if let encodedTeams = try? encoder.encode(teams),
-           let encodedTeamPoints = try? encoder.encode(teamPoints),
-           let encodedTeamRounds = try? encoder.encode(teamRounds),
-           let encodedRoundTime = try? encoder.encode(roundTime),
-           let encodedRequiredPoints = try? encoder.encode(requiredPoints)
+        if let encodedTeams = try? encoder.encode(teamManager.teams),
+           let encodedTeamPoints = try? encoder.encode(teamManager.teamPoints),
+           let encodedTeamRounds = try? encoder.encode(teamManager.teamRounds),
+           let encodedRoundTime = try? encoder.encode(settingsManager.roundTime),
+           let encodedRequiredPoints = try? encoder.encode(settingsManager.requiredPoints)
         {
             UserDefaults.standard.set(encodedTeams, forKey: "teams")
             UserDefaults.standard.set(encodedTeamPoints, forKey: "teamPoints")
@@ -38,11 +48,11 @@ class PersistenceManager: ObservableObject {
            let loadedRoundTime = try? decoder.decode(Int.self, from: roundTimeData),
            let loadedRequiredPoints = try? decoder.decode(Int.self, from: requiredPointsData) {
             
-            teams = loadedTeams
-            teamPoints = loadedTeamPoints
-            teamRounds = loadedTeamRounds
-            roundTime = loadedRoundTime
-            requiredPoints = loadedRequiredPoints
+            teamManager.teams = loadedTeams
+            teamManager.teamPoints = loadedTeamPoints
+            teamManager.teamRounds = loadedTeamRounds
+            settingsManager.roundTime = loadedRoundTime
+            settingsManager.requiredPoints = loadedRequiredPoints
         }
     }
     

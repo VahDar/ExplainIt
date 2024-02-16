@@ -1,5 +1,5 @@
 //
-//  WordManager.swift
+//  WordsManager.swift
 //  ExplainIt
 //
 //  Created by Vakhtang on 15.02.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WordManager: ObservableObject {
+class WordsManager: ObservableObject {
     
     @Published var rootWord = ""
     @Published var currentTopic = ""
