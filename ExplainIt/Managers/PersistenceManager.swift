@@ -10,13 +10,13 @@ import UIKit
 
 class PersistenceManager: ObservableObject {
     
-    let teamManager: TeamsManager
-    let wordsManager: WordsManager
+    let teamManager: WordsAndTeamsManager
+//    let wordsManager: WordsManager
     let settingsManager: GameSettingsManager
        
-       init(teamManager: TeamsManager, wordsManager: WordsManager, settingsManager: GameSettingsManager) {
+       init(teamManager: WordsAndTeamsManager, settingsManager: GameSettingsManager) {
            self.teamManager = teamManager
-           self.wordsManager = wordsManager
+//           self.wordsManager = wordsManager
            self.settingsManager = settingsManager
            setupNotifications()
        }
@@ -27,7 +27,7 @@ class PersistenceManager: ObservableObject {
            let encodedTeamPoints = try? encoder.encode(teamManager.teamPoints),
            let encodedTeamRounds = try? encoder.encode(teamManager.teamRounds),
            let encodedRoundTime = try? encoder.encode(settingsManager.roundTime),
-           let encodedRequiredPoints = try? encoder.encode(settingsManager.requiredPoints)
+           let encodedRequiredPoints = try? encoder.encode(teamManager.requiredPoints)
         {
             UserDefaults.standard.set(encodedTeams, forKey: "teams")
             UserDefaults.standard.set(encodedTeamPoints, forKey: "teamPoints")
@@ -54,7 +54,7 @@ class PersistenceManager: ObservableObject {
             teamManager.teamPoints = loadedTeamPoints
             teamManager.teamRounds = loadedTeamRounds
             settingsManager.roundTime = loadedRoundTime
-            settingsManager.requiredPoints = loadedRequiredPoints
+            teamManager.requiredPoints = loadedRequiredPoints
         }
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TeamsManager: ObservableObject {
+class WordsAndTeamsManager: ObservableObject {
     
     @Published var teams: [String] = []
     @Published var currentTeamIndex = 0
@@ -17,13 +17,47 @@ class TeamsManager: ObservableObject {
     @Published var isGameScreenPresented: Bool = false
     @Published var isWinnerActive: Bool = false
     @Published var winners: String = ""
+    @Published var rootWord = ""
+    @Published var currentTopic = ""
+    @Published var requiredPoints: Int = 20
+    @Published var swipedWords: [(word: String, swiped: Bool, isLastWord: Bool)] = []
     
-    let settingsManager: GameSettingsManager
-    let wordsManagger: WordsManager
+//    let settingsManager: GameSettingsManager
+//    let wordsManagger: WordsManager
     
-    init(settingsManager: GameSettingsManager, wordsManagger: WordsManager) {
-        self.settingsManager = settingsManager
-        self.wordsManagger = wordsManagger
+//    init(settingsManager: GameSettingsManager, wordsManagger: WordsManager) {
+//        self.settingsManager = settingsManager
+//        self.wordsManagger = wordsManagger
+//    }
+    
+    func loadWords(forTopic topicName: String) {
+        currentTopic = topicName
+        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
+            if let startWords = try? String(contentsOf: startWordsURL) {
+                let allWords = startWords.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "manatee"
+                return
+            }
+        }
+        fatalError("Could not load start.txt from bundle")
+    }
+    
+    func clearSwipeWords() {
+        swipedWords.removeAll()
+    }
+    
+    func updateSwipe(word: String, swiped: Bool, isLast: Bool = false) {
+        if let index = swipedWords.firstIndex(where: { $0.word == word }) {
+            swipedWords[index].swiped = swiped
+        } else {
+            swipedWords.append((word, swiped, isLast))
+        }
+    }
+    
+    func countWordsInFile(named fileName: String) -> Int {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt"),
+              let content = try? String(contentsOfFile: path) else { return 0 }
+        return content.components(separatedBy: "\n").filter { !$0.isEmpty }.count
     }
     
     func moveToNextTeam() {
@@ -44,7 +78,7 @@ class TeamsManager: ObservableObject {
         }
         
         isGameScreenPresented = false
-        wordsManagger.loadWords(forTopic: wordsManagger.currentTopic)
+        loadWords(forTopic: currentTopic)
         isGameScreenPresented = true
         
         // Increase the round counter for the current team
@@ -84,9 +118,9 @@ class TeamsManager: ObservableObject {
     }
     
     private func checkForGameEnd() {
-        let teamsNeedingExtraRounds = teamPoints.filter { $0.value >= settingsManager.requiredPoints }
+        let teamsNeedingExtraRounds = teamPoints.filter { $0.value >= requiredPoints }
         
-        let potentialWinners = teamPoints.filter { $0.value >= settingsManager.requiredPoints }
+        let potentialWinners = teamPoints.filter { $0.value >= requiredPoints }
         
         // If there are teams that have not played as many rounds as the team(s) with the maximum rounds played,
         // set the game to enter the final round phase for these teams to catch up.

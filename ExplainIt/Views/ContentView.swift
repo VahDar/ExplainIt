@@ -16,8 +16,8 @@ struct ContentView: View {
     @State private var isTeamScreenActive = false
     @State private var isUkrainian = false
     @State private var selectedDuration: Int
-    @StateObject var viewModel = GameViewModel()
-    var timerDurations: [Int]
+        var timerDurations: [Int]
+    
     
     // MARK: - Initializer
     

@@ -11,17 +11,16 @@ import UIKit
 class GameSettingsManager: ObservableObject {
     
     @Published var roundTime: Int = 30
-    @Published var requiredPoints: Int = 20
+//    @Published var requiredPoints: Int = 20
     @Published var isSoundEnabled: Bool = true
     @Published var backgroundImagePath: String = ""
     @Published var isGameStarted: Bool = false
     
-    let teamsManager: TeamsManager
-    let wordsManager: WordsManager
+    let wordsAndTeamsManager: WordsAndTeamsManager
+//    let wordsManager: WordsManager
     
-    init(teamsManager: TeamsManager, wordsManager: WordsManager) {
-        self.teamsManager = teamsManager
-        self.wordsManager = wordsManager
+    init(wordsAndTeamsManager: WordsAndTeamsManager) {
+        self.wordsAndTeamsManager = wordsAndTeamsManager
     }
     
     func backgroundImageName(for topic: String) -> String {
@@ -29,20 +28,20 @@ class GameSettingsManager: ObservableObject {
     }
     
     func resetGame() {
-        wordsManager.rootWord = ""
+        wordsAndTeamsManager.rootWord = ""
         roundTime = 30
-        requiredPoints = 20
-        teamsManager.teams = []
-        teamsManager.currentTeamIndex = 0
-        teamsManager.teamPoints = [:]
-        teamsManager.teamRounds = [:]
-        wordsManager.swipedWords = []
-        teamsManager.isGameScreenPresented = false
-        teamsManager.isFinalRoundPhase = false
-        teamsManager.isWinnerActive = false
+        wordsAndTeamsManager.requiredPoints = 20
+        wordsAndTeamsManager.teams = []
+        wordsAndTeamsManager.currentTeamIndex = 0
+        wordsAndTeamsManager.teamPoints = [:]
+        wordsAndTeamsManager.teamRounds = [:]
+        wordsAndTeamsManager.swipedWords = []
+        wordsAndTeamsManager.isGameScreenPresented = false
+        wordsAndTeamsManager.isFinalRoundPhase = false
+        wordsAndTeamsManager.isWinnerActive = false
         isGameStarted = false
         backgroundImagePath = ""
-        teamsManager.winners = ""
-        wordsManager.currentTopic = ""
+        wordsAndTeamsManager.winners = ""
+        wordsAndTeamsManager.currentTopic = ""
     }
 }
