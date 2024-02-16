@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PersistenceManager: ObservableObject {
     
@@ -17,6 +18,7 @@ class PersistenceManager: ObservableObject {
            self.teamManager = teamManager
            self.wordsManager = wordsManager
            self.settingsManager = settingsManager
+           setupNotifications()
        }
     
     func saveGameData() {
@@ -62,6 +64,17 @@ class PersistenceManager: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "teamRounds")
         UserDefaults.standard.removeObject(forKey: "roundTime")
         UserDefaults.standard.removeObject(forKey: "requiredPoints")
+    }
+    
+    private func setupNotifications() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
+        
+        notificationCenter.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.saveGameData()
+        }
     }
 }
 

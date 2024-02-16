@@ -36,4 +36,10 @@ class WordsManager: ObservableObject {
             swipedWords.append((word, swiped, isLast))
         }
     }
+    
+    func countWordsInFile(named fileName: String) -> Int {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt"),
+              let content = try? String(contentsOfFile: path) else { return 0 }
+        return content.components(separatedBy: "\n").filter { !$0.isEmpty }.count
+    }
 }
