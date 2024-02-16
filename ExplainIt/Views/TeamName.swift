@@ -18,7 +18,9 @@ struct TeamName: View {
     @State private var isWarningAlertPresented = false
     @State private var temporaryTeamName = ""
     @State private var editingTeamIndex: Int?
-    @EnvironmentObject var viewModel: GameViewModel
+    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
+    @EnvironmentObject var gameSettingsManager: GameSettingsManager
+    @EnvironmentObject var persistenceManager: PersistenceManager
     var timerDurations: [Int]
     
     // MARK: - Body
@@ -29,7 +31,7 @@ struct TeamName: View {
             navigationButton
         }
         .onAppear {
-            viewModel.teams = teamNames
+            wordsAndTeamsManager.teams = teamNames
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -39,7 +41,7 @@ struct TeamName: View {
             Button("Save".localized(language)) {
                 if let editingIndex = editingTeamIndex {
                     teamNames[editingIndex] = temporaryTeamName
-                    viewModel.teams = teamNames
+                    wordsAndTeamsManager.teams = teamNames
                 }
             }
             Button("Cancel".localized(language), role: .cancel) {}
@@ -51,7 +53,9 @@ struct TeamName: View {
         // Conditional navigation
         .navigationDestination(isPresented: $isSetUpScreenActive) {
                         SetUpScreen()
-                .environmentObject(viewModel)
+                .environmentObject(wordsAndTeamsManager)
+                .environmentObject(gameSettingsManager)
+                .environmentObject(persistenceManager)
                 .navigationBarBackButtonHidden(true)
          }
     }
@@ -69,7 +73,7 @@ struct TeamName: View {
                     Text("Random".localized(language))
                         .onTapGesture {
                             teamNames[index] = randomNames.randomElement() ?? ""
-                            viewModel.teams = teamNames
+                            wordsAndTeamsManager.teams = teamNames
                         }
                         .foregroundStyle(Color.blue)
                 }
@@ -113,7 +117,7 @@ struct TeamName: View {
     private func addTeam() {
         if teamNames.count < 8 {
             teamNames.append("Team \(teamNames.count + 1)")
-            viewModel.teams = teamNames
+            wordsAndTeamsManager.teams = teamNames
         } else {
             isWarningAlertPresented = true
         }
@@ -121,7 +125,7 @@ struct TeamName: View {
 
     private func removeTeam(at offsets: IndexSet) {
         teamNames.remove(atOffsets: offsets)
-        viewModel.teams = teamNames
+        wordsAndTeamsManager.teams = teamNames
     }
 }
 
