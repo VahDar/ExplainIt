@@ -9,7 +9,21 @@ import Foundation
 
 class WordManager: ObservableObject {
     
+    @Published var rootWord = ""
+    @Published var currentTopic = ""
     @Published var swipedWords: [(word: String, swiped: Bool, isLastWord: Bool)] = []
+    
+    func loadWords(forTopic topicName: String) {
+        currentTopic = topicName
+        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
+            if let startWords = try? String(contentsOf: startWordsURL) {
+                let allWords = startWords.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "manatee"
+                return
+            }
+        }
+        fatalError("Could not load start.txt from bundle")
+    }
     
     func clearSwipeWords() {
         swipedWords.removeAll()
