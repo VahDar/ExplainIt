@@ -22,6 +22,8 @@ struct TimerView: View {
     @State private var audioPlayer: AVAudioPlayer?
     @State private var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
+    @EnvironmentObject var gameSettingsManager: GameSettingsManager
+    
     var body: some View {
         VStack {
             ZStack {
@@ -62,7 +64,7 @@ struct TimerView: View {
                 }
 
                 let timerLeft = self.timerDuration - TimeInterval(self.count)
-                if self.viewModel.isSoundEnabled && timerLeft <= 5 && !self.isSoundPlayed {
+                if self.gameSettingsManager.isSoundEnabled && timerLeft <= 5 && !self.isSoundPlayed {
                     self.audioPlayer?.play()
                     self.isSoundPlayed = true
                 }
