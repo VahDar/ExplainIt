@@ -10,12 +10,15 @@ import SwiftUI
 struct CustomAlertView: View {
     
     // MARK: - Properties
-    @EnvironmentObject var viewModel: GameViewModel
     @Binding var wordSwipeData: [(word: String, swiped: Bool, isLastWord: Bool)]
     @Binding var points: Int
     @State private var language = LocalizationService.shared.language
     @State private var selectedTeamForLastWord: String? = nil
     @State private var isTeamInfoActive = false
+    
+    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
+    @EnvironmentObject var gameSettingsManager: GameSettingsManager
+    @EnvironmentObject var persistenceManager: PersistenceManager
     
     // MARK: - Computed Properties
     private var calculatedPoints: Int {
@@ -32,14 +35,16 @@ struct CustomAlertView: View {
         }
         .navigationDestination(isPresented: $isTeamInfoActive) {
             TeamInfoView()
-                .environmentObject(viewModel)
+                .environmentObject(wordsAndTeamsManager)
+                .environmentObject(gameSettingsManager)
+                .environmentObject(persistenceManager)
                 .navigationBarBackButtonHidden(true)
         }
     }
     
     // MARK: - Subviews
     private var currentTeamTitle: some View {
-        Text(viewModel.teams[viewModel.currentTeamIndex])
+        Text(wordsAndTeamsManager.teams[wordsAndTeamsManager.currentTeamIndex])
             .foregroundStyle(Color.blue)
             .font(.title)
             .padding()
@@ -72,14 +77,14 @@ struct CustomAlertView: View {
     // MARK: - Methods
     private func handleNextButtonTap() {
         // Update points for the current team based on swiped words excluding the last word.
-        viewModel.updateTeamPoints(team: viewModel.teams[viewModel.currentTeamIndex], points: calculatedPoints)
+        wordsAndTeamsManager.updateTeamPoints(team: wordsAndTeamsManager.teams[wordsAndTeamsManager.currentTeamIndex], points: calculatedPoints)
         
         // Check if the last word was correctly swiped and a team was selected for it.
         if let selectedTeam = selectedTeamForLastWord,
            let lastWord = wordSwipeData.first(where: { $0.isLastWord }),
            lastWord.swiped {
             // Update points for the selected team for the last word.
-            viewModel.updateTeamPoints(team: selectedTeam, points: 1)
+            wordsAndTeamsManager.updateTeamPoints(team: selectedTeam, points: 1)
         }
         
         // Navigate to the next screen.
@@ -91,8 +96,11 @@ struct CustomAlertView: View {
 struct WordRow: View {
     @Binding var wordData: (word: String, swiped: Bool, isLastWord: Bool)
     @Binding var selectedTeamForLastWord: String?
-    @EnvironmentObject var viewModel: GameViewModel
     @State private var language = LocalizationService.shared.language
+    
+    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
+    @EnvironmentObject var gameSettingsManager: GameSettingsManager
+    @EnvironmentObject var persistenceManager: PersistenceManager
     
     var body: some View {
         HStack {
@@ -117,7 +125,7 @@ struct WordRow: View {
     private var teamPicker: some View {
         Picker("Select a team", selection: $selectedTeamForLastWord) {
             Text("Choose a team".localized(language)).tag(String?.none)
-            ForEach(viewModel.teams, id: \.self) { team in
+            ForEach(wordsAndTeamsManager.teams, id: \.self) { team in
                 Text(team).tag(team as String?)
             }
         }
