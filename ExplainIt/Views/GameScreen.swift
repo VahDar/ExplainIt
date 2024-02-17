@@ -12,9 +12,7 @@ struct GameScreen: View {
     @State private var wordOffset = CGSize.zero
     @State private var wordOpacity = 1.0
     @State private var timerView: TimerView?
-    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
-    @EnvironmentObject var gameSettingsManager: GameSettingsManager
-    @EnvironmentObject var persistenceManager: PersistenceManager
+    @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -23,7 +21,7 @@ struct GameScreen: View {
                 VStack {
                     if !isViewVisible {
                         VStack {
-                            Text("Now play %@".localized(language, args: wordsAndTeamsManager.teams[wordsAndTeamsManager.currentTeamIndex]))
+                            Text("Now play %@".localized(language, args: viewModel.teams[viewModel.currentTeamIndex]))
                                 .foregroundStyle(Color.blue)
                                 .padding()
                             Text("If you guessed the word swipe up, if not, swipe down.".localized(language))
@@ -36,24 +34,22 @@ struct GameScreen: View {
                             
                             CustomButton(name: "Start".localized(language)) {
                                 startRound()
-                                wordsAndTeamsManager.clearSwipeWords()
+                                viewModel.clearSwipeWords()
                             }
                         }
                     }
                     if isViewVisible {
                         ZStack {
-                            TimerView(timerPaused: $timerPaused, showPauseAnimation: $showPauseAnimation, isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(gameSettingsManager.roundTime), onTimerEnd: {
+                            TimerView(timerPaused: $timerPaused, showPauseAnimation: $showPauseAnimation, isTimerRunning: $isTimerRunning, timerDuration: TimeInterval(viewModel.roundTime), onTimerEnd: {
                                 timerEnded = true
                                 if !lastWordSwiped {
-                                    wordsAndTeamsManager.updateSwipe(word: wordsAndTeamsManager.rootWord, swiped: false, isLast: true)
+                                    viewModel.updateSwipe(word: viewModel.rootWord, swiped: false, isLast: true)
                                     isTimerEnd = true
                                 }
                             })
-                            .environmentObject(wordsAndTeamsManager)
-                            .environmentObject(gameSettingsManager)
-                            .environmentObject(persistenceManager)
+                            .environmentObject(viewModel)
                             .overlay(
-                            Text(wordsAndTeamsManager.rootWord)
+                            Text(viewModel.rootWord)
                                 .foregroundColor(Color(red: 79/255, green: 74/255, blue: 183/255))
                                 .font(.system(size: 30))
                                 .fontWeight(.bold)
@@ -88,11 +84,11 @@ struct GameScreen: View {
                                         wordOpacity = 1
                                         
                                         if timerEnded {
-                                            wordsAndTeamsManager.updateSwipe(word: wordsAndTeamsManager.rootWord, swiped: swipedUp, isLast: true)
+                                            viewModel.updateSwipe(word: viewModel.rootWord, swiped: swipedUp, isLast: true)
                                             isTimerEnd = true
                                         } else {
-                                            wordsAndTeamsManager.updateSwipe(word: wordsAndTeamsManager.rootWord, swiped: swipedUp)
-                                            wordsAndTeamsManager.loadWords(forTopic: wordsAndTeamsManager.currentTopic)
+                                            viewModel.updateSwipe(word: viewModel.rootWord, swiped: swipedUp)
+                                            viewModel.loadWords(forTopic: viewModel.currentTopic)
                                         }
                                     }
                                 })
@@ -107,10 +103,8 @@ struct GameScreen: View {
                 .blur(radius: isTimerEnd ? 10 : 0)
                 .blur(radius: showPauseAnimation ? 10 : 0)
                 if isTimerEnd {
-                    CustomAlertView(wordSwipeData: $wordsAndTeamsManager.swipedWords,points: .constant(3))
-                        .environmentObject(wordsAndTeamsManager)
-                        .environmentObject(gameSettingsManager)
-                        .environmentObject(persistenceManager)
+                    CustomAlertView(wordSwipeData: $viewModel.swipedWords,points: .constant(3))
+                        .environmentObject(viewModel)
                         .frame(width: 370, height: 700)
                         .background(BackgroundView())
                         .clipShape(RoundedRectangle(cornerRadius: 15))

@@ -16,13 +16,8 @@ struct ContentView: View {
     @State private var isTeamScreenActive = false
     @State private var isUkrainian = false
     @State private var selectedDuration: Int
-    
-    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
-    @EnvironmentObject var gameSettingsManager: GameSettingsManager
-    @EnvironmentObject var persistenceManager: PersistenceManager
-
+    @StateObject var viewModel = GameViewModel()
     var timerDurations: [Int]
-    
     
     // MARK: - Initializer
     
@@ -43,26 +38,20 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(backgroundAnimationView)
             .onChange(of: isUkrainian, perform: updateLanguage)
-            .onAppear(perform: persistenceManager.loadGameData)
+            .onAppear(perform: viewModel.loadGameData)
             .navigationDestination(isPresented: $isTeamScreenActive) {
                 TeamName(timerDurations: timerDurations)
-                    .environmentObject(wordsAndTeamsManager)
-                    .environmentObject(gameSettingsManager)
-                    .environmentObject(persistenceManager)
+                    .environmentObject(viewModel)
                     .navigationBarBackButtonHidden(true)
             }
-            .navigationDestination(isPresented: $wordsAndTeamsManager.isGameScreenPresented) {
+            .navigationDestination(isPresented: $viewModel.isGameScreenPresented) {
                 GameScreen()
-                    .environmentObject(wordsAndTeamsManager)
-                    .environmentObject(gameSettingsManager)
-                    .environmentObject(persistenceManager)
+                    .environmentObject(viewModel)
                     .navigationBarBackButtonHidden(true)
             }
-            .navigationDestination(isPresented: $wordsAndTeamsManager.isWinnerActive) {
+            .navigationDestination(isPresented: $viewModel.isWinnerActive) {
                 WinnerAlertView()
-                    .environmentObject(wordsAndTeamsManager)
-                    .environmentObject(gameSettingsManager)
-                    .environmentObject(persistenceManager)
+                    .environmentObject(viewModel)
                     .navigationBarBackButtonHidden(true)
             }
         }
@@ -105,15 +94,15 @@ struct ContentView: View {
             
             CustomButton(name: "New Game".localized(language)) {
                 isTeamScreenActive = true
-                persistenceManager.clearGameData()
-                gameSettingsManager.resetGame()
+                viewModel.clearGameData()
+                viewModel.resetGame()
             }
             .padding(.bottom)
             
             CustomDisabledButton(name: "Continue".localized(language), action: {
                 isTeamScreenActive = false
-                wordsAndTeamsManager.isGameScreenPresented = true
-            }, isDisabled: !gameSettingsManager.isGameStarted)
+                viewModel.isGameScreenPresented = true
+            }, isDisabled: !viewModel.isGameStarted)
             .padding(.bottom)
         }
     }

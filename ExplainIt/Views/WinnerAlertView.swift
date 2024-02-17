@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct WinnerAlertView: View {
-    
+    @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     @State private var language = LocalizationService.shared.language
     @State private var selectedDuration = 30
     @State private var timerDuration = [30]
     @State private var isGameFinish: Bool = false
-    
-    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
-    @EnvironmentObject var gameSettingsManager: GameSettingsManager
-    @EnvironmentObject var persistenceManager: PersistenceManager
-    @Environment(\.presentationMode) var presentationMode
-    
     var body: some View {
         VStack {
             VStack {
                 Group {
                     Text("Winner: ".localized(language)).font(.title2)
-                    + Text("\(wordsAndTeamsManager.winners)")
+                    + Text("\(viewModel.winners)")
                         .font(.title.bold())
                 }
                 .foregroundStyle(Color.blue)
@@ -39,8 +34,8 @@ struct WinnerAlertView: View {
             VStack {
                 CustomButton(name: "Finish".localized(language)) {
                     self.presentationMode.wrappedValue.dismiss()
-                    gameSettingsManager.resetGame()
-                    persistenceManager.clearGameData()
+                    viewModel.resetGame()
+                    viewModel.clearGameData()
                 }
             }
             .padding()

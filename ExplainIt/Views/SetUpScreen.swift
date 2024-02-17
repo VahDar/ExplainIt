@@ -20,11 +20,6 @@ struct SetUpScreen: View {
     @State private var isGameScreenActive = false
     @State private var selectedTopic: String?
     
-    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
-    @EnvironmentObject var gameSettingsManager: GameSettingsManager
-    @EnvironmentObject var persistenceManager: PersistenceManager
-    @Environment(\.presentationMode) var presentationMode
-    
     var topics: [Topic] {
         LocalizationService.shared.language == .ukrainian ? [
             Topic(name: "Загальна тема", difficulty: "Easy".localized(language), wordCount: countWordsInFile(named: "Загальна тема")),
@@ -34,8 +29,8 @@ struct SetUpScreen: View {
             Topic(name: "Harry Potter", difficulty: "Hard", wordCount: countWordsInFile(named: "Harry Potter"))
         ] }
     
-   
-    
+    @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     // MARK: - Initializer
     init() {
@@ -86,7 +81,7 @@ struct SetUpScreen: View {
                     }
                     .padding(.top, 40)
                     VStack(alignment: .center) {
-                        Toggle("Turn on/off timer sound: ".localized(language), isOn: $gameSettingsManager.isSoundEnabled)
+                        Toggle("Turn on/off timer sound: ".localized(language), isOn: $viewModel.isSoundEnabled)
                             .tint(.blue)
                             .foregroundStyle(Color.blue)
                             .padding(.horizontal, 60)
@@ -105,7 +100,7 @@ struct SetUpScreen: View {
                                 Button {
                                     selectedTopic = topic.name
                                 } label: {
-                                    Image(wordsAndTeamsManager.backgroundImageName(for: topic.name))
+                                    Image(viewModel.backgroundImageName(for: topic.name))
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .frame(height: 100)
@@ -170,9 +165,7 @@ struct SetUpScreen: View {
             .background(BackgroundView())
             .navigationDestination(isPresented: $isGameScreenActive) {
                 GameScreen()
-                    .environmentObject(wordsAndTeamsManager)
-                    .environmentObject(gameSettingsManager)
-                    .environmentObject(persistenceManager)
+                    .environmentObject(viewModel)
                     .navigationBarBackButtonHidden(true)
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -191,11 +184,11 @@ struct SetUpScreen: View {
     
     // MARK: - Methods
     func startGame() {
-        wordsAndTeamsManager.currentTopic = selectedTopic ?? "General"
-        gameSettingsManager.roundTime = selectedDuration
-        wordsAndTeamsManager.requiredPoints = selectedPoint
-        wordsAndTeamsManager.loadWords(forTopic: wordsAndTeamsManager.currentTopic)
-        wordsAndTeamsManager.isGameStarted = true
+        viewModel.currentTopic = selectedTopic ?? "General"
+        viewModel.roundTime = selectedDuration
+        viewModel.requiredPoints = selectedPoint
+        viewModel.loadWords(forTopic: viewModel.currentTopic)
+        viewModel.isGameStarted = true
     }
 }
 

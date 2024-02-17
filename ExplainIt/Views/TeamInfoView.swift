@@ -8,24 +8,21 @@
 import SwiftUI
 
 struct TeamInfoView: View {
+    @EnvironmentObject var viewModel: GameViewModel
     @State private var language = LocalizationService.shared.language
-    
-    @EnvironmentObject var wordsAndTeamsManager: WordsAndTeamsManager
-    @EnvironmentObject var gameSettingsManager: GameSettingsManager
-    @EnvironmentObject var persistenceManager: PersistenceManager
     
     var body: some View {
         VStack {
-            Text("Required points: %lld".localized(language, args: wordsAndTeamsManager.requiredPoints))
+            Text("Required points: %lld".localized(language, args: viewModel.requiredPoints))
                 .foregroundStyle(Color.blue)
                 .font(.title)
                 .padding()
-            List(wordsAndTeamsManager.teams, id: \.self) { team in
+            List(viewModel.teams, id: \.self) { team in
                 HStack {
                     Text(team)
                         .foregroundStyle(Color.blue)
                     Spacer()
-                    Text("%lld points".localized(language, args: wordsAndTeamsManager.teamPoints[team, default: 0]))
+                    Text("%lld points".localized(language, args: viewModel.teamPoints[team, default: 0]))
                         .foregroundStyle(Color.blue)
                 }
                 .listRowBackground(Color.clear)
@@ -33,7 +30,7 @@ struct TeamInfoView: View {
             .scrollContentBackground(.hidden)
             
             CustomButton(name: "Next Team".localized(language)) {
-                wordsAndTeamsManager.moveToNextTeam()
+                viewModel.moveToNextTeam()
             }
             .padding()
         }
