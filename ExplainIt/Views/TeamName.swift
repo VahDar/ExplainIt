@@ -19,6 +19,7 @@ struct TeamName: View {
     @State private var temporaryTeamName = ""
     @State private var editingTeamIndex: Int?
     @EnvironmentObject var viewModel: GameViewModel
+    @Environment(\.presentationMode) var presentationMode
     var timerDurations: [Int]
     
     // MARK: - Body
@@ -54,6 +55,16 @@ struct TeamName: View {
                 .environmentObject(viewModel)
                 .navigationBarBackButtonHidden(true)
          }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("")
+        .navigationBarItems(leading: Button {
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            HStack{
+                Image(systemName: "chevron.left")
+                Text("Main")
+            }
+        })
     }
 
     // MARK: - View Components
