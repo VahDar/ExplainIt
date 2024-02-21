@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC0CA1372B7E9836009C0A25 /* WordsAndTeamsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1362B7E9836009C0A25 /* WordsAndTeamsManager.swift */; };
 		FC0CA1392B7E9BE7009C0A25 /* WordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */; };
 		FC0E0B6F2B602AA40024BE9F /* WinnerAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */; };
 		FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */; };
@@ -45,7 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FC0CA1362B7E9836009C0A25 /* WordsAndTeamsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsAndTeamsManager.swift; sourceTree = "<group>"; };
 		FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsManager.swift; sourceTree = "<group>"; };
 		FC0E0B6E2B602AA40024BE9F /* WinnerAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerAlertView.swift; sourceTree = "<group>"; };
 		FC0E0B702B6032590024BE9F /* SettingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAnimationView.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
-				FC0CA1362B7E9836009C0A25 /* WordsAndTeamsManager.swift */,
 				FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */,
 			);
 			path = Managers;
@@ -306,7 +303,6 @@
 				FCFCC9B12B5C3DDD00E5412E /* CustomItemView.swift in Sources */,
 				FC0CA1392B7E9BE7009C0A25 /* WordsManager.swift in Sources */,
 				FC0E0B712B6032590024BE9F /* SettingAnimationView.swift in Sources */,
-				FC0CA1372B7E9836009C0A25 /* WordsAndTeamsManager.swift in Sources */,
 				FCFCC9AF2B597C2200E5412E /* TeamInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
