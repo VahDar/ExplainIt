@@ -25,7 +25,6 @@
 		FC47A7522B7A67AE00EE366B /* Continue.json in Resources */ = {isa = PBXBuildFile; fileRef = FC47A7512B7A67AE00EE366B /* Continue.json */; };
 		FC5A54092B6696A1003E4952 /* astronautMain.json in Resources */ = {isa = PBXBuildFile; fileRef = FC5A54082B6696A1003E4952 /* astronautMain.json */; };
 		FC5A540B2B66D7EC003E4952 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC5A540A2B66D7EC003E4952 /* sound.mp3 */; };
-		FC7851382B7F5A2C00C4FEA1 /* GameSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7851372B7F5A2C00C4FEA1 /* GameSettingsManager.swift */; };
 		FCB00F672A9E42310003F964 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB00F662A9E42310003F964 /* GradientLineView.swift */; };
 		FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */; };
 		FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD26322A9DFC550007F5F6 /* ContentView.swift */; };
@@ -64,7 +63,6 @@
 		FC47A7512B7A67AE00EE366B /* Continue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Continue.json; sourceTree = "<group>"; };
 		FC5A54082B6696A1003E4952 /* astronautMain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronautMain.json; sourceTree = "<group>"; };
 		FC5A540A2B66D7EC003E4952 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
-		FC7851372B7F5A2C00C4FEA1 /* GameSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsManager.swift; sourceTree = "<group>"; };
 		FCB00F662A9E42310003F964 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
 		FCCD262D2A9DFC550007F5F6 /* ExplainIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExplainIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCD26302A9DFC550007F5F6 /* ExplainItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainItApp.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
-				FC7851372B7F5A2C00C4FEA1 /* GameSettingsManager.swift */,
 				FC0CA1342B7E977C009C0A25 /* PersistenceManager.swift */,
 				FC0CA1362B7E9836009C0A25 /* WordsAndTeamsManager.swift */,
 				FC0CA1382B7E9BE7009C0A25 /* WordsManager.swift */,
@@ -296,7 +293,6 @@
 				FCCD26332A9DFC550007F5F6 /* ContentView.swift in Sources */,
 				FC17C43F2B54435E00C34015 /* CustomAlertView.swift in Sources */,
 				FCED6E0C2AA0FDD200ED2706 /* GameScreen.swift in Sources */,
-				FC7851382B7F5A2C00C4FEA1 /* GameSettingsManager.swift in Sources */,
 				FCCD26312A9DFC550007F5F6 /* ExplainItApp.swift in Sources */,
 				FCCD26432A9E08910007F5F6 /* BackgroundView.swift in Sources */,
 				FCCD26412A9DFE250007F5F6 /* CustomButton.swift in Sources */,
