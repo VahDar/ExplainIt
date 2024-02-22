@@ -86,16 +86,22 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    func loadWords(forTopic topicName: String) {
+    func loadWords(forTopic topicName: String) -> Bool {
         currentTopic = topicName
-        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
-            if let startWords = try? String(contentsOf: startWordsURL) {
-                let allWords = startWords.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-                rootWord = allWords.randomElement() ?? "manatee"
-                return
-            }
+        guard let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") else {
+            print("Could not find \(topicName).txt in bundle")
+            return false
         }
-        fatalError("Could not load \(topicName) from bundle")
+
+        do {
+            let startWords = try String(contentsOf: startWordsURL)
+            let allWords = startWords.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+            rootWord = allWords.randomElement() ?? "manatee"
+            return true
+        } catch {
+            print("Could not load \(topicName) from bundle: \(error)")
+            return false
+        }
     }
     
     func countWordsInFile(named fileName: String) -> Result<Int, FileError> {
