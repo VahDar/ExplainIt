@@ -98,10 +98,18 @@ class GameViewModel: ObservableObject {
         fatalError("Could not load \(topicName) from bundle")
     }
     
-    func countWordsInFile(named fileName: String) -> Int {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt"),
-              let content = try? String(contentsOfFile: path) else { return 0 }
-        return content.components(separatedBy: "\n").filter { !$0.isEmpty }.count
+    func countWordsInFile(named fileName: String) -> Result<Int, FileError> {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt") else {
+            return .failure(.fileNotFound)
+        }
+        
+        do {
+            let content = try String(contentsOfFile: path)
+            let count = content.components(separatedBy: "\n").filter { !$0.isEmpty }.count
+            return .success(count)
+        } catch {
+            return .failure(.other(error))
+        }
     }
     
     func backgroundImageName(for topic: String) -> String {
