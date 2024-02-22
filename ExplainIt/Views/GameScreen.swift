@@ -150,8 +150,8 @@ struct GameScreen: View {
     }
 }
 
-//struct GameScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameScreen()
-//    }
-//}
+struct GameScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        GameScreen()
+    }
+}

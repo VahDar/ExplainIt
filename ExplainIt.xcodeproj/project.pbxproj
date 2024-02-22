@@ -155,11 +155,11 @@
 		FCCD262F2A9DFC550007F5F6 /* ExplainIt */ = {
 			isa = PBXGroup;
 			children = (
-				FC5563022B87D74E00908860 /* Errors */,
-				FCDC46F02B7673B0007B9286 /* Extension */,
 				FCB00F682A9E4D110003F964 /* Views */,
 				FC17C4402B5571A600C34015 /* Managers */,
 				FCB00F692A9E4D830003F964 /* CustomElements */,
+				FCDC46F02B7673B0007B9286 /* Extension */,
+				FC5563022B87D74E00908860 /* Errors */,
 				FCF36FDC2B71367200B31DB0 /* Resourses */,
 				FCCD26362A9DFC560007F5F6 /* Preview Content */,
 			);
