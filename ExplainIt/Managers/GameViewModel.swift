@@ -86,34 +86,36 @@ class GameViewModel: ObservableObject {
         }
     }
     
-//    func loadWords(forTopic topicName: String) -> Bool {
-//        currentTopic = topicName
-//        guard let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") else {
-//            print("Could not find \(topicName).txt in bundle")
-//            return false
-//        }
-//
-//        do {
-//            let startWords = try String(contentsOf: startWordsURL)
-//            let allWords = startWords.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-//            rootWord = allWords.randomElement() ?? "manatee"
-//            return true
-//        } catch {
-//            print("Could not load \(topicName) from bundle: \(error)")
-//            return false
-//        }
-//    }
+
     func loadWords(forTopic topicName: String) {
         currentTopic = topicName
-        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
-            if let startWords = try? String(contentsOf: startWordsURL) {
-                let allWords = startWords.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-                rootWord = allWords.randomElement() ?? "manatee"
-                return
-            }
+        guard let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") else {
+            print("Could not find \(topicName).txt in bundle")
+            rootWord = "manatee"
+            return
         }
-        fatalError("Could not load \(topicName) from bundle")
+
+        do {
+            let startWords = try String(contentsOf: startWordsURL)
+            let allWords = startWords.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+            rootWord = allWords.randomElement() ?? "defaultWord" // Используйте стандартное слово, если список пуст
+        } catch {
+            print("Could not load \(topicName) from bundle: \(error.localizedDescription)")
+            rootWord = "manatee"
+        }
     }
+    
+//    func loadWords(forTopic topicName: String) {
+//        currentTopic = topicName
+//        if let startWordsURL = Bundle.main.url(forResource: topicName, withExtension: "txt") {
+//            if let startWords = try? String(contentsOf: startWordsURL) {
+//                let allWords = startWords.components(separatedBy: "\n").filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+//                rootWord = allWords.randomElement() ?? "manatee"
+//                return
+//            }
+//        }
+//        fatalError("Could not load \(topicName) from bundle")
+//    }
     
     func countWordsInFile(named fileName: String) -> Result<Int, FileError> {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "txt") else {
