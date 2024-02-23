@@ -22,13 +22,19 @@ struct TimerView: View {
     var onTimerEnd: () -> Void
     @State private var audioPlayer: AVAudioPlayer?
     @State private var time = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
+    
     var body: some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .trim(from: 0, to: self.to)
-                    .stroke(Color(red: 79/255, green: 74/255, blue: 183/255), lineWidth: 10)
+                    .stroke(Color.gray, style: StrokeStyle(lineWidth: 13, lineCap: .round))
+                    .frame(width: 400, height: 300)
+                    .rotationEffect(.degrees(-90))
+                    .shadow(color: .white, radius: 5, x: 0, y: 0)
+                RoundedRectangle(cornerRadius: 20)
+                    .trim(from: 0, to: self.to)
+                    .stroke(Color.black, style: StrokeStyle(lineWidth: 12, lineCap: .round))
                     .frame(width: 400, height: 300)
                     .rotationEffect(.degrees(-90))
             }
@@ -38,7 +44,7 @@ struct TimerView: View {
             .onReceive(self.time) { _ in
                 updateTimer()
             }
-
+            
             if !timerPaused {
                 Button(action: {
                     self.pauseTimer()
@@ -52,7 +58,7 @@ struct TimerView: View {
             }
         }
     }
-
+    
     private func updateTimer() {
         if self.isTimerRunning && !self.timerPaused {
             if self.count < Int(self.timerDuration) {
@@ -60,7 +66,7 @@ struct TimerView: View {
                 withAnimation(.linear(duration: 1.0)) {
                     self.to = CGFloat(self.count) / CGFloat(self.timerDuration)
                 }
-
+                
                 let timerLeft = self.timerDuration - TimeInterval(self.count)
                 if self.viewModel.isSoundEnabled && timerLeft <= 5 && !self.isSoundPlayed {
                     self.audioPlayer?.play()
@@ -72,13 +78,13 @@ struct TimerView: View {
             }
         }
     }
-
+    
     private func pauseTimer() {
         showPauseAnimation = true
         timerPaused = true
         isTimerRunning = false
     }
-
+    
     private func prepareAudioPlayer() {
         guard let soundURL = Bundle.main.url(forResource: "sound", withExtension: "mp3") else { return }
         do {
