@@ -50,7 +50,8 @@ struct TimerView: View {
                     self.pauseTimer()
                 }) {
                     Image(systemName: "pause.circle")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
+                        .shadow(color: .white, radius: 5, x: 0, y: 0)
                         .font(.largeTitle)
                 }
                 .padding()
