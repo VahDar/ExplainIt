@@ -138,6 +138,6 @@ struct TeamName: View {
     }
 }
 
-//#Preview {
-//    TeamName(timerDurations: [60])
-//}
+#Preview {
+    TeamName(timerDurations: [60])
+}
