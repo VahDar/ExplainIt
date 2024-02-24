@@ -55,7 +55,7 @@ struct TimerView: View {
                         .font(.largeTitle)
                 }
                 .padding()
-                .offset(x: -100, y: 100)
+                .offset(y: 100)
             }
         }
     }
