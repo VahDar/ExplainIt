@@ -3,7 +3,7 @@
 <img src="https://github.com/VahDar/ExplainIt/assets/118889967/361e2d87-66e7-4502-9392-f62374efcadb" width="940" height="560">
 
 
-### Transform your monetary maneuvers with the sleek Currency Converter App. It's precision in your pocket, offering live currency swap rates, a robust multi-currency wallet, and a detailed log of your past exchanges. Experience the next level of fiscal fluency across borders with our cutting-edge tool
+### Alias is an exciting word game that's perfect for parties and family gatherings. In this game, players must explain words to their teams without using the word itself or its derivatives. The goal is to guess as many words as possible within a limited time. The game enhances vocabulary, quick thinking, and teamwork skills.
 
 ## Preview
 
@@ -20,31 +20,17 @@
 ## Features
 
 
-* Live Exchange Updates: Tap into the pulse of the currency markets. Our app delivers on-the-spot currency conversions, mirroring the latest shifts in exchange rates for spot-on accuracy.
+* Engage in gameplay available in both English and Ukrainian, catering to diverse linguistic preferences.
 
-* Unified Currency Repository: Effortlessly carry a virtual cash trove. The app's integrated multi-currency wallet replaces the clutter of managing separate accounts, streamlining your financial toolkit.
+* Formulate teams, opting for either the convenience of auto-generated team names or the creativity of crafting your own.
 
-* Transaction Ledger: Trace your currency trail with an in-app ledger. It chronicles your conversion chronology, providing a clear audit trail for review and reconciliation.
+* Tailor your gameplay experience with customizable settings, allowing for the selection of round durations, thematic word categories, and additional preferences to suit your style.
 
-* User-Centric Design: Navigate with ease. The app's intuitive interface invites both novices and finance aficionados to convert currencies without complexity.
+* Have a great time with friends or family and enjoy the game.
 
-* Autonomous Operation: Stay financially fluent, online or off. The app preserves essential exchange data, granting you autonomy from the web to access recent rates and your conversion catalogue.
-
-
-## Technologies Used
-
-- UIKit
-
-- SwiftUI
-
-- MVVM + Coordinator
-
-- URLSession
-
-- SPM
 
 
 ## Requirement
 
-- iOS 16.0+
-- Xcode 14.0+
+- iOS 16.4+
+- Xcode 15.0+
