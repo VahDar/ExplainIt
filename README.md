@@ -1,6 +1,7 @@
-# CurrencyConverterApp
+# Space Alias
 
-<img src="https://github.com/VahDar/CurrencyConverterApp/assets/118889967/3b738f36-ad86-4942-91ff-ff66357b486c" width="920" height="560">
+<img src="https://github.com/VahDar/ExplainIt/assets/118889967/361e2d87-66e7-4502-9392-f62374efcadb" width="940" height="560">
+
 
 ### Transform your monetary maneuvers with the sleek Currency Converter App. It's precision in your pocket, offering live currency swap rates, a robust multi-currency wallet, and a detailed log of your past exchanges. Experience the next level of fiscal fluency across borders with our cutting-edge tool
 
