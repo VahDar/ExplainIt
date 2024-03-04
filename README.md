@@ -1,6 +1,6 @@
 # Space Alias
 
-<img src="https://github.com/VahDar/ExplainIt/assets/118889967/361e2d87-66e7-4502-9392-f62374efcadb" width="940" height="560">
+<img src="https://github.com/VahDar/ExplainIt/assets/118889967/361e2d87-66e7-4502-9392-f62374efcadb" width="940" height="540">
 
 
 ### Alias is an exciting word game that's perfect for parties and family gatherings. In this game, players must explain words to their teams without using the word itself or its derivatives. The goal is to guess as many words as possible within a limited time. The game enhances vocabulary, quick thinking, and teamwork skills.
