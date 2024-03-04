@@ -12,7 +12,6 @@ struct TeamName: View {
     // MARK: - Properties
     @State private var teamNames: [String] = []
     @State private var language = LocalizationService.shared.language
-    
     @State private var isSetUpScreenActive = false
     @State private var isAlertPresented = false
     @State private var isWarningAlertPresented = false
@@ -21,7 +20,7 @@ struct TeamName: View {
     @EnvironmentObject var viewModel: GameViewModel
     @Environment(\.presentationMode) var presentationMode
     var timerDurations: [Int]
-    var randomNames: [String] { LocalizationService.shared.language == .ukrainian ? ["Божевільні Огіроки", "Найкращі", "Поні", "Переможці", "Ламантин", "Сосиски", "Самураї", "Легенди", "Шахраї", "Єдинороги", "Герії", "Тролі"] : ["Crazy cucumbers", "Best", "Pony", "Just winners", "Manatee", "Souseges", "Samurai", "Legends", "Cheaters", "Unicorns", "Geniuses", "Trolls"]
+    var randomNames: [String] { LocalizationService.shared.language == .ukrainian ? ["Божевільні Огірки", "Найкращі", "Поні", "Переможці", "Ламантин", "Сосиски", "Самураї", "Легенди", "Шахраї", "Єдинороги", "Герії", "Тролі"] : ["Crazy cucumbers", "Best", "Pony", "Just winners", "Manatee", "Souseges", "Samurai", "Legends", "Cheaters", "Unicorns", "Geniuses", "Trolls"]
     }
     
     // MARK: - Body
