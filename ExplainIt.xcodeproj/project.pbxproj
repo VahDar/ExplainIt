@@ -90,12 +90,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FC17C4402B5571A600C34015 /* Managers */ = {
+		FC17C4402B5571A600C34015 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				FC3A32D32B47292900B3CB0F /* GameViewModel.swift */,
 			);
-			path = Managers;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FC5563022B87D74E00908860 /* Errors */ = {
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB00F682A9E4D110003F964 /* Views */,
-				FC17C4402B5571A600C34015 /* Managers */,
+				FC17C4402B5571A600C34015 /* ViewModel */,
 				FCB00F692A9E4D830003F964 /* CustomElements */,
 				FCDC46F02B7673B0007B9286 /* Extension */,
 				FC5563022B87D74E00908860 /* Errors */,
