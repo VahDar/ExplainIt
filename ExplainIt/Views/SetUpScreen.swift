@@ -26,7 +26,8 @@ struct SetUpScreen: View {
             Topic(name: "Гаррі Поттер", difficulty: "Hard".localized(language), wordCount: countWordsInFile(named: "Гаррі Поттер"))
         ] : [
             Topic(name: "General", difficulty: "Easy", wordCount: countWordsInFile(named: "General")),
-            Topic(name: "Harry Potter", difficulty: "Hard", wordCount: countWordsInFile(named: "Harry Potter"))
+            Topic(name: "Harry Potter", difficulty: "Hard", wordCount: countWordsInFile(named: "Harry Potter")),
+            Topic(name: "Films", difficulty: "Medium", wordCount: countWordsInFile(named: "Films"))
         ] }
     
     @EnvironmentObject var viewModel: GameViewModel
@@ -142,7 +143,6 @@ struct SetUpScreen: View {
                                             ,alignment: .topTrailing
                                             
                                         )
-                                    
                                 }
                                 .frame(height: 100)
                             }
