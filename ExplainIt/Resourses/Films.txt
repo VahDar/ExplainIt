@@ -1,438 +1,250 @@
-Moon
-Star
-Clock
-Mouse
-Cheese
-Bird
-Fish
-Frog
-Grass
-Tree
-Cloud
-Rain
-Snow
-Storm
-Rainbow
-Flower
-River
-Mountain
-Forest
-Beach
-Sand
-Sea
-Shell
-SunSky
-Wind
-Raindrop
-Snowflake
-Ice
-Fire
-Smoke
-Volcano
-Island
-Desert
-Bridge
-Road
-Path
-Map
-Compass
-Ship
-Boat
-Car
-Train
-Airplane
-Bicycle
-Bus
-Taxi
-Truck
-Motorcycle
-Helmet
-Belt
-Coat
-Dress
-Glove
-Hat
-Jacket
-Jeans
-Pants
-Scarf
-Shirt
-Shoes
-Skirt
-Socks
-Sweater
-T-shirt
-Umbrella
-Underwear
-Wallet
-Watch
-Glasses
-Sunglasses
-Bracelet
-Earrings
-Necklace
-Ring
-Backpack
-Bag
-Box
-Gift
-Key
-Letter
-Book
-Notebook
-Pen
-Pencil
-Eraser
-Ruler
-Scissors
-Tape
-Camera
-Computer
-Laptop
-Monitor
-Phone
-Printer
-Radio
-Television
-Lamp
-Light
-Battery
-Electricity
-Magnet
-Alarm
-Bell
-Button
-Calculator
-Chain
-Lock
-Needle
-Thread
-Pin
-Screw
-Nail
-Hammer
-Knife
-Fork
-Spoon
-Bowl
-Plate
-Glass
-Cup
-Bottle
-Can
-Jar
-Basket
-Bin
-Oven
-Microwave
-Refrigerator
-Toaster
-Blender
-Stove
-Kettle
-Pot
-Pan
-Cake
-Cookie
-Bread
-Egg
-Meat
-Chicken
-Pork
-Beef
-Salad
-Soup
-Sandwich
-Pizza
-Pasta
-Rice
-Potato
-Vegetable
-Fruit
-Apple
-Banana
-Orange
-Lemon
-Peach
-Grape
-Strawberry
-Cherry
-Watermelon
-Pineapple
-Mango
-Coconut
-Nut
-Milk
-Coffee
-Tea
-Juice
-Water
-Soda
-Beer
-Wine
-Cocktail
-Ice cream
-Chocolate
-Candy
-Gum
-Honey
-Sugar
-Salt
-Pepper
-Spice
-Herb
-Oil
-Vinegar
-Sauce
-Cat
-Dog
-Horse
-Telescope
-Planet
-Galaxy
-Comet
-Asteroid
-Meteor
-Lighthouse
-Harbor
-Cliff
-Valley
-Canyon
-Prairie
-Meadow
-Hill
-Glacier
-Coral
-Reef
-Jungle
-Savanna
-Tundra
-Marsh
-Swamp
-Waterfall
-Cave
-Fossil
-Dinosaur
-Robot
-Drone
-Satellite
-Spaceship
-Laser
-Microscope
-Atom
-Molecule
-Quantum
-Theory
-Experiment
-Formula
-Equation
-Reaction
-Element
-Compound
-Mineral
-Gemstone
-Crystal
-Meteorology
-Astronomy
-Ecology
-Archipelago
-Biome
-Canyon
-Delta
-Ecosystem
-Fjord
-Glacier
-Highlands
-Isthmus
-Jungle
-Kelp
-Lagoon
-Mesa
-Nectar
-Oasis
-Prairie
-Quasar
-Reef
-Savannah
-Tundra
-Upland
-Valley
-Wetland
-Xerophyte
-Yield
-Zenith
-Aurora
-Bioluminescence
-Comet
-Dune
-Eclipse
-Fossil
-Geode
-Habitat
-Ionosphere
-Jetstream
-Kelvin (temperature)
-Luminosity
-Magnetosphere
-Nebula
-Orca
-Photosynthesis
-Quokka
-Reservoir
-Solar Flare
-Tsunami
-Ultraviolet
-Volcanic
-Whirlpool
-Xylem
-Team
-Table
-Chair
-Window
-Door
-Wall
-Floor
-Ceiling
-Roof
-Garden
-Park
-Street
-Lightbulb
-Soap
-Towel
-Mirror
-Comb
-Shampoo
-Toothbrush
-Toothpaste
-Bed
-Pillow
-Blanket
-Closet
-Hanger
-Drawer
-Sofa
-Cushion
-Fan
-Heater
-Air conditioner
-Clock
-Painting
-Vase
-Curtain
-Carpet
-Mug
-Spoon
-Fork
-Knife
-Plate
-Bowl
-Teapot
-Fridge
-Washing machine
-Dryer
-Dishwasher
-Stairs
-Elevator
-Escalator
-Balcony
-Acorn
-Anchor
-Arrow
-Balloon
-Barrel
-Basketball
-Bat (animal)
-Bead
-Bench
-Bicycle bell
-Bookmark
-Broom
-Butterfly
-Cactus
-Calendar
-Candle
-Castle
-Caterpillar
-Chalk
-Clover
-Compass (navigation)
-Crayon
-Crow
-Crown
-Dice
-Dolphin
-Domino
-Dragonfly
-Feather
-Fence
-Flute
-Goggles
-Harp
-Hedgehog
-Helicopter
-Iceberg
-Igloo
-Kite
-Ladder
-Lantern
-Leaf
-Lighthouse
-Marble
-Mushroom
-Owl
-Panda
-Parrot
-Peacock
-Penguin
-Puzzle
-Smile
-Dance
-Jump
-Laugh
-Cry
-Sing
-Draw
-Swim
-Write
-Read
-Sit
-Stand
-Run
-Walk
-Play
-Listen
-Watch
-Build
-Grow
-Cook
-Bake
-Paint
-Climb
-Fly
-Explore
-Discover
-Learn
-Teach
-Study
-Work
-Rest
-Sleep
-Wake
-Talk
-Scream
-Whisper
-Think
-Dream
-Hope
-Wish
-Love
-Like
-Dislike
-Hate
-Fear
-Enjoy
-Relax
-Stress
-Remember
-Forget
+The Godfather
+The Shawshank Redemption
+Schindler's List
+Raging Bull
+Casablanca
+Citizen Kane
+Gone with the Wind
+The Wizard of Oz
+One Flew Over the Cuckoo's Nest
+Lawrence of Arabia
+Vertigo
+Psycho
+The Godfather Part II
+On the Waterfront
+Sunset Boulevard
+Forrest Gump
+The Sound of Music
+12 Angry Men
+West Side Story
+Star Wars: Episode IV - A New Hope
+2001: A Space Odyssey
+E.T. the Extra-Terrestrial
+The Silence of the Lambs
+Chinatown
+The Bridge on the River Kwai
+Singin' in the Rain
+It's a Wonderful Life
+Dr. Strangelove
+Some Like It Hot
+Ben-Hur
+Apocalypse Now
+Amadeus
+Saving Private Ryan
+Cinema Paradiso
+Rear Window
+The Pianist
+The Departed
+Gladiator
+Braveheart
+The Great Dictator
+The Prestige
+The Lion King
+Memento
+Raiders of the Lost Ark
+A Clockwork Orange
+Taxi Driver
+Double Indemnity
+Requiem for a Dream
+The Intouchables
+Inception
+Goodfellas
+The Lives of Others
+The Green Mile
+To Kill a Mockingbird
+Seven Samurai
+Spirited Away
+Life Is Beautiful
+City Lights
+The Usual Suspects
+Titanic
+The Good, the Bad and the Ugly
+Fight Club
+Pulp Fiction
+The Matrix
+L.A. Confidential
+The Lord of the Rings: The Fellowship of the Ring
+Star Wars: Episode V - The Empire Strikes Back
+Terminator 2: Judgment Day
+Aliens
+Amélie
+A Beautiful Mind
+An American in Paris
+Barry Lyndon
+Battleship Potemkin
+Blade Runner
+Bonnie and Clyde
+Breathless
+The Cabinet of Dr. Caligari
+Crouching Tiger, Hidden Dragon
+Die Hard
+Django Unchained
+Dog Day Afternoon
+Donnie Darko
+Duck Soup
+Fargo
+The French Connection
+Full Metal Jacket
+The General
+The Gold Rush
+Good Will Hunting
+The Graduate
+The Grapes of Wrath
+The Great Escape
+The Hunt
+Jaws
+The Kid
+King Kong
+La La Land
+The Last Picture Show
+Lawrence of Arabia
+The Maltese Falcon
+A Man for All Seasons
+Metropolis
+Midnight Cowboy
+Modern Times
+Monster's Ball
+Monty Python and the Holy Grail
+Mr. Smith Goes to Washington
+Mulholland Drive
+My Fair Lady
+Nashville
+Network
+A Night at the Opera
+No Country for Old Men
+North by Northwest
+Nosferatu
+Notorious
+Once Upon a Time in America
+Once Upon a Time in the West
+One Hundred and One Dalmatians
+Out of Africa
+Pan's Labyrinth
+Papillon
+Paris, Texas
+Paths of Glory
+Patton
+The Phantom of the Opera
+Philadelphia
+The Piano
+Pink Floyd: The Wall
+Pinocchio
+Pirates of the Caribbean: The Curse of the Black Pearl
+Platoon
+The Princess Bride
+Psycho
+Pulp Fiction
+Raging Bull
+Raiders of the Lost Ark
+Rain Man
+Raising Arizona
+Ran
+Rashomon
+Rear Window
+Rebecca
+Rebel Without a Cause
+Red River
+Reservoir Dogs
+Rocky
+Roman Holiday
+Saving Private Ryan
+Scarface
+Schindler's List
+The Searchers
+The Secret in Their Eyes
+Seven Samurai
+The Seventh Seal
+The Shining
+The Silence of the Lambs
+Singin' in the Rain
+The Sixth Sense
+Slumdog Millionaire
+Some Like It Hot
+The Sound of Music
+Spartacus
+The Spider's Stratagem
+Spirited Away
+Stand by Me
+Star Wars: Episode IV - A New Hope
+Star Wars: Episode VI - Return of the Jedi
+A Streetcar Named Desire
+Sunset Boulevard
+Superman
+Taxi Driver
+Terminator
+The Terminator
+The Texas Chainsaw Massacre
+There Will Be Blood
+Thelma & Louise
+The Third Man
+This Is Spinal Tap
+Three Colors: Blue
+To Kill a Mockingbird
+Tokyo Story
+Tombstone
+Top Gun
+Touch of Evil
+Toy Story
+Trainspotting
+The Treasure of the Sierra Madre
+The Tree of Life
+A Trip to the Moon
+True Grit
+12 Angry Men
+2001: A Space Odyssey
+Unforgiven
+Up
+Vertigo
+Wall-E
+West Side Story
+The Wild Bunch
+Willy Wonka & the Chocolate Factory
+The Wizard of Oz
+The Wolf of Wall Street
+Women on the Verge of a Nervous Breakdown
+The World According to Garp
+Wuthering Heights
+X-Men
+Yankee Doodle Dandy
+Yojimbo
+Young Frankenstein
+Z
+Zero Dark Thirty
+Zodiac
+Zombieland
+Zulu
+The Bourne Identity
+The Chronicles of Narnia: The Lion, the Witch and the Wardrobe
+The Dark Knight
+The Empire Strikes Back
+The Exorcist
+The Fellowship of the Ring
+The Fifth Element
+The Godfather Part II
+The Godfather Part III
+The Graduate
+The Grand Budapest Hotel
+The Great Gatsby
+The Hangover
+The Help
+The Hobbit: An Unexpected Journey
+The Hunger Games
+The Imitation Game
+The Incredibles
+The Iron Giant
+The Jungle Book
+The Karate Kid
+The Last Samurai
+The Lego Movie
+The Little Mermaid
+The Lost World: Jurassic Park
+The Love Witch
+The Magnificent Seven
+The Maltese Falcon
+The Man Who Knew Too Much
+The Man Who Shot Liberty Valance
+The Matrix Reloaded
+The Matrix Revolutions
+The Maze Runner
+The Mechanic
+The Meddler
